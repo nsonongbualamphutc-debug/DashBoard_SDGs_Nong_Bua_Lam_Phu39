@@ -9,28 +9,31 @@
 <link rel="stylesheet" href="sdg.css">
 <style>
 .gh { background: var(--gc); color: #fff; position: relative; overflow: hidden; }
-.gh::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,.18), rgba(0,0,0,0) 55%); pointer-events: none; }
-.gh .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center; padding-top: 26px; padding-bottom: 26px; }
-.gh .big { font: 700 clamp(72px, 10vw, 128px)/.85 var(--fd); letter-spacing: -.04em; }
-.gh .ghi { width: 56px; height: 56px; stroke-width: 1.5; margin-bottom: 8px; opacity: .9; }
-.gh h1 { font: 600 clamp(26px, 3vw, 40px)/1.2 var(--fd); margin: 0 0 6px; text-wrap: balance; }
-.gh p { margin: 0; opacity: .92; max-width: 40em; }
-.gh .adapt { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.2); font-size: 13px; }
-.ring text { fill: #fff; }
+.gh .bgart { position: absolute; inset: 0; background-image: var(--hero); background-size: cover; background-position: center; opacity: .22;
+  -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 78%); mask-image: linear-gradient(90deg, transparent 18%, #000 78%); }
+.gh::after { content: ''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(0,0,0,.2), rgba(0,0,0,0) 60%); }
+.gh .wrap { position: relative; z-index: 2; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center; padding-top: 26px; padding-bottom: 26px; }
+.gh .big { font: 700 clamp(70px, 9vw, 120px)/.85 var(--fd); letter-spacing: -.04em; }
+.gh .ghi { width: 54px; height: 54px; stroke-width: 1.5; margin-bottom: 8px; opacity: .92; }
+.gh h1 { font: 600 clamp(25px, 2.9vw, 38px)/1.2 var(--fd); margin: 0 0 6px; }
+.gh .tag { font-size: 16px; opacity: .95; margin: 0 0 4px; }
+.gh p { margin: 0; opacity: .85; font-size: 14.5px; max-width: 42em; }
+.gh .adapt { display: inline-block; margin-top: 10px; padding: 3px 10px; border-radius: 99px; background: rgba(255,255,255,.22); font-size: 13px; }
 .gstrip { display: flex; gap: 4px; padding: 12px 0; flex-wrap: wrap; }
-.gstrip a { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; color: #fff; font: 700 14px var(--fd); text-decoration: none; opacity: .5; transition: opacity .15s, transform .15s; }
+.gstrip a { width: 34px; height: 34px; border-radius: 8px; display: grid; place-items: center; color: #fff; font: 700 14px var(--fd); text-decoration: none; opacity: .45; transition: opacity .15s, transform .15s; }
 .gstrip a:hover { opacity: .85; }
-.gstrip a[aria-current="page"] { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 14px -6px var(--gc2); }
+.gstrip a[aria-current="page"] { opacity: 1; transform: translateY(-2px); }
 
-.layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 22px; margin-top: 18px; align-items: start; }
+.layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 22px; margin-top: 16px; align-items: start; }
 .ilist { display: flex; flex-direction: column; gap: 10px; }
-.ind { text-align: left; font: inherit; color: inherit; border: 1px solid var(--line); background: var(--surf); border-radius: var(--r-md); padding: 14px 16px; cursor: pointer; position: relative; }
+.ind { position: relative; overflow: hidden; text-align: left; font: inherit; color: inherit; width: 100%; border: 1px solid var(--line);
+  background: var(--surf); border-radius: var(--r-md); padding: 14px 16px; cursor: pointer; }
 .ind[aria-pressed="true"] { border-color: var(--gc); box-shadow: inset 4px 0 0 var(--gc), var(--shadow); }
 .ind h3 { font: 600 15.5px/1.4 var(--fb); margin: 0 0 3px; }
 .ind .ag { color: var(--ink3); font-size: 12.5px; line-height: 1.4; }
 .ind .row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 8px; }
 .ind .v { font: 600 26px/1.1 var(--fd); }
-.ind .v small { font: 400 13px var(--fb); color: var(--ink2); margin-left: 4px; }
+.ind .v small { font: 400 13px var(--fb); color: var(--ink2); margin-left: 4px; white-space: nowrap; }
 .bullet { position: relative; height: 22px; margin-top: 10px; }
 .bullet .tr { position: absolute; left: 0; right: 0; top: 9px; height: 5px; border-radius: 9px; background: var(--bg2); }
 .bullet .pg { position: absolute; top: 9px; height: 5px; border-radius: 9px; background: var(--gc); }
@@ -38,35 +41,41 @@
 .bullet .mk.b { background: var(--ink3); }
 .bullet .mk.e { width: 0; border-left: 2px dashed var(--ink2); background: none; }
 .bullet .cur { position: absolute; top: 5px; width: 13px; height: 13px; margin-left: -6.5px; border-radius: 50%; background: var(--surf); border: 3px solid var(--gc); }
-.bl { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink3); }
+.bl { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--ink3); }
 
-.panel { border: 1px solid var(--line); background: var(--surf); border-radius: var(--r-lg); padding: 20px 22px; position: sticky; top: 76px; }
+.panel { position: relative; overflow: hidden; border: 1px solid var(--line); background: var(--surf); border-radius: var(--r-lg); padding: 20px 22px; }
 .panel h2 { font: 600 22px/1.3 var(--fd); margin: 0 0 4px; }
 .panel .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }
-.kv { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 16px; }
+.kv { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin-bottom: 16px; }
 .kv div { padding: 10px 12px; border-right: 1px solid var(--line); }
 .kv div:last-child { border-right: 0; }
 .kv span { display: block; font-size: 12.5px; color: var(--ink2); }
 .kv b { font: 600 20px/1.2 var(--fd); }
-.chartbox { position: relative; height: 260px; }
+.chartbox { position: relative; height: 262px; }
 .sub2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 18px; }
-.sub2 h4 { font: 600 15px var(--fd); margin: 0 0 8px; color: var(--ink2); }
-#map { width: 100%; height: auto; max-height: 380px; display: block; }
-#map path { stroke: var(--surf); stroke-width: 1.2; cursor: default; transition: opacity .15s; }
+.sub2 h4, .blk h4 { font: 600 15px var(--fd); margin: 0 0 8px; color: var(--ink2); }
+.blk { margin-top: 18px; }
+#map { width: 100%; height: auto; max-height: 360px; display: block; }
+#map path { stroke: var(--surf); stroke-width: 1.2; transition: opacity .15s; }
 #map path:hover { opacity: .8; }
 #map text { font: 600 11px var(--fb); fill: var(--ink); text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: var(--surf); stroke-width: 3px; }
 .dbar { display: grid; grid-template-columns: 92px 1fr auto; gap: 6px 10px; align-items: center; font-size: 13.5px; }
 .dbar i { height: 10px; border-radius: 9px; background: var(--gc); display: block; }
 .dbar b { font: 600 14px var(--fd); }
-.empty { padding: 26px; text-align: center; color: var(--ink2); background: var(--surf2); border-radius: var(--r-md); font-size: 14px; }
-.src { margin-top: 16px; padding: 12px 14px; border-radius: var(--r-md); background: var(--surf2); font-size: 13.5px; color: var(--ink2); }
+table.hist { width: 100%; border-collapse: collapse; font-size: 14px; }
+table.hist th, table.hist td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+table.hist th:first-child, table.hist td:first-child { text-align: left; }
+table.hist thead th { color: var(--ink2); font: 500 13px var(--fb); }
+table.hist td.v { font-family: var(--fd); font-weight: 600; }
+table.hist tr:last-child td { border-bottom: 0; }
+.empty { padding: 22px; text-align: center; color: var(--ink2); background: var(--surf2); border-radius: var(--r-md); font-size: 14px; }
+.src { margin-top: 16px; padding: 12px 14px; border-radius: var(--r-md); background: var(--surf2); font-size: 13.5px; color: var(--ink2); line-height: 1.6; }
 .src b { color: var(--ink); }
 .rel { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .rel a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 99px; text-decoration: none; font-size: 14px; background: var(--surf); }
 .rel a:hover { border-color: var(--gc); }
 .rel .ic { width: 16px; height: 16px; color: var(--ink3); }
-
-@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } .panel { position: static; } }
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
 @media (max-width: 640px) {
   .gh .wrap { grid-template-columns: auto 1fr; } .gh .ring { display: none; }
   .kv { grid-template-columns: repeat(2, 1fr); } .kv div:nth-child(2) { border-right: 0; } .kv div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -86,34 +95,37 @@
 </main>
 <footer class="foot"><div class="wrap">
   <div>สำนักงานสถิติจังหวัดหนองบัวลำภู · ศาลากลางจังหวัด ชั้น 2 · โทร 0 4231 6736</div>
-  <div>คะแนนตามเวลา = ระยะที่เดินได้จากค่าฐานปี 2564 เทียบกับระยะที่ควรถึงแล้ว ณ ปีปัจจุบัน ก่อนเป้าหมายปี 2573 · 100 = ทันกำหนด</div>
+  <div>คะแนนตามเวลา = ระยะที่เดินได้จากค่าฐาน เทียบกับระยะที่ควรถึงแล้วในปีนี้ ก่อนถึงเป้าหมายปี 2573</div>
 </div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="sdg-real.js"></script>
 <script src="sdg-data.js"></script>
 <script src="sdg.js"></script>
 <script>
 const GN = Math.min(17, Math.max(1, +new URLSearchParams(location.search).get('g') || 1));
 const G = goalOf(GN);
-let SEL = indsOf(GN)[0].id, CHART = null, GEO = null;
+let SEL = (indsOf(GN)[0] || {}).id, CH1 = null, CH2 = null, GEO = null;
 document.documentElement.style.setProperty('--gc', G.c);
-document.documentElement.style.setProperty('--gc2', G.c);
 document.title = `SDG ${GN} ${G.th} · SDGs หนองบัวลำภู`;
 
 function ring(s) {
   const r = 46, c = 2 * Math.PI * r, st = statusOf(s);
   return `<svg class="ring" width="128" height="128" viewBox="0 0 128 128" data-tip="${esc(`<b>คะแนนเป้าหมาย ${GN}</b><div class="tp-note">ค่าเฉลี่ยคะแนนตามเวลาของ ${indsOf(GN).length} ตัวชี้วัด · ${st.th}</div>`)}">
-    <circle cx="64" cy="64" r="${r}" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="11"/>
+    <circle cx="64" cy="64" r="${r}" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="11"/>
     <circle cx="64" cy="64" r="${r}" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-dasharray="${c * (s || 0) / 100} ${c}" transform="rotate(-90 64 64)"/>
-    <text x="64" y="70" text-anchor="middle" style="font:700 32px var(--fd)">${fmt(s, 0)}</text>
-    <text x="64" y="90" text-anchor="middle" style="font:500 11px var(--fb);opacity:.85">จาก 100</text></svg>`;
+    <text x="64" y="70" text-anchor="middle" fill="#fff" style="font:700 32px var(--fd)">${fmt(s, 0)}</text>
+    <text x="64" y="90" text-anchor="middle" fill="#fff" style="font:500 11px var(--fb);opacity:.85">จาก 100</text></svg>`;
 }
 function renderHead() {
-  $('#gh').innerHTML = `<div class="wrap">
+  $('#gh').style.setProperty('--hero', `url('assets/card/sdg-${gid(GN)}.webp')`);
+  $('#gh').innerHTML = `<span class="bgart"></span><div class="wrap">
     <div>${svg(G.icon, 'ghi')}<div class="big">${GN}</div></div>
-    <div><h1>${G.th}</h1><p>${G.local} · กลุ่ม${pillarOf(GN).th} (${pillarOf(GN).en})</p>${G.adapted ? `<span class="adapt">ปรับให้เข้ากับจังหวัด · ${G.adapted}</span>` : ''}</div>
+    <div><h1>${G.th}</h1><p class="tag">${G.tag}</p><p>${G.local} · กลุ่ม${pillarOf(GN).th} (${pillarOf(GN).en})</p>
+      ${G.adapted ? `<span class="adapt">ปรับให้เข้ากับจังหวัด · ${G.adapted}</span>` : ''}</div>
     ${ring(goalScore(GN))}</div>`;
-  $('#gstrip').innerHTML = GOALS.map(g => `<a href="goal.html?g=${g.n}" style="background:${g.c};--gc2:${g.c}" ${g.n === GN ? 'aria-current="page"' : ''} data-tip="${esc(`<div class="tp-h" style="--gc:${g.c}"><b>SDG ${g.n}</b> ${g.th}</div><div class="tp-sub">คะแนน ${fmt(goalScore(g.n), 0)} / 100</div>`)}">${g.n}</a>`).join('');
+  $('#gstrip').innerHTML = GOALS.map(g => `<a href="goal.html?g=${g.n}" style="background:${g.c}" ${g.n === GN ? 'aria-current="page"' : ''}
+    data-tip="${esc(`<div class="tp-h" style="--gc:${g.c}"><b>SDG ${g.n}</b> ${g.th}</div><div class="tp-tag">${g.tag}</div><div class="tp-sub">คะแนน ${fmt(goalScore(g.n), 0)} / 100</div>`)}">${g.n}</a>`).join('');
 }
 
 function bullet(x) {
@@ -122,21 +134,23 @@ function bullet(x) {
   const lo = Math.min(...vals), hi = Math.max(...vals), pad = (hi - lo) * .08 || 1;
   const L = v => { const t = (v - (lo - pad)) / ((hi + pad) - (lo - pad)) * 100; return +(x.dir > 0 ? t : 100 - t).toFixed(2); };
   const a = Math.min(L(x.base), L(x.value)), b = Math.max(L(x.base), L(x.value));
-  return `<div class="bullet" aria-hidden="true"><span class="tr"></span><span class="pg" style="left:${a}%;width:${b - a}%;${back ? 'background:#d8413a' : ''}"></span><span class="mk e" style="left:${L(ex)}%"></span>
-    <span class="mk b" style="left:${L(x.base)}%"></span><span class="mk" style="left:${L(x.target)}%"></span><span class="cur" style="left:${L(x.value)}%"></span></div>
+  return `<div class="bullet" aria-hidden="true"><span class="tr"></span>
+    <span class="pg" style="left:${a}%;width:${b - a}%;${back ? 'background:#d8413a' : ''}"></span>
+    <span class="mk e" style="left:${L(ex)}%"></span>
+    <span class="mk b" style="left:${L(x.base)}%"></span><span class="mk" style="left:${L(x.target)}%"></span>
+    <span class="cur" style="left:${L(x.value)}%"></span></div>
     <div class="bl"><span>ฐาน ${fmt(x.base, x.dec)}</span><span>ควรถึงปีนี้ ${fmt(ex, x.dec)}</span><span>เป้า ${x.dir > 0 ? '≥' : '≤'} ${fmt(x.target, x.dec)}</span></div>`;
 }
 function renderList() {
   $('#ilist').innerHTML = indsOf(GN).map(x => {
-    const s = indScore(x), st = statusOf(s);
+    const s = indScore(x), st = statusOf(s), g = goalOf(x.g);
     return `<button class="ind" data-id="${x.id}" aria-pressed="${x.id === SEL}" data-tip="${indTip(x)}">
+      ${cardArt(g)}
       <h3>${x.name}</h3><div class="ag">${x.agency} · ${x.freq}</div>
       <div class="row"><span class="v">${fmt(x.value, x.dec)}<small>${x.unit}</small></span>
-      <span>${trendHtml(x)}
-      <span class="chip"><i class="dot" style="background:${st.c}"></i>${fmt(s, 0)}</span>
-      <span class="chip ${x.real ? 'real' : 'mock'}">${x.real ? 'จริง' : 'ตัวอย่าง'}</span></span></div>
+        <span>${trendHtml(x)}<span class="chip"><i class="dot" style="background:${st.c}"></i>${fmt(s, 0)}</span>${badge(x)}</span></div>
       ${bullet(x)}</button>`;
-  }).join('');
+  }).join('') || '<div class="empty">ยังไม่มีตัวชี้วัดในเป้าหมายนี้</div>';
   $$('.ind').forEach(b => b.onclick = () => { SEL = b.dataset.id; renderList(); renderPanel(); });
 }
 
@@ -153,60 +167,93 @@ function mapSvg(x) {
   GEO.features.forEach(f => {
     const code = f.properties.amp_code, d = DISTRICTS.find(q => q.code === code), v = x.dist[code];
     const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
-    const path = polys.map(poly => poly.map(ring => 'M' + ring.map(P).join('L') + 'Z').join('')).join('');
-    const tip = esc(`<b>อ.${d.name}</b><div class="tp-v"><span>${fmt(v, x.dec)}</span> <small>${x.unit}</small></div><div class="tp-sub">${x.name}</div>`);
-    h += `<path d="${path}" style="fill:${shade(v)}" data-tip="${tip}"/>`;
-    const ring0 = polys[0][0], cx = ring0.reduce((a, p) => a + p[0], 0) / ring0.length, cy = ring0.reduce((a, p) => a + p[1], 0) / ring0.length;
+    const path = polys.map(poly => poly.map(r => 'M' + r.map(P).join('L') + 'Z').join('')).join('');
+    const tip = esc(`<b>อ.${d.name}</b><div class="tp-v"><span>${fmt(v, x.dec)}</span> <small>${x.unit}</small></div><div class="tp-sub">${x.name} · ${periodLabel(x, x.dperiod)}</div>`);
+    h += `<path d="${path}" style="fill:${v == null ? 'var(--bg2)' : shade(v)}" data-tip="${tip}"/>`;
+    const r0 = polys[0][0], cx = r0.reduce((a, p) => a + p[0], 0) / r0.length, cy = r0.reduce((a, p) => a + p[1], 0) / r0.length;
     const [tx, ty] = P([cx, cy]).split(',');
     h += `<text x="${tx}" y="${ty}">${d.short}</text>`;
   });
   return `<svg id="map" viewBox="0 0 ${W} ${H.toFixed(0)}" role="img" aria-label="แผนที่รายอำเภอ">${h}</svg>`;
 }
 function distBars(x) {
-  const rows = DISTRICTS.map(d => ({ d, v: x.dist[d.code] })).sort((a, b) => x.dir > 0 ? b.v - a.v : a.v - b.v);
-  const mx = Math.max(...rows.map(r => r.v));
-  return `<div class="dbar">${rows.map(r => `<span>${r.d.short}</span><i style="width:${(r.v / mx * 100).toFixed(1)}%" data-tip="${esc(`<b>อ.${r.d.name}</b><div class="tp-sub">${fmt(r.v, x.dec)} ${x.unit}</div>`)}"></i><b>${fmt(r.v, x.dec)}</b>`).join('')}</div>
-    <div class="bl" style="margin-top:8px"><span>เรียงจาก${x.dir > 0 ? 'มากไปน้อย' : 'น้อยไปมาก'} (ดีที่สุดอยู่บน)</span></div>`;
+  const rows = DISTRICTS.map(d => ({ d, v: x.dist[d.code] })).filter(r => r.v != null).sort((a, b) => x.dir > 0 ? b.v - a.v : a.v - b.v);
+  const mx = Math.max(...rows.map(r => r.v)) || 1;
+  return `<div class="dbar">${rows.map(r => `<span>${r.d.short}</span>
+    <i style="width:${(r.v / mx * 100).toFixed(1)}%" data-tip="${esc(`<b>อ.${r.d.name}</b><div class="tp-sub">${fmt(r.v, x.dec)} ${x.unit} · ${periodLabel(x, x.dperiod)}</div>`)}"></i>
+    <b>${fmt(r.v, x.dec)}</b>`).join('')}</div>
+    <div class="bl" style="margin-top:8px"><span>ข้อมูล ${periodLabel(x, x.dperiod)} · เรียงจากดีที่สุดลงมา</span></div>`;
+}
+function histTable(x) {
+  const rows = x.series.slice(-6);
+  return `<table class="hist"><thead><tr><th>ช่วงเวลา</th><th>ค่า (${x.unit})</th><th>เทียบช่วงก่อน</th><th>คะแนนตามเวลา</th></tr></thead><tbody>
+    ${rows.map((p, i) => {
+      const prev = i ? rows[i - 1].v : null, d = prev == null ? null : p.v - prev;
+      const good = d == null ? 0 : Math.sign(d) * x.dir;
+      const sc = indScore(Object.assign({}, x, { value: p.v }));
+      return `<tr><td>${periodLabel(x, p.p)}</td><td class="v">${fmt(p.v, x.dec)}</td>
+        <td class="${good > 0 ? '' : ''}" style="color:${good > 0 ? '#1e9e5a' : good < 0 ? '#d8413a' : 'var(--ink3)'}">${d == null ? '—' : (d > 0 ? '+' : '') + fmt(d, x.dec)}</td>
+        <td>${fmt(sc, 0)}</td></tr>`;
+    }).join('')}</tbody></table>`;
 }
 function renderPanel() {
-  const x = INDICATORS.find(i => i.id === SEL), s = indScore(x), st = statusOf(s), first = x.series[0], last = x.series.at(-1);
-  const pp = /^%/.test(x.unit), d = x.series.length > 1 ? last.v - first.v : null;
+  const x = IND_BY_ID[SEL]; if (!x) { $('#panel').innerHTML = '<div class="empty">เลือกตัวชี้วัดทางซ้าย</div>'; return; }
+  const s = indScore(x), st = statusOf(s), first = x.series[0], last = x.series[x.series.length - 1];
+  const pp = /^ร้อยละ|^%/.test(x.unit), d = x.series.length > 1 ? last.v - first.v : null;
   const chg = d == null ? '—' : pp ? (d > 0 ? '+' : '') + fmt(d, x.dec) + ' จุด' : (d > 0 ? '+' : '') + fmt(d / Math.abs(first.v || 1) * 100, 1) + '%';
+  const mo = moOf(x.id);
   const rel = LINKED.filter(l => l.goals.includes(GN) && l.url);
-  $('#panel').innerHTML = `<h2>${x.name}</h2>
-    <div class="meta"><span class="chip ${x.real ? 'real' : 'mock'}">${x.real ? 'ข้อมูลจริง' : 'ข้อมูลตัวอย่าง'}</span><span class="chip">${x.agency}</span><span class="chip">${x.freq}</span></div>
+  $('#panel').innerHTML = `${cardArt(G)}
+    <h2>${x.name}</h2>
+    <div class="meta">${badge(x)}<span class="chip">${x.agency}</span><span class="chip">${x.freq}</span></div>
     <div class="kv">
-      <div><span>ล่าสุด (${last.p})</span><b>${fmt(x.value, x.dec)}</b></div>
+      <div><span>ล่าสุด (${periodLabel(x)})</span><b>${fmt(x.value, x.dec)}</b></div>
       <div><span>เป้าหมายปี ${SDG_CFG.targetYear}</span><b>${x.dir > 0 ? '≥' : '≤'} ${fmt(x.target, x.dec)}</b></div>
-      <div><span>เปลี่ยนจากช่วงแรก</span><b>${chg}</b></div>
+      <div><span>เทียบ ${periodLabel(x, first.p)}</span><b>${chg}</b></div>
       <div><span>คะแนนตามเวลา</span><b style="color:${st.c}">${fmt(s, 0)}</b></div></div>
     <div class="chartbox"><canvas id="ch" aria-label="แนวโน้ม ${esc(x.name)}"></canvas></div>
+    ${mo ? `<div class="blk"><h4>${mo.name} (${mo.agency})</h4><div class="chartbox" style="height:200px"><canvas id="ch2"></canvas></div></div>` : ''}
     <div class="sub2">${x.dist
       ? `<div><h4>แผนที่รายอำเภอ</h4>${mapSvg(x)}</div><div><h4>เทียบ 6 อำเภอ</h4>${distBars(x)}</div>`
-      : `<div class="empty" style="grid-column:1/-1">ชุดข้อมูลนี้ยังไม่มีรายอำเภอ · เพิ่มได้เมื่อหน่วยงานส่งข้อมูลแยกอำเภอเข้า Google Sheets</div>`}</div>
-    <div class="src"><b>ที่มา</b> ${x.src}${x.note ? `<br><b>หมายเหตุ</b> ${x.note}` : ''}<br><b>หน่วย</b> ${x.unit} · <b>ทิศทางที่ดี</b> ${x.dir > 0 ? 'ยิ่งมากยิ่งดี' : 'ยิ่งน้อยยิ่งดี'}<br><b>ค่าเป้าหมาย</b> เป็นค่าเบื้องต้นเพื่อวางระบบ รอคณะทำงานและหน่วยงานเจ้าของยืนยัน</div>
+      : `<div class="empty" style="grid-column:1/-1">ชุดข้อมูลนี้ยังไม่มีรายอำเภอ · เพิ่มได้ผ่านหน้ากรอกข้อมูล</div>`}</div>
+    <div class="blk"><h4>ข้อมูลย้อนหลัง</h4>${histTable(x)}</div>
+    <div class="src"><b>ที่มา</b> ${x.src}${x.note ? `<br><b>หมายเหตุ</b> ${x.note}` : ''}
+      <br><b>หน่วย</b> ${x.unit} · <b>ทิศทางที่ดี</b> ${x.dir > 0 ? 'ยิ่งมากยิ่งดี' : 'ยิ่งน้อยยิ่งดี'}
+      <br><b>ค่าเป้าหมาย</b> เป็นค่าเบื้องต้นเพื่อวางระบบ รอคณะทำงานและหน่วยงานเจ้าของยืนยัน</div>
     ${rel.length ? `<div class="rel">${rel.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.name}${svg('ext')}</a>`).join('')}</div>` : ''}`;
-  drawChart(x);
+  drawChart(x); if (mo) drawMo(mo);
+}
+function baseOpts(x, ink2, grid) {
+  return { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { labels: { color: ink2, boxWidth: 14, usePointStyle: true } },
+      tooltip: { backgroundColor: '#0d2226', padding: 12, cornerRadius: 10,
+        callbacks: { title: i => periodLabel(x, i[0].label), label: c => ` ${c.dataset.label}: ${fmt(c.parsed.y, x.dec)} ${x.unit}` } } },
+    scales: { x: { grid: { display: false }, ticks: { color: ink2 } },
+      y: { grid: { color: grid }, border: { display: false }, ticks: { color: ink2, callback: v => fmt(v, x.dec > 1 ? 1 : x.dec) } } } };
 }
 function drawChart(x) {
-  if (CHART) CHART.destroy();
+  if (CH1) CH1.destroy();
   if (!window.Chart) return;
   const ink2 = cssv('--ink2'), grid = cssv('--grid');
   Chart.defaults.font.family = "'IBM Plex Sans Thai', sans-serif";
-  CHART = new Chart($('#ch'), {
-    type: 'line',
-    data: { labels: x.series.map(p => p.p), datasets: [
-      { label: x.name, data: x.series.map(p => p.v), borderColor: G.c, backgroundColor: G.c + '22', fill: true, cubicInterpolationMode: 'monotone', pointRadius: 4, pointBackgroundColor: G.c, borderWidth: 2.5 },
-      { label: 'เป้าหมาย', data: x.series.map(() => x.target), borderColor: ink2, borderDash: [6, 5], borderWidth: 1.5, pointRadius: 0, fill: false }
-    ]},
-    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
-      plugins: { legend: { labels: { color: ink2, boxWidth: 14, usePointStyle: true } },
-        tooltip: { backgroundColor: '#0d2226', padding: 12, cornerRadius: 10, titleFont: { weight: '600' },
-          callbacks: { title: i => 'ช่วง ' + i[0].label, label: c => ` ${c.dataset.label}: ${fmt(c.parsed.y, x.dec)} ${x.unit}`,
-            afterBody: i => { const v = i[0].parsed.y, gap = x.target - v; return (x.dir > 0 ? gap <= 0 : gap >= 0) ? '✓ บรรลุเป้าหมาย' : `ห่างเป้า ${fmt(Math.abs(gap), x.dec)} ${x.unit}`; } } } },
-      scales: { x: { grid: { display: false }, ticks: { color: ink2 } },
-        y: { grid: { color: grid }, border: { display: false }, ticks: { color: ink2, callback: v => fmt(v, x.dec > 1 ? 1 : x.dec) } } } }
-  });
+  const o = baseOpts(x, ink2, grid);
+  o.plugins.tooltip.callbacks.afterBody = i => {
+    const v = i[0].parsed.y, gap = x.target - v;
+    return (x.dir > 0 ? gap <= 0 : gap >= 0) ? '✓ บรรลุเป้าหมายแล้ว' : `ห่างเป้า ${fmt(Math.abs(gap), x.dec)} ${x.unit}`;
+  };
+  CH1 = new Chart($('#ch'), { type: 'line', data: { labels: x.series.map(p => p.p), datasets: [
+    { label: x.name, data: x.series.map(p => p.v), borderColor: G.c, backgroundColor: G.c + '22', fill: true,
+      cubicInterpolationMode: 'monotone', pointRadius: 4, pointBackgroundColor: G.c, borderWidth: 2.5 },
+    { label: 'เป้าหมาย', data: x.series.map(() => x.target), borderColor: ink2, borderDash: [6, 5], borderWidth: 1.5, pointRadius: 0, fill: false }
+  ] }, options: o });
+}
+function drawMo(m) {
+  if (CH2) CH2.destroy();
+  if (!window.Chart) return;
+  const ink2 = cssv('--ink2'), grid = cssv('--grid');
+  CH2 = new Chart($('#ch2'), { type: 'bar', data: { labels: m.series.map(p => p.p), datasets: [
+    { label: m.name, data: m.series.map(p => p.v), backgroundColor: G.c + 'cc', borderRadius: 5 } ] },
+    options: baseOpts(m, ink2, grid) });
 }
 function renderGoal() { $('#bar').innerHTML = topbar('goal'); renderHead(); renderList(); renderPanel(); }
 fetch('assets/nbl-amphoe.geojson').then(r => r.json()).then(g => { GEO = g; renderPanel(); }).catch(() => {});

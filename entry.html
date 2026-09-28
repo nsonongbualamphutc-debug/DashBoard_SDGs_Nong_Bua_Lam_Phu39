@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>กรอกข้อมูลตัวชี้วัด · SDGs หนองบัวลำภู</title>
+<meta name="theme-color" content="#0b8a68">
+<link rel="icon" href="assets/seal.png">
+<link rel="stylesheet" href="sdg.css">
+<style>
+.eh { margin: 22px 0 14px; }
+.eh h1 { font: 600 clamp(24px, 2.6vw, 33px)/1.25 var(--fd); margin: 0 0 6px; }
+.eh p { color: var(--ink2); margin: 0; max-width: 56em; }
+.steps { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 18px; }
+.step { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--surf); font-size: 14px; color: var(--ink2); }
+.step b { width: 22px; height: 22px; border-radius: 50%; background: var(--bg2); color: var(--ink2); display: grid; place-items: center; font: 600 12px var(--fd); }
+.step.on { border-color: var(--brand); color: var(--ink); }
+.step.on b { background: var(--brand); color: #fff; }
+.step.done b { background: #1e9e5a; color: #fff; }
+.card { border: 1px solid var(--line); background: var(--surf); border-radius: var(--r-lg); padding: 20px 22px; margin-bottom: 16px; }
+.card h2 { font: 600 19px var(--fd); margin: 0 0 4px; }
+.card .hint { color: var(--ink2); font-size: 13.5px; margin: 0 0 14px; }
+label { display: block; font-size: 13.5px; color: var(--ink2); margin-bottom: 5px; }
+select, input[type=text], input[type=number], input[type=password], textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surf2);
+  color: var(--ink); font: 400 15px var(--fb); }
+select:focus, input:focus, textarea:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+textarea { min-height: 120px; font-family: var(--fb); line-height: 1.6; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 7px; padding: 10px 18px; border-radius: var(--r-sm); border: 1px solid var(--brand);
+  background: var(--brand); color: #fff; font: 600 15px var(--fb); cursor: pointer; }
+.btn:hover { filter: brightness(1.06); }
+.btn.ghost { background: var(--surf); color: var(--ink); border-color: var(--line); }
+.btn.danger { background: transparent; color: #d8413a; border-color: color-mix(in srgb, #d8413a 40%, transparent); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+.msg { padding: 11px 14px; border-radius: var(--r-sm); font-size: 14px; margin-top: 12px; display: none; }
+.msg.on { display: block; }
+.msg.ok { background: color-mix(in srgb, #1e9e5a 14%, var(--surf)); color: #12733f; }
+.msg.err { background: color-mix(in srgb, #d8413a 13%, var(--surf)); color: #a32a24; }
+.msg.warn { background: color-mix(in srgb, #e89b1c 14%, var(--surf)); color: #8a5b00; }
+.dgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }
+.dgrid .cell { border: 1px solid var(--line); border-radius: var(--r-sm); padding: 10px 12px; background: var(--surf2); }
+.dgrid .cell span { display: block; font-size: 12.5px; color: var(--ink2); margin-bottom: 6px; }
+.dgrid .cell input { background: var(--surf); }
+.sum { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13.5px; color: var(--ink2); margin-top: 10px; }
+.sum b { color: var(--ink); font-family: var(--fd); }
+table.t { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+table.t th, table.t td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+table.t th { font: 500 13px var(--fb); color: var(--ink2); }
+table.t td.n { text-align: right; font-family: var(--fd); font-weight: 600; }
+.pick { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; max-height: 340px; overflow: auto; padding-right: 4px; }
+.pick button { position: relative; overflow: hidden; text-align: left; border: 1px solid var(--line); background: var(--surf); border-radius: var(--r-md);
+  padding: 11px 13px; cursor: pointer; font: inherit; color: inherit; }
+.pick button[aria-pressed="true"] { border-color: var(--gc, var(--brand)); box-shadow: inset 4px 0 0 var(--gc, var(--brand)); }
+.pick b { display: block; font-size: 14px; font-weight: 600; line-height: 1.35; }
+.pick span { font-size: 12.5px; color: var(--ink3); }
+.tools2 { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.tools2 select, .tools2 input { width: auto; min-width: 170px; }
+.off { padding: 12px 14px; border-radius: var(--r-sm); background: var(--surf2); color: var(--ink2); font-size: 13.5px; margin-bottom: 14px; }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<main class="wrap">
+  <div class="eh">
+    <h1>ระบบกรอกข้อมูลตัวชี้วัด SDGs</h1>
+    <p>กรอกทีละตัวชี้วัด ทุกหน่วยงานบันทึกในรูปแบบเดียวกัน คือ ตัวชี้วัด + ช่วงเวลา + พื้นที่ + ค่า + ที่มา
+      ระบบจะเก็บทุกครั้งที่แก้ไขไว้ในประวัติ และแดชบอร์ดจะดึงค่าล่าสุดไปแสดงเองโดยอัตโนมัติ</p>
+  </div>
+  <div class="steps" id="steps"></div>
+  <div id="app"></div>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>สำนักงานสถิติจังหวัดหนองบัวลำภู · ผู้ดูแลระบบ: สำนักงานจังหวัด และสำนักงานสถิติจังหวัด</div>
+  <div>ข้อมูลทุกชุดบันทึกพร้อมชื่อผู้กรอก เวลา และแหล่งอ้างอิง</div>
+</div></footer>
+
+<script src="sdg-real.js"></script>
+<script src="sdg-data.js"></script>
+<script src="sdg.js"></script>
+<script>
+/* ───────── สถานะ ───────── */
+let AUTH = null;           // {agency, role, domains:[ids|goals], token, exp}
+let SEL = null;            // ตัวชี้วัดที่เลือก
+let ROWS = [];             // ข้อมูลที่มีอยู่แล้วของตัวชี้วัดนั้น
+const OFFLINE = !SDG_CFG.API;
+const LSK = 'nblSdg.draft';
+try { AUTH = JSON.parse(sessionStorage.getItem('nblSdg.auth') || 'null'); } catch (e) {}
+if (AUTH && AUTH.exp < Date.now()) AUTH = null;
+
+const canEdit = x => !AUTH ? false : AUTH.role === 'admin' ? true
+  : (AUTH.domains || []).some(d => d === x.id || d === 'g' + x.g || d === x.agency);
+const myInds = () => INDICATORS.filter(x => !AUTH || AUTH.role === 'admin' ? true : canEdit(x));
+
+/* ───────── ตัวช่วยช่วงเวลา ───────── */
+const TH_M = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
+function periodOptions(x) {
+  const y = SDG_CFG.nowYear, out = [];
+  if (x.ptype === 'month') { for (let k = 0; k < 24; k++) { const m = (11 - k % 12), yy = y - Math.floor(k / 12); out.push(`${TH_M[m]}-${String(yy).slice(-2)}`); } }
+  else if (x.ptype === 'quarter') { for (let yy = y; yy >= y - 3; yy--) for (let q = 4; q >= 1; q--) out.push(`${q}/${String(yy).slice(-2)}`); }
+  else { for (let yy = y; yy >= y - 9; yy--) out.push(String(yy)); }
+  return out;
+}
+const num = v => { const s = String(v ?? '').replace(/,/g, '').trim(); return s === '' || s === '-' ? null : (isNaN(+s) ? NaN : +s); };
+
+/* ───────── การเรียก API ───────── */
+async function api(action, params = {}) {
+  if (OFFLINE) throw new Error('ยังไม่ได้ตั้งค่า API — ระบบทำงานในโหมดร่าง (บันทึกในเครื่องนี้เท่านั้น)');
+  const r = await jsonp(SDG_CFG.API, Object.assign({ action, token: AUTH && AUTH.token || '' }, params));
+  if (!r || !r.ok) throw new Error((r && r.error) || 'เซิร์ฟเวอร์ตอบกลับไม่สำเร็จ');
+  return r;
+}
+function draft() { try { return JSON.parse(localStorage.getItem(LSK) || '[]'); } catch (e) { return []; } }
+function saveDraft(rows) {
+  const all = draft().filter(d => !rows.some(r => r.id === d.id && r.period === d.period && (r.district || '') === (d.district || '')));
+  localStorage.setItem(LSK, JSON.stringify(all.concat(rows)));
+}
+
+/* ───────── หน้าจอ ───────── */
+function steps(n) {
+  const st = ['เข้าสู่ระบบ', 'เลือกตัวชี้วัด', 'กรอก/แก้ไขค่า'];
+  $('#steps').innerHTML = st.map((s, i) => `<span class="step ${i + 1 === n ? 'on' : ''} ${i + 1 < n ? 'done' : ''}"><b>${i + 1 < n ? '✓' : i + 1}</b>${s}</span>`).join('');
+}
+function msg(el, cls, text) { el.className = 'msg on ' + cls; el.innerHTML = text; }
+
+function viewLogin() {
+  steps(1);
+  const agencies = [...new Set(INDICATORS.map(x => x.agency))].filter(Boolean).sort();
+  $('#app').innerHTML = `<div class="card">
+    <h2>เข้าสู่ระบบด้วยรหัสหน่วยงาน</h2>
+    <p class="hint">แต่ละหน่วยงานแก้ไขได้เฉพาะตัวชี้วัดที่ตนเองรับผิดชอบ ผู้ดูแลระบบแก้ไขได้ทั้งหมด
+      รหัส PIN เก็บเป็นค่า hash บนเซิร์ฟเวอร์ ไม่มีการเก็บรหัสจริงไว้ในหน้าเว็บ</p>
+    ${OFFLINE ? `<div class="off"><b>โหมดร่าง</b> — ยังไม่ได้ตั้งค่า <code>SDG_CFG.API</code> ในไฟล์ sdg-data.js
+      จึงยังเชื่อมกับ Google Sheets ไม่ได้ ตอนนี้กรอกเพื่อทดลองและส่งออกเป็นไฟล์ CSV ได้ทันที</div>` : ''}
+    <div class="grid2">
+      <div><label for="ag">หน่วยงาน</label><select id="ag">${agencies.map(a => `<option>${a}</option>`).join('')}<option>ผู้ดูแลระบบ (สำนักงานสถิติจังหวัด)</option></select></div>
+      <div><label for="pin">รหัส PIN</label><input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="ตัวเลข 4–10 หลัก"></div>
+      <div><label for="who">ชื่อผู้กรอก</label><input id="who" type="text" placeholder="ชื่อ-นามสกุล หรือชื่อกลุ่มงาน"></div>
+    </div>
+    <div class="row"><button class="btn" id="go">เข้าสู่ระบบ</button>
+      ${OFFLINE ? '<button class="btn ghost" id="skip">ข้ามไปกรอกในโหมดร่าง</button>' : ''}</div>
+    <div class="msg" id="m"></div></div>`;
+  const m = $('#m');
+  const enter = (role, agency) => {
+    AUTH = { agency, role, domains: role === 'admin' ? [] : [agency], who: $('#who').value.trim() || agency, token: AUTH && AUTH.token || '', exp: Date.now() + 6 * 3600e3 };
+    sessionStorage.setItem('nblSdg.auth', JSON.stringify(AUTH));
+    viewPick();
+  };
+  $('#go').onclick = async () => {
+    const agency = $('#ag').value, pin = $('#pin').value.trim(), who = $('#who').value.trim();
+    if (!/^\d{4,10}$/.test(pin)) return msg(m, 'err', 'กรอก PIN เป็นตัวเลข 4–10 หลัก');
+    if (!who) return msg(m, 'warn', 'กรอกชื่อผู้กรอกเพื่อบันทึกในประวัติการแก้ไข');
+    if (OFFLINE) return msg(m, 'warn', 'ยังเชื่อมเซิร์ฟเวอร์ไม่ได้ · ใช้ปุ่ม “ข้ามไปกรอกในโหมดร่าง” ไปก่อน');
+    msg(m, 'warn', 'กำลังตรวจสอบ…');
+    try {
+      const r = await jsonp(SDG_CFG.API, { action: 'login', agency, pin, who });
+      if (!r.ok) return msg(m, 'err', r.error || 'PIN ไม่ถูกต้อง');
+      AUTH = { agency, role: r.role, domains: r.domains || [agency], who, token: r.token, exp: Date.now() + 6 * 3600e3 };
+      sessionStorage.setItem('nblSdg.auth', JSON.stringify(AUTH));
+      viewPick();
+    } catch (e) { msg(m, 'err', e.message); }
+  };
+  if ($('#skip')) $('#skip').onclick = () => enter($('#ag').value.includes('ผู้ดูแล') ? 'admin' : 'agency', $('#ag').value);
+}
+
+function viewPick() {
+  steps(2);
+  const list = myInds();
+  $('#app').innerHTML = `<div class="card">
+    <h2>เลือกตัวชี้วัดที่จะกรอก</h2>
+    <p class="hint">เข้าสู่ระบบในนาม <b>${esc(AUTH.agency)}</b>${AUTH.role === 'admin' ? ' (ผู้ดูแลระบบ · แก้ไขได้ทุกตัวชี้วัด)' : ''}
+      · กรอกทีละตัวชี้วัดเพื่อลดความผิดพลาด</p>
+    <div class="tools2">
+      <select id="fg"><option value="">ทุกเป้าหมาย</option>${GOALS.map(g => `<option value="${g.n}">SDG ${g.n} · ${g.th}</option>`).join('')}</select>
+      <input id="fq" type="text" placeholder="ค้นหาชื่อตัวชี้วัด">
+      <select id="fs"><option value="">ทุกสถานะ</option><option value="sim">เฉพาะที่ยังเป็นข้อมูลจำลอง</option><option value="real">เฉพาะที่มีข้อมูลจริงแล้ว</option></select>
+    </div>
+    <div class="pick" id="pick"></div>
+    <div class="row"><button class="btn ghost" id="out">ออกจากระบบ</button></div></div>`;
+  const draw = () => {
+    const g = $('#fg').value, q = $('#fq').value.trim(), s = $('#fs').value;
+    $('#pick').innerHTML = list.filter(x => (!g || x.g == g) && (!q || x.name.includes(q)) && (!s || (s === 'real' ? x.real : !x.real)))
+      .map(x => `<button data-id="${x.id}" style="--gc:${goalOf(x.g).c}">
+        <b>${x.name}</b><span>SDG ${x.g} · ${x.agency} · ${x.freq} · ${x.real ? 'ข้อมูลจริง ' + periodLabel(x) : 'ยังเป็นข้อมูลจำลอง'}</span></button>`).join('')
+      || '<div class="off">ไม่พบตัวชี้วัดตามเงื่อนไข</div>';
+    $$('#pick button').forEach(b => b.onclick = () => { SEL = IND_BY_ID[b.dataset.id]; viewForm(); });
+  };
+  ['fg', 'fq', 'fs'].forEach(id => { $('#' + id).oninput = draw; });
+  draw();
+  $('#out').onclick = () => { AUTH = null; sessionStorage.removeItem('nblSdg.auth'); viewLogin(); };
+}
+
+function viewForm() {
+  steps(3);
+  const x = SEL, g = goalOf(x.g), opts = periodOptions(x);
+  $('#app').innerHTML = `<div class="card" style="--gc:${g.c}">
+    <h2>${x.name}</h2>
+    <p class="hint">SDG ${x.g} · ${x.agency} · หน่วย <b>${x.unit || '—'}</b> · ความถี่ ${x.freq}
+      · ทิศทางที่ดี ${x.dir > 0 ? 'ยิ่งมากยิ่งดี' : 'ยิ่งน้อยยิ่งดี'} · เป้าหมายปี ${SDG_CFG.targetYear} ${x.dir > 0 ? '≥' : '≤'} ${fmt(x.target, x.dec)}</p>
+    <div class="grid2">
+      <div><label for="pe">ช่วงเวลา</label><select id="pe">${opts.map(o => `<option>${o}</option>`).join('')}</select></div>
+      <div><label for="pv">ค่าระดับจังหวัด (${x.unit || 'หน่วย'})</label><input id="pv" type="text" inputmode="decimal" placeholder="เช่น ${fmt(x.value, x.dec)}"></div>
+      <div><label for="sr">ที่มาของข้อมูล</label><input id="sr" type="text" value="${esc(x.real ? x.src : '')}" placeholder="ชื่อรายงาน/ระบบต้นทาง"></div>
+    </div>
+    <label style="margin-top:14px">ค่ารายอำเภอ (ไม่บังคับ — กรอกเมื่อมีข้อมูลแยกพื้นที่)</label>
+    <div class="dgrid">${DISTRICTS.map(d => `<div class="cell"><span>${d.name}</span><input type="text" inputmode="decimal" data-d="${d.code}"></div>`).join('')}</div>
+    <div class="sum" id="sum"></div>
+    <div><label for="nt" style="margin-top:14px">หมายเหตุ (ถ้ามี)</label><input id="nt" type="text" placeholder="เช่น ข้อมูลยังไม่ครบปี / เปลี่ยนวิธีจัดเก็บ"></div>
+    <div class="row"><button class="btn" id="save">บันทึกค่า</button>
+      <button class="btn ghost" id="back">เลือกตัวชี้วัดอื่น</button>
+      <button class="btn ghost" id="bulkbtn">วางข้อมูลหลายช่วงเวลา</button></div>
+    <div class="msg" id="m"></div>
+  </div>
+
+  <div class="card" id="bulk" hidden>
+    <h2>วางข้อมูลจาก Excel</h2>
+    <p class="hint">คัดลอกจาก Excel แล้ววางได้เลย รองรับสองรูปแบบ
+      <br>1) <code>ช่วงเวลา, ค่า</code> เช่น <code>2567, 118</code>
+      <br>2) <code>ช่วงเวลา, อำเภอ, ค่า</code> เช่น <code>2567, นากลาง, 24</code></p>
+    <textarea id="paste" placeholder="2565, 120&#10;2566, 119&#10;2567, 118"></textarea>
+    <div class="row"><button class="btn" id="prev">ตรวจสอบข้อมูล</button><button class="btn ghost" id="bulkclose">ปิด</button></div>
+    <div id="pv2"></div>
+  </div>
+
+  <div class="card">
+    <h2>ค่าที่บันทึกไว้แล้ว</h2>
+    <p class="hint">แก้ไขได้ทุกแถว ระบบจะเก็บค่าเดิมไว้ในประวัติเสมอ</p>
+    <div id="rows">กำลังโหลด…</div>
+  </div>`;
+
+  const m = $('#m');
+  const collect = () => {
+    const period = $('#pe').value, src = $('#sr').value.trim(), note = $('#nt').value.trim();
+    const out = [], pv = num($('#pv').value);
+    if (pv != null && !isNaN(pv)) out.push({ id: x.id, period, district: '', value: pv, src, note });
+    $$('.dgrid input').forEach(i => {
+      const v = num(i.value);
+      if (v != null && !isNaN(v)) out.push({ id: x.id, period, district: i.dataset.d, value: v, src, note });
+    });
+    return out;
+  };
+  const recalc = () => {
+    const ds = $$('.dgrid input').map(i => num(i.value)).filter(v => v != null && !isNaN(v));
+    const pv = num($('#pv').value);
+    if (!ds.length) return $('#sum').innerHTML = '';
+    const sum = ds.reduce((a, b) => a + b, 0), avg = sum / ds.length;
+    let warn = '';
+    if (pv != null && !isNaN(pv)) {
+      const near = v => Math.abs(v - pv) / Math.abs(pv || 1) < .02;
+      warn = near(sum) ? ' · ตรงกับผลรวมรายอำเภอ' : near(avg) ? ' · ตรงกับค่าเฉลี่ยรายอำเภอ'
+        : ' · <span style="color:#a35a00">ค่าจังหวัดไม่ตรงทั้งผลรวมและค่าเฉลี่ยรายอำเภอ ตรวจสอบอีกครั้ง</span>';
+    }
+    $('#sum').innerHTML = `<span>กรอกแล้ว <b>${ds.length}</b>/6 อำเภอ</span><span>ผลรวม <b>${fmt(sum, x.dec)}</b></span><span>ค่าเฉลี่ย <b>${fmt(avg, x.dec)}</b>${warn}</span>`;
+  };
+  $$('.dgrid input').forEach(i => i.oninput = recalc);
+  $('#pv').oninput = recalc;
+  $('#back').onclick = viewPick;
+  $('#bulkbtn').onclick = () => { $('#bulk').hidden = false; $('#bulk').scrollIntoView({ behavior: 'smooth' }); };
+  $('#bulkclose').onclick = () => $('#bulk').hidden = true;
+
+  $('#save').onclick = async () => {
+    const rows = collect();
+    if (!rows.length) return msg(m, 'err', 'ยังไม่ได้กรอกค่าใด ๆ');
+    if (rows.some(r => isNaN(r.value))) return msg(m, 'err', 'มีช่องที่ไม่ใช่ตัวเลข');
+    const prov = rows.find(r => !r.district);
+    if (prov && x.value != null && Math.abs(prov.value - x.value) / Math.abs(x.value || 1) > .5) {
+      if (!confirm(`ค่าที่กรอก (${fmt(prov.value, x.dec)}) ต่างจากค่าล่าสุด (${fmt(x.value, x.dec)}) เกิน 50% ยืนยันบันทึกหรือไม่`)) return;
+    }
+    await commit(rows, m);
+  };
+  $('#prev').onclick = () => {
+    const lines = $('#paste').value.split('\n').map(l => l.trim()).filter(Boolean);
+    const rows = [], bad = [];
+    lines.forEach((l, i) => {
+      const c = l.split(/[\t,]/).map(s => s.trim());
+      let period, district = '', value;
+      if (c.length >= 3) { period = c[0]; district = (DISTRICTS.find(d => d.name.includes(c[1]) || d.short === c[1]) || {}).code || ''; value = num(c[2]); }
+      else { period = c[0]; value = num(c[1]); }
+      if (!period || value == null || isNaN(value) || (c.length >= 3 && !district)) bad.push(`บรรทัด ${i + 1}: ${esc(l)}`);
+      else rows.push({ id: x.id, period, district, value, src: $('#sr').value.trim(), note: $('#nt').value.trim() });
+    });
+    $('#pv2').innerHTML = `${bad.length ? `<div class="msg on err">อ่านไม่ได้ ${bad.length} บรรทัด<br>${bad.join('<br>')}</div>` : ''}
+      ${rows.length ? `<table class="t"><thead><tr><th>ช่วงเวลา</th><th>พื้นที่</th><th>ค่า</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td>${esc(r.period)}</td><td>${r.district ? (DISTRICTS.find(d => d.code === r.district) || {}).name : 'ทั้งจังหวัด'}</td><td class="n">${fmt(r.value, x.dec)}</td></tr>`).join('')}
+      </tbody></table><div class="row"><button class="btn" id="bulksave">บันทึกทั้ง ${rows.length} แถว</button></div><div class="msg" id="m2"></div>` : ''}`;
+    if ($('#bulksave')) $('#bulksave').onclick = () => commit(rows, $('#m2'));
+  };
+  loadRows();
+}
+
+async function commit(rows, m) {
+  msg(m, 'warn', 'กำลังบันทึก…');
+  const stamped = rows.map(r => Object.assign({ by: AUTH.who || AUTH.agency, at: new Date().toISOString() }, r));
+  if (OFFLINE) {
+    saveDraft(stamped);
+    msg(m, 'ok', `บันทึกในโหมดร่างแล้ว ${stamped.length} แถว (เก็บในเบราว์เซอร์นี้)
+      <div class="row"><button class="btn ghost" onclick="exportDraft()">ส่งออกเป็น CSV</button></div>`);
+    loadRows(); return;
+  }
+  try {
+    const r = await api('save', { rows: JSON.stringify(stamped) });
+    msg(m, 'ok', `บันทึกแล้ว ${r.saved} แถว · แดชบอร์ดจะอัปเดตภายใน ${SDG_CFG.refreshMin} นาที`);
+    loadRows();
+  } catch (e) { msg(m, 'err', e.message); }
+}
+function exportDraft() {
+  const rows = draft();
+  const csv = 'id,period,district,value,src,note,by,at\n' + rows.map(r =>
+    [r.id, r.period, r.district, r.value, `"${(r.src || '').replace(/"/g, '""')}"`, `"${(r.note || '').replace(/"/g, '""')}"`, r.by, r.at].join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'sdg-draft.csv'; a.click();
+}
+async function loadRows() {
+  const box = $('#rows'); if (!box) return;
+  let rows = [];
+  if (OFFLINE) rows = draft().filter(r => r.id === SEL.id);
+  else {
+    try { rows = (await api('rows', { id: SEL.id })).rows || []; }
+    catch (e) { box.innerHTML = `<div class="msg on err">${esc(e.message)}</div>`; return; }
+  }
+  ROWS = rows;
+  if (!rows.length) { box.innerHTML = '<div class="off">ยังไม่มีค่าที่บันทึกผ่านระบบนี้ · ค่าที่แดชบอร์ดแสดงอยู่มาจากไฟล์ตั้งต้น</div>'; return; }
+  box.innerHTML = `<table class="t"><thead><tr><th>ช่วงเวลา</th><th>พื้นที่</th><th>ค่า</th><th>ผู้กรอก</th><th></th></tr></thead><tbody>
+    ${rows.sort((a, b) => String(b.period).localeCompare(String(a.period))).map((r, i) => `<tr>
+      <td>${esc(r.period)}</td><td>${r.district ? esc((DISTRICTS.find(d => d.code === r.district) || {}).name || r.district) : 'ทั้งจังหวัด'}</td>
+      <td class="n"><input type="text" data-i="${i}" value="${r.value}" style="width:120px;text-align:right"></td>
+      <td>${esc(r.by || '')}<br><span style="color:var(--ink3);font-size:12px">${esc((r.at || '').slice(0, 16).replace('T', ' '))}</span></td>
+      <td><button class="btn ghost" data-up="${i}">บันทึกแก้ไข</button> <button class="btn danger" data-del="${i}">ลบ</button></td></tr>`).join('')}
+    </tbody></table><div class="msg" id="m3"></div>`;
+  $$('[data-up]').forEach(b => b.onclick = async () => {
+    const i = +b.dataset.up, r = ROWS[i], v = num(box.querySelector(`input[data-i="${i}"]`).value);
+    if (v == null || isNaN(v)) return msg($('#m3'), 'err', 'ค่าต้องเป็นตัวเลข');
+    await commit([{ id: r.id, period: r.period, district: r.district || '', value: v, src: r.src, note: r.note }], $('#m3'));
+  });
+  $$('[data-del]').forEach(b => b.onclick = async () => {
+    const r = ROWS[+b.dataset.del];
+    if (!confirm(`ลบค่าของ ${r.period} ${r.district ? 'อำเภอ' + ((DISTRICTS.find(d => d.code === r.district) || {}).name || '') : 'ทั้งจังหวัด'} ?`)) return;
+    if (OFFLINE) {
+      localStorage.setItem(LSK, JSON.stringify(draft().filter(d => !(d.id === r.id && d.period === r.period && (d.district || '') === (r.district || '')))));
+      loadRows(); return;
+    }
+    try { await api('remove', { id: r.id, period: r.period, district: r.district || '' }); loadRows(); }
+    catch (e) { msg($('#m3'), 'err', e.message); }
+  });
+}
+
+function start() {
+  $('#bar').innerHTML = topbar('entry');
+  initTip();
+  AUTH ? viewPick() : viewLogin();
+}
+start();
+</script>
+</body>
+</html>

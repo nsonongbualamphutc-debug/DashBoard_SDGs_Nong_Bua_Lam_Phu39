@@ -51,7 +51,11 @@ img { max-width: 100%; }
 .livechip.on i { background: #1fbf6f; box-shadow: 0 0 0 0 rgba(31, 191, 111, .6); animation: ping 2.2s infinite; }
 @keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(31, 191, 111, 0); } 100% { box-shadow: 0 0 0 0 rgba(31, 191, 111, 0); } }
 .tools { display: flex; gap: 6px; margin-left: auto; }
-.livechip + .tools { margin-left: 0; }
+.livechip + .covchip + .tools, .livechip + .tools { margin-left: 0; }
+.covchip { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 99px; border: 1px solid var(--line);
+  background: var(--surf); color: var(--ink2); font-size: 13px; white-space: nowrap; }
+.covchip i { width: 46px; height: 6px; border-radius: 9px; background: var(--bg2); position: relative; overflow: hidden; }
+.covchip i::after { content: ''; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--brand); border-radius: 9px; }
 .tbtn { display: inline-flex; align-items: center; gap: 6px; height: 38px; min-width: 38px; justify-content: center; padding: 0 10px;
   border: 1px solid var(--line); border-radius: 11px; background: var(--surf); color: var(--ink); font: 500 14px var(--fb); cursor: pointer; text-decoration: none; }
 .tbtn:hover { border-color: var(--brand); color: var(--brand-ink); }
@@ -75,15 +79,28 @@ img { max-width: 100%; }
 .tp-src.real { color: #7fe6b9; }
 .tp-note { margin-top: 5px; color: #b9cccc; font-size: 12.5px; }
 .tp-sub { color: #9fbcbc; font-size: 12.5px; }
+.tp-tag { color: #cfe6e0; font-size: 13px; margin-top: 4px; }
+.tp-p { display: inline-block; margin-left: 6px; font-style: normal; font-size: 12px; color: #9fbcbc; padding: 1px 7px; border-radius: 99px; background: rgba(255,255,255,.1); }
+.tp-dim { color: #8fb0b0; }
+.tip .spk { display: block; margin: 4px 0 2px; width: 100%; height: auto; }
+.tp-hist { display: flex; flex-wrap: wrap; gap: 4px 14px; color: #9fbcbc; font-size: 12px; margin-bottom: 6px; }
+.tp-hist b { color: #e8f3f1; font-weight: 500; }
+.tp-row { display: grid; grid-template-columns: auto 1fr auto auto; gap: 8px; align-items: baseline; font-size: 12.8px; padding: 2px 0; }
+.tp-row b { font-weight: 600; }
+.tp-row u { text-decoration: none; color: #8fb0b0; font-size: 11.5px; min-width: 62px; text-align: right; }
+.tp-dist { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; font-size: 12.5px; color: #cfe6e0; }
+.tp-dist b { color: #fff; }
 
 /* ───── ชิปสถานะ ───── */
 .chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 500;
   background: var(--surf2); color: var(--ink2); border: 1px solid var(--line); white-space: nowrap; }
 .chip.real { background: color-mix(in srgb, #1e9e5a 14%, var(--surf)); color: #137a44; border-color: color-mix(in srgb, #1e9e5a 35%, transparent); }
-.chip.mock { background: color-mix(in srgb, #e89b1c 13%, var(--surf)); color: #9a5f00; border-color: color-mix(in srgb, #e89b1c 35%, transparent); }
+.chip.sim, .chip.mock { background: color-mix(in srgb, #e89b1c 13%, var(--surf)); color: #9a5f00; border-color: color-mix(in srgb, #e89b1c 35%, transparent); }
 :root[data-theme="dark"] .petal .ghost { opacity: .22; }
 :root[data-theme="dark"] .chip.real { color: #7fe6b9; }
-:root[data-theme="dark"] .chip.mock { color: #f2c46d; }
+:root[data-theme="dark"] .chip.sim, .chip.mock { color: #f2c46d; }
+.chip.warn { background: color-mix(in srgb, #2f7fd4 12%, var(--surf)); color: #1c5c9e; border-color: color-mix(in srgb, #2f7fd4 32%, transparent); }
+:root[data-theme="dark"] .chip.warn { color: #8dc4f5; }
 .trend { display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; }
 .trend .ic { width: 16px; height: 16px; stroke-width: 2.4; }
 .trend.good { color: #1e9e5a; } .trend.bad { color: #d8413a; } .trend.flat { color: var(--ink3); }
@@ -92,3 +109,20 @@ img { max-width: 100%; }
 .foot .wrap { display: flex; flex-wrap: wrap; gap: 10px 30px; justify-content: space-between; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ───── พื้นหลังการ์ดที่ไม่บังตัวเลข ─────
+   ทุกชั้นถูกจำกัดให้อยู่มุมขวาล่าง และถูกเฟดหายไปทางซ้าย
+   ตัวเลขและข้อความอยู่ใน stacking context ที่สูงกว่าเสมอ */
+.art { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; z-index: 0; }
+.art-photo { position: absolute; right: 0; bottom: 0; width: 62%; height: 100%;
+  background-size: cover; background-position: center right; opacity: .16; filter: saturate(.75);
+  -webkit-mask-image: linear-gradient(100deg, transparent 8%, #000 72%);
+  mask-image: linear-gradient(100deg, transparent 8%, #000 72%); }
+.art-glow { position: absolute; right: -18%; bottom: -46%; width: 78%; padding-top: 78%;
+  border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--gc) 42%, transparent), transparent 66%); opacity: .5; }
+.art-ic { position: absolute; right: -10px; bottom: -14px; width: 108px; height: 108px; fill: none;
+  stroke: var(--gc); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .16; }
+:root[data-theme="dark"] .art-photo { opacity: .26; }
+:root[data-theme="dark"] .art-ic { opacity: .22; }
+.art + * , .art ~ * { position: relative; z-index: 1; }
+.spk { display: block; }
