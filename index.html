@@ -8,6 +8,20 @@
 <link rel="icon" href="assets/seal.png">
 <link rel="stylesheet" href="sdg.css">
 <style>
+/* ───── ภาพพื้นหลังหน้าปก ───── */
+:root { --cover: url('assets/bg/cover-light.webp'); }
+:root[data-theme="dark"] { --cover: url('assets/bg/cover-dark.webp'); }
+@media (max-width: 640px) { :root { --cover: url('assets/bg/cover-mobile.webp'); } }
+
+/* ───── วิธีอ่านกลีบบัว ───── */
+.legend { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surf); padding: 14px 16px; margin: 0 0 18px; }
+.legend h4 { font: 600 14px var(--fd); margin: 0 0 8px; color: var(--ink2); }
+.legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 13.8px; color: var(--ink2); line-height: 1.45; }
+.legend li { display: flex; gap: 9px; align-items: flex-start; }
+.legend i { flex: none; margin-top: 3px; width: 26px; height: 12px; border-radius: 3px; background: var(--brand); }
+.legend i.half { background: linear-gradient(90deg, var(--brand) 45%, var(--bg2) 45%); }
+.legend i.dotline { background: repeating-linear-gradient(90deg, var(--ink3) 0 3px, transparent 3px 7px); height: 4px; margin-top: 7px; }
+
 /* ───── หน้าปก: บัว 17 กลีบ ───── */
 .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 4vw, 56px); align-items: center; padding: 22px 0 6px; }
 .lotus-wrap { position: relative; }
@@ -78,10 +92,7 @@
 .molab { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink3); margin-top: 6px; }
 
 /* ───── การ์ด 17 เป้าหมาย ───── */
-.pillar { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 20px; padding: 24px 0; border-top: 1px solid var(--line); }
-.pillar h3 { font: 600 22px/1.2 var(--fd); margin: 0; }
-.pillar h3 small { display: block; font: 500 13px var(--fd); color: var(--ink3); margin-top: 3px; }
-.pillar p { color: var(--ink2); font-size: 14px; margin: 8px 0 0; }
+.psec { margin-bottom: 26px; }
 .gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 12px; }
 .gt { position: relative; overflow: hidden; display: block; padding: 16px 16px 14px; border-radius: var(--r-md); background: var(--surf);
   border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s, box-shadow .15s; }
@@ -108,12 +119,13 @@
 .lk .ic { color: var(--ink3); }
 
 @media (max-width: 1100px) { .head4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 980px) { .hero { grid-template-columns: 1fr; } .lotus-wrap { max-width: 620px; margin: 0 auto; width: 100%; } .pillar { grid-template-columns: 1fr; gap: 12px; } }
+@media (max-width: 980px) { .hero { grid-template-columns: 1fr; } .lotus-wrap { max-width: 620px; margin: 0 auto; width: 100%; } }
 @media (max-width: 560px) { .watch { grid-template-columns: 1fr; } .head4 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div id="bar"></div>
+<header class="heroband" id="heroband"></header>
 <main class="wrap">
   <section class="hero">
     <div class="lotus-wrap"><svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg></div>
@@ -127,8 +139,9 @@
   <div class="mo" id="mo"></div>
 
   <div class="sec-h"><h2>17 เป้าหมายในบริบทหนองบัวลำภู</h2><p>จัดกลุ่มตามหลัก 5P ของสหประชาชาติ แต่ละการ์ดบอกว่าเป้าหมายนั้นแปลว่าอะไรในจังหวัดเรา และตอนนี้เดินถึงไหน</p></div>
-  <div id="pillars"></div>
-
+</main>
+<div id="pillars"></div>
+<main class="wrap">
   <div class="sec-h"><h2>ระบบข้อมูลของจังหวัดที่ป้อนเข้าเป้าหมาย</h2><p>แดชบอร์ดเฉพาะเรื่องที่มีอยู่แล้ว เชื่อมเข้ามาเป็นแหล่งข้อมูลของแต่ละเป้าหมาย</p></div>
   <div class="links" id="links"></div>
 </main>
@@ -209,10 +222,15 @@ function renderIntro() {
   const rank = GOALS.map(g => ({ g, s: goalScore(g.n) })).sort((a, b) => a.s - b.s);
   const wrow = o => `<a class="wrow" href="goal.html?g=${o.g.n}" data-tip="${goalTip(o.g)}"><em class="gb" style="background:${o.g.c}">${o.g.n}</em><span>${o.g.th}</span><b>${fmt(o.s, 0)}</b></a>`;
   $('#intro').innerHTML = `
-    <h1><span>หนองบัวลำภู</span><span>เดินมาถึงไหนแล้ว</span> <span>ใน 17 เป้าหมาย</span><span>การพัฒนาที่ยั่งยืน</span></h1>
+    <h1><span>วันนี้จังหวัดเรา</span><span>ทันเป้าหมายแค่ไหน</span></h1>
     <p class="lead">กลีบบัวหนึ่งกลีบคือหนึ่งเป้าหมาย กลีบที่สีเติมเต็มคือเดินได้ทันกำหนดปี ${SDG_CFG.targetYear}
       วัดจาก ${indCount()} ตัวชี้วัดของ ${new Set(INDICATORS.map(x => x.agency)).size} หน่วยงาน
       โดย ${realCount()} ตัวใช้ข้อมูลจริงจากบัญชีข้อมูลจังหวัดแล้ว</p>
+    <div class="legend"><h4>อ่านวงบัวนี้อย่างไร</h4><ul>
+      <li><i></i><span>กลีบที่สีเต็มความยาว = เดินได้ทันกำหนดของเป้าหมายปี ${SDG_CFG.targetYear}</span></li>
+      <li><i class="half"></i><span>กลีบที่สีเติมไม่ถึงปลาย = ยังช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
+      <li><i class="dotline"></i><span>วงประด้านใน คือเส้นระดับคะแนน 25 · 50 · 75 · 100 · ตัวเลขกลางวงคือคะแนนเฉลี่ยทั้งจังหวัด</span></li>
+    </ul></div>
     <div class="statbar" aria-hidden="true">${STATUS.map((s, i) => `<i style="flex:${cnt[i]};background:${s.c}"></i>`).join('')}</div>
     <div class="statleg">${STATUS.map((s, i) => `<span><i class="dot" style="background:${s.c}"></i><b>${cnt[i]}</b> ${s.th}</span>`).join('')}</div>
     <div class="pills" role="group" aria-label="กรองตามกลุ่ม 5P">${PILLARS.map(p => `<button class="pill" data-p="${p.id}" aria-pressed="false">${p.th}<small>${p.goals.length}</small></button>`).join('')}</div>
@@ -232,7 +250,7 @@ function renderHead4() {
     return `<a class="hcard" style="--gc:${g.c}" href="goal.html?g=${x.g}" data-tip="${indTip(x)}">
       ${cardArt(g)}
       <span class="k"><em>${x.g}</em>${x.name}</span>
-      <span class="v"><span data-n="${x.value}" data-dec="${x.dec}">0</span><small>${x.unit}</small></span>
+      <span class="v"><span data-n="${x.value}" data-dec="${x.dec}">${fmt(x.value, x.dec)}</span><small>${x.unit}</small></span>
       <span class="f"><span>${periodLabel(x)} · ${x.real ? 'ข้อมูลจริง' : 'จำลอง'}</span>${trendHtml(x, true)}</span>
       <span class="f">${spark(x.series, g.c, 150, 32)}</span></a>`;
   }).join('');
@@ -251,9 +269,35 @@ function renderMo() {
   }).join('') || '<div class="empty">ยังไม่มีชุดข้อมูลรายเดือน</div>';
 }
 
+function renderBanner() {
+  const real = realCount(), all = indCount();
+  $('#heroband').innerHTML = `<div class="wrap">
+    <span class="kicker"><img src="assets/seal.png" alt="">ศูนย์ข้อมูลการพัฒนาที่ยั่งยืน จังหวัดหนองบัวลำภู</span>
+    <h1>17 เป้าหมายโลก อ่านเป็นภาษาหนองบัวลำภู</h1>
+    <p>รวมตัวชี้วัดจากทุกหน่วยงานในจังหวัดไว้ที่เดียว บอกตรง ๆ ว่าเรื่องไหนทันเป้า เรื่องไหนช้า และตัวเลขนั้นมาจากไหน</p>
+    <div class="hstats">
+      <div class="hstat" data-tip="${esc('<b>คะแนนตามเวลา</b><div class="tp-note">ค่าเฉลี่ยของทั้ง 17 เป้าหมาย · 100 คือเดินได้ทันกำหนดปี ' + SDG_CFG.targetYear + '</div>')}">
+        <b>${fmt(overallScore(), 0)}</b><span>คะแนนรวมของจังหวัด</span></div>
+      <div class="hstat"><b>${real}/${all}</b><span>ตัวชี้วัดที่เป็นข้อมูลจริงแล้ว</span></div>
+      <div class="hstat"><b>6</b><span>อำเภอที่ไล่ดูรายพื้นที่ได้</span></div>
+      <div class="hstat"><b>${SDG_CFG.targetYear}</b><span>ปีเป้าหมาย (ค.ศ. 2030)</span></div>
+    </div></div>`;
+}
+
 function renderPillars() {
-  $('#pillars').innerHTML = PILLARS.map(p => `<section class="pillar"><div><h3>${p.th}<small>${p.en}</small></h3><p>${p.note}</p></div>
-    <div class="gtiles">${p.goals.map(n => {
+  $('#pillars').innerHTML = PILLARS.map(p => {
+    const sc = p.goals.map(goalScore).filter(v => v != null);
+    const avg = sc.reduce((a, b) => a + b, 0) / (sc.length || 1);
+    const st = statusOf(avg);
+    return `<section class="psec">
+    <div class="pband" style="--img:url('assets/pillar/${p.id}.webp')"><div class="wrap">
+      <div class="pnum">${p.en}</div><h3>${p.th}</h3><p>${p.note}</p>
+      <div class="pmeta">
+        <span class="pchip"><b>${p.goals.length}</b> เป้าหมาย</span>
+        <span class="pchip"><i class="dot" style="background:${st.c}"></i><b>${fmt(avg, 0)}</b> คะแนนเฉลี่ย · ${st.th}</span>
+        <span class="pchip">SDG ${p.goals.join(' · ')}</span>
+      </div></div></div>
+    <div class="wrap"><div class="gtiles">${p.goals.map(n => {
       const g = goalOf(n), s = goalScore(n), st = statusOf(s), inds = indsOf(n), real = inds.filter(x => x.real).length;
       const per = inds.filter(x => x.real).map(x => x.period).sort().pop();
       return `<a class="gt" style="--gc:${g.c}" href="goal.html?g=${n}" data-tip="${goalTip(g)}">
@@ -264,7 +308,8 @@ function renderPillars() {
         <span class="gmeta"><span class="chip"><i class="dot" style="background:${st.c}"></i>${st.th}</span>
         ${real ? `<span class="chip real">ข้อมูลจริง ${real}/${inds.length}${per ? ' · ปี ' + per : ''}</span>` : '<span class="chip sim">จำลองทั้งหมด</span>'}
         ${spark(inds[0].series, g.c, 70, 22)}</span></a>`;
-    }).join('')}</div></section>`).join('');
+    }).join('')}</div></div></section>`;
+  }).join('');
 }
 
 function renderLinks() {
@@ -279,7 +324,7 @@ function renderLinks() {
 
 function renderCover() {
   $('#bar').innerHTML = topbar('cover');
-  drawLotus(); renderIntro(); renderHead4(); renderMo(); renderPillars(); renderLinks();
+  renderBanner(); drawLotus(); renderIntro(); renderHead4(); renderMo(); renderPillars(); renderLinks();
 }
 SDG.init('cover', renderCover);
 </script>

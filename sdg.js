@@ -113,15 +113,18 @@ const IC = {
 const svg = (k, cls = '') => `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hidden="true">${IC[k] || ''}</svg>`;
 
 /* ───── พื้นหลังการ์ด ─────
-   ชั้นที่ 1 แสงสีของเป้าหมายที่มุมขวา · ชั้นที่ 2 ไอคอนลายน้ำ
-   ชั้นที่ 3 ภาพ assets/card/sdg-XX.webp ถ้ามี (จาง ๆ และถูกเฟดทางซ้าย)
-   ทุกชั้นอยู่หลังตัวเลขเสมอ และไม่มีชั้นไหนทับพื้นที่ข้อความด้านซ้าย */
+   ใช้ภาพจริงจาก assets/card/sdg-XX.webp เป็นชั้นเดียว วางชิดขวาและเฟดหายทางซ้าย
+   ตัวเลขทุกตัวอยู่เหนือภาพเสมอ ถ้ายังไม่มีไฟล์ภาพ การ์ดจะเป็นพื้นเรียบตามปกติ */
 function cardArt(g) {
-  return `<span class="art" aria-hidden="true">
-    <span class="art-photo" style="background-image:url('assets/card/sdg-${gid(g.n)}.webp')"></span>
-    <span class="art-glow"></span>
-    <svg class="art-ic" viewBox="0 0 24 24">${IC[g.icon]}</svg></span>`;
+  return `<span class="art" aria-hidden="true"><span class="art-photo" style="background-image:url('assets/card/sdg-${gid(g.n)}.webp')"></span></span>`;
 }
+/* ไอคอนภาพขาวของแต่ละเป้าหมาย ใช้บนพื้นสีเข้มเท่านั้น ถ้าไม่มีไฟล์จะสลับไปใช้ไอคอนเส้นที่วาดเอง */
+function goalIcon(g, cls = '') {
+  return `<span class="gicon ${cls}"><img src="assets/icons/sdg-${gid(g.n)}.png" alt=""
+    onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerHTML:GICON_FALLBACK(${g.n})}).firstChild)">
+    </span>`;
+}
+function GICON_FALLBACK(n) { return svg(goalOf(n).icon, 'ghi'); }
 
 /* ───── Tooltip ───── */
 const TIP = { el: null, pinned: null };

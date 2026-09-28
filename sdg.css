@@ -110,19 +110,52 @@ img { max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
-/* ───── พื้นหลังการ์ดที่ไม่บังตัวเลข ─────
-   ทุกชั้นถูกจำกัดให้อยู่มุมขวาล่าง และถูกเฟดหายไปทางซ้าย
-   ตัวเลขและข้อความอยู่ใน stacking context ที่สูงกว่าเสมอ */
+/* ───── พื้นหลังการ์ด: ภาพจริงชั้นเดียว ไม่มีลายน้ำไอคอนทับ ───── */
 .art { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; z-index: 0; }
-.art-photo { position: absolute; right: 0; bottom: 0; width: 62%; height: 100%;
-  background-size: cover; background-position: center right; opacity: .16; filter: saturate(.75);
-  -webkit-mask-image: linear-gradient(100deg, transparent 8%, #000 72%);
-  mask-image: linear-gradient(100deg, transparent 8%, #000 72%); }
-.art-glow { position: absolute; right: -18%; bottom: -46%; width: 78%; padding-top: 78%;
-  border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--gc) 42%, transparent), transparent 66%); opacity: .5; }
-.art-ic { position: absolute; right: -10px; bottom: -14px; width: 108px; height: 108px; fill: none;
-  stroke: var(--gc); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; opacity: .16; }
-:root[data-theme="dark"] .art-photo { opacity: .26; }
-:root[data-theme="dark"] .art-ic { opacity: .22; }
-.art + * , .art ~ * { position: relative; z-index: 1; }
+.art-photo { position: absolute; right: 0; top: 0; bottom: 0; width: 66%;
+  background-size: cover; background-position: center right; opacity: .62;
+  -webkit-mask-image: linear-gradient(95deg, transparent 2%, #000 58%); mask-image: linear-gradient(95deg, transparent 2%, #000 58%); }
+.panel .art-photo { opacity: .22; height: 210px; bottom: auto; }
+.ind .art-photo { opacity: .2; }
+:root[data-theme="dark"] .panel .art-photo, :root[data-theme="dark"] .ind .art-photo { opacity: .14; }
+:root[data-theme="dark"] .art-photo { opacity: .34; filter: saturate(.85) brightness(.9); }
+.art + *, .art ~ * { position: relative; z-index: 1; }
 .spk { display: block; }
+
+/* ───── แถบเต็มความกว้าง ───── */
+.bleed { width: 100vw; margin-inline: calc(50% - 50vw); position: relative; }
+.gicon { display: inline-flex; }
+.gicon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* แบนเนอร์หน้าปก */
+.heroband { min-height: clamp(330px, 46vh, 470px); display: flex; align-items: flex-end;
+  background: var(--bg2) var(--cover) center/cover no-repeat; color: #fff; overflow: hidden; }
+.heroband::before { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(4,26,26,.42) 0%, rgba(4,26,26,.12) 38%, rgba(4,26,26,.72) 100%); }
+.heroband .wrap { position: relative; z-index: 1; padding-top: 40px; padding-bottom: 32px; width: 100%; }
+.heroband .kicker { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px 6px 6px; border-radius: 99px;
+  background: rgba(255,255,255,.16); backdrop-filter: blur(8px); font-size: 14px; }
+.heroband .kicker img { width: 30px; height: 30px; border-radius: 50%; background: #fff; }
+.heroband h1 { font: 600 clamp(29px, 4.2vw, 56px)/1.14 var(--fd); margin: 14px 0 10px; letter-spacing: -.015em;
+  text-shadow: 0 2px 24px rgba(0,0,0,.45); max-width: 17em; }
+.heroband p { margin: 0 0 18px; font-size: clamp(15px, 1.4vw, 17px); max-width: 44em; opacity: .94; text-shadow: 0 1px 12px rgba(0,0,0,.4); }
+.hstats { display: flex; flex-wrap: wrap; gap: 10px; }
+.hstat { padding: 10px 16px; border-radius: 14px; background: rgba(255,255,255,.14); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.2); }
+.hstat b { display: block; font: 700 25px/1.1 var(--fd); }
+.hstat span { font-size: 12.5px; opacity: .9; }
+
+/* แถบคั่นกลุ่ม 5P */
+.pband { position: relative; min-height: 210px; display: flex; align-items: center; color: #fff; overflow: hidden;
+  background: var(--ink) var(--img) center/cover no-repeat; margin-bottom: 22px; }
+.pband::before { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(6,28,28,.86) 0%, rgba(6,28,28,.6) 46%, rgba(6,28,28,.2) 100%); }
+.pband .wrap { position: relative; z-index: 1; padding-top: 26px; padding-bottom: 26px; width: 100%; }
+.pband .pnum { font: 600 13px var(--fd); letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.pband h3 { font: 600 clamp(26px, 3vw, 38px)/1.15 var(--fd); margin: 6px 0 8px; text-shadow: 0 2px 18px rgba(0,0,0,.4); }
+.pband p { margin: 0 0 14px; max-width: 40em; opacity: .93; }
+.pband .pmeta { display: flex; flex-wrap: wrap; gap: 8px; }
+.pband .pchip { display: inline-flex; align-items: center; gap: 7px; padding: 6px 13px; border-radius: 99px;
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.22); font-size: 13.5px; }
+.pband .pchip b { font-family: var(--fd); font-size: 15px; }
+@media (max-width: 640px) { .pband { min-height: 170px; } .pband::before { background: linear-gradient(90deg, rgba(6,28,28,.9), rgba(6,28,28,.55)); } }
