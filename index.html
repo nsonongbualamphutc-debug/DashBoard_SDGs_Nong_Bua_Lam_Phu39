@@ -23,7 +23,7 @@
 .legend i.dotline { background: repeating-linear-gradient(90deg, var(--ink3) 0 3px, transparent 3px 7px); height: 4px; margin-top: 7px; }
 
 /* ───── หน้าปก: บัว 17 กลีบ ───── */
-.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 4vw, 56px); align-items: center; padding: 22px 0 6px; }
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 4vw, 60px); align-items: center; padding: 40px 0 10px; }
 .lotus-wrap { position: relative; }
 #lotus { width: 100%; height: auto; display: block; overflow: visible; }
 .petal { cursor: pointer; transition: opacity .2s; }
@@ -40,6 +40,19 @@
 .scalet { font: 500 10px var(--fd); fill: var(--ink3); }
 .gnum { font: 700 13px var(--fd); fill: #fff; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
 .core { fill: var(--surf); stroke: var(--line); }
+.core-ring { fill: none; stroke: var(--gc, var(--brand)); stroke-width: 3; opacity: .9; transition: stroke .2s; }
+.petal path { transition: filter .2s; }
+.petal.act { filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .28)); }
+.pace { fill: none; stroke: var(--ink3); stroke-width: 1.6; stroke-dasharray: 7 6; opacity: .55; }
+.pacelab { font: 600 11px var(--fd); fill: var(--ink2); }
+.core-g { font: 700 12px var(--fd); fill: var(--gc); text-anchor: middle; letter-spacing: .08em; }
+.core-t { font: 500 13px var(--fb); fill: var(--ink2); text-anchor: middle; }
+.wheelbar { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 6px; flex-wrap: wrap; }
+.wbtn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 99px; border: 1px solid var(--line);
+  background: var(--surf); color: var(--ink); font: 500 14px var(--fb); cursor: pointer; }
+.wbtn:hover { border-color: var(--brand); }
+.wbtn.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.wbtn .ic { width: 16px; height: 16px; }
 .core-n { font: 700 54px var(--fd); fill: var(--ink); text-anchor: middle; }
 .core-s { font: 500 12.5px var(--fb); fill: var(--ink2); text-anchor: middle; }
 @keyframes bloom { from { r: 60; } }
@@ -66,7 +79,7 @@
 .wrow b { font: 600 16px var(--fd); }
 
 /* ───── ตัวเลขที่ต้องเห็นก่อน ───── */
-.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 52px 0 16px; flex-wrap: wrap; }
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 64px 0 18px; flex-wrap: wrap; }
 .sec-h h2 { font: 600 clamp(22px, 2.2vw, 29px)/1.25 var(--fd); margin: 0; }
 .sec-h p { margin: 0; color: var(--ink2); font-size: 14.5px; max-width: 42em; }
 .head4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
@@ -92,8 +105,8 @@
 .molab { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink3); margin-top: 6px; }
 
 /* ───── การ์ด 17 เป้าหมาย ───── */
-.psec { margin-bottom: 26px; }
-.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 12px; }
+.psec { margin-bottom: 40px; }
+.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 14px; }
 .gt { position: relative; overflow: hidden; display: block; padding: 16px 16px 14px; border-radius: var(--r-md); background: var(--surf);
   border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s, box-shadow .15s; }
 .gt:hover { border-color: var(--gc); transform: translateY(-3px); box-shadow: 0 18px 34px -24px color-mix(in srgb, var(--gc) 80%, transparent); }
@@ -128,7 +141,11 @@
 <header class="heroband" id="heroband"></header>
 <main class="wrap">
   <section class="hero">
-    <div class="lotus-wrap"><svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg></div>
+    <div class="lotus-wrap">
+      <svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg>
+      <div class="wheelbar"><button class="wbtn" id="tour" onclick="toggleTour()"></button>
+        <span style="color:var(--ink3);font-size:13px">ชี้ที่กลีบเพื่อดูรายละเอียด · คลิกเพื่อเปิดเป้าหมายนั้น</span></div>
+    </div>
     <div class="intro" id="intro"></div>
   </section>
 
@@ -178,7 +195,7 @@ function drawLotus() {
     h += `<clipPath id="cf${n}"><circle class="fillc" style="animation-delay:${.15 + i * .045}s" r="${R0 + (R1 - R0) * s / 100}"/></clipPath>`;
   });
   h += '</defs>';
-  [25, 50, 75, 100].forEach(v => {
+  [25, 50, 75].forEach(v => {
     const r = R0 + (R1 - R0) * v / 100, [tx, ty] = pt(r, -STEP / 2);
     h += `<circle class="scale" r="${r}"/><text class="scalet" x="${tx - 4}" y="${ty + 3}" text-anchor="end">${v}</text>`;
   });
@@ -201,15 +218,81 @@ function drawLotus() {
     h += `<text class="ringtxt"><textPath href="#${id}" startOffset="50%" text-anchor="middle">${p.goals.length > 1 ? p.th + ' · ' + p.en : p.th}</textPath></text>`;
     k += p.goals.length;
   });
-  h += `<circle class="core" r="${R0 - 12}"/>
-    <image href="assets/seal.png" x="-15" y="-58" width="30" height="30"/>
-    <text class="core-n" y="24">${fmt(overallScore(), 0)}</text>
-    <text class="core-s" y="44">คะแนนตามเวลา</text>`;
+  /* วงประ "ควรถึงแล้ว ณ ปีนี้" = คะแนน 100 */
+  h += `<circle class="pace" r="${R1}"/>`;
+  h += `<g id="core"></g>`;
   el.innerHTML = h;
+  drawCore(null);
+  const setAct = n => {
+    $$('.petal').forEach(p => p.classList.toggle('act', +p.dataset.g === n));
+    drawCore(n);
+  };
+  el.addEventListener('pointerover', e => { const p = e.target.closest('.petal'); if (p) { stopTour(); setAct(+p.dataset.g); } });
+  el.addEventListener('pointerleave', () => { if (!TOUR) setAct(null); });
+  el.addEventListener('focusin', e => { const p = e.target.closest('.petal'); if (p) setAct(+p.dataset.g); });
+  window.__setAct = setAct;
+  if ($('#tour') && !TOUR) $('#tour').innerHTML = svg('loop') + 'ไล่ดูทีละเป้าหมาย';
   el.onclick = e => { const p = e.target.closest('.petal'); if (p && !e.defaultPrevented) location.href = 'goal.html?g=' + p.dataset.g; };
   el.onkeydown = e => { const p = e.target.closest('.petal'); if (p && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = 'goal.html?g=' + p.dataset.g; } };
   applyFocus();
 }
+/* วงในตรงกลาง: ปกติแสดงคะแนนรวม ถ้าชี้ที่กลีบไหนจะเล่าเรื่องกลีบนั้น */
+function drawCore(n) {
+  const c = $('#core'); if (!c) return;
+  if (n == null) {
+    const st = statusOf(overallScore());
+    c.innerHTML = `<circle class="core" r="${R0 - 12}"/>
+      <circle class="core-ring" style="--gc:${st.c}" r="${R0 - 12}" stroke-dasharray="${2 * Math.PI * (R0 - 12) * overallScore() / 100} 9999" transform="rotate(-90)"/>
+      <image href="assets/seal.png" x="-15" y="-58" width="30" height="30"/>
+      <text class="core-n" y="22">${fmt(overallScore(), 0)}</text>
+      <text class="core-s" y="42">คะแนนรวมทั้งจังหวัด</text>`;
+    return;
+  }
+  const g = goalOf(n), s = goalScore(n), st = statusOf(s);
+  const [l1, l2] = wrapThai(g.th, 13);
+  c.innerHTML = `<circle class="core" r="${R0 - 12}"/>
+    <circle class="core-ring" style="--gc:${g.c}" r="${R0 - 12}" stroke-dasharray="${2 * Math.PI * (R0 - 12) * (s || 0) / 100} 9999" transform="rotate(-90)"/>
+    <text class="core-g" style="--gc:${g.c}" y="-38">SDG ${n}</text>
+    <text class="core-n" y="4" style="font-size:44px">${fmt(s, 0)}</text>
+    <text class="core-t" y="24">${esc(l1)}</text>${l2 ? `<text class="core-t" y="41">${esc(l2)}</text>` : ''}
+    <text class="core-s" y="${l2 ? 58 : 44}" style="fill:${st.c}">${st.th}</text>`;
+}
+
+/* ตัดคำไทยให้พอดีวงกลางไม่เกิน 2 บรรทัด */
+function wrapThai(text, max) {
+  let parts;
+  try { parts = [...new Intl.Segmenter('th', { granularity: 'word' }).segment(text)].map(x => x.segment); }
+  catch (e) { parts = text.split(/(\s+)/); }
+  const lines = ['', ''];
+  let i = 0, cut = false;
+  for (const w of parts) {
+    if (cut) { cut = true; break; }
+    if ((lines[i] + w).trim().length <= max) { lines[i] += w; continue; }
+    if (i === 0) { i = 1; lines[1] = w; continue; }
+    cut = true;
+  }
+  if (cut) lines[1] = lines[1].trim().slice(0, max - 1) + '…';
+  return [lines[0].trim(), lines[1].trim()];
+}
+
+/* ลูกเล่นสำหรับที่ประชุม: ไล่ไฮไลต์ทีละเป้าหมายอัตโนมัติ */
+let TOUR = null;
+function startTour() {
+  let i = 0;
+  const step = () => { window.__setAct(ORDER[i % 17]); i++; };
+  step(); TOUR = setInterval(step, 2600);
+  $('#tour').classList.add('on');
+  $('#tour').innerHTML = svg('flat') + 'หยุดไล่ดู';
+}
+function stopTour() {
+  if (!TOUR) return;
+  clearInterval(TOUR); TOUR = null;
+  $('#tour').classList.remove('on');
+  $('#tour').innerHTML = svg('loop') + 'ไล่ดูทีละเป้าหมาย';
+  window.__setAct(null);
+}
+function toggleTour() { TOUR ? stopTour() : startTour(); }
+
 function applyFocus() {
   $('#lotus').classList.toggle('lotus-dim', !!FOCUS);
   $$('.petal').forEach(p => p.classList.toggle('hl', p.dataset.p === FOCUS));
@@ -271,7 +354,8 @@ function renderMo() {
 
 function renderBanner() {
   const real = realCount(), all = indCount();
-  $('#heroband').innerHTML = `<div class="wrap">
+  $('#heroband').innerHTML = `<span class="lockup"><img src="assets/sdg-logo.webp" alt="Sustainable Development Goals"></span>
+    <div class="wrap">
     <span class="kicker"><img src="assets/seal.png" alt="">ศูนย์ข้อมูลการพัฒนาที่ยั่งยืน จังหวัดหนองบัวลำภู</span>
     <h1>17 เป้าหมายโลก อ่านเป็นภาษาหนองบัวลำภู</h1>
     <p>รวมตัวชี้วัดจากทุกหน่วยงานในจังหวัดไว้ที่เดียว บอกตรง ๆ ว่าเรื่องไหนทันเป้า เรื่องไหนช้า และตัวเลขนั้นมาจากไหน</p>
@@ -306,8 +390,7 @@ function renderPillars() {
         <span class="gtag">${g.tag}</span>
         <span class="gbar"><i><u style="width:${s ?? 0}%"></u></i><b>${fmt(s, 0)}</b></span>
         <span class="gmeta"><span class="chip"><i class="dot" style="background:${st.c}"></i>${st.th}</span>
-        ${real ? `<span class="chip real">ข้อมูลจริง ${real}/${inds.length}${per ? ' · ปี ' + per : ''}</span>` : '<span class="chip sim">จำลองทั้งหมด</span>'}
-        ${spark(inds[0].series, g.c, 70, 22)}</span></a>`;
+        ${real ? `<span class="chip real">ข้อมูลจริง ${real}/${inds.length}</span>` : '<span class="chip sim">จำลองทั้งหมด</span>'}</span></a>`;
     }).join('')}</div></div></section>`;
   }).join('');
 }
