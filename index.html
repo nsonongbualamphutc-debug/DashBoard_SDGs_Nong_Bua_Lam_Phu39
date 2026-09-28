@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SDGs หนองบัวลำภู · ศูนย์ข้อมูลการพัฒนาที่ยั่งยืน</title>
+<meta name="theme-color" content="#0b8a68">
+<link rel="icon" href="assets/seal.png">
+<link rel="stylesheet" href="sdg.css">
+<style>
+/* ───── หน้าปก: บัว 17 กลีบ ───── */
+.hero { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(20px, 4vw, 56px); align-items: center; padding: 26px 0 10px; }
+.lotus-wrap { position: relative; }
+#lotus { width: 100%; height: auto; display: block; overflow: visible; }
+.petal { cursor: pointer; transition: opacity .2s; }
+.petal .ghost { opacity: .13; }
+.petal:hover .ghost, .petal:focus .ghost { opacity: .26; }
+.petal:focus { outline: none; }
+.petal:focus-visible .edge { stroke: var(--ink); stroke-width: 2.5; }
+.petal .edge { fill: none; stroke: var(--surf); stroke-width: 1.4; }
+.lotus-dim .petal { opacity: .18; }
+.lotus-dim .petal.hl { opacity: 1; }
+.ringtxt { font: 600 13px var(--fd); fill: var(--ink2); letter-spacing: .02em; }
+.ringarc { fill: none; stroke: var(--line); stroke-width: 1.2; }
+.scale { fill: none; stroke: var(--grid); stroke-dasharray: 2 5; }
+.scalet { font: 500 10px var(--fd); fill: var(--ink3); }
+.gnum { font: 700 13px var(--fd); fill: #fff; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.core { fill: var(--surf); stroke: var(--line); }
+.core-n { font: 700 54px var(--fd); fill: var(--ink); text-anchor: middle; }
+.core-s { font: 500 12.5px var(--fb); fill: var(--ink2); text-anchor: middle; }
+@keyframes bloom { from { r: 60; } }
+.fillc { animation: bloom 1.4s cubic-bezier(.2, .8, .2, 1) both; }
+
+.intro h1 { font: 600 clamp(28px, 3.3vw, 46px)/1.2 var(--fd); margin: 0 0 14px; letter-spacing: -.01em; }
+.intro h1 span { display: inline-block; }
+.intro p.lead { color: var(--ink2); margin: 0 0 22px; max-width: 34em; }
+.statbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; background: var(--bg2); margin: 8px 0 10px; }
+.statbar i { display: block; height: 100%; }
+.statleg { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--ink2); margin-bottom: 22px; }
+.statleg b { color: var(--ink); font-family: var(--fd); font-size: 17px; margin-right: 2px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.pill { border: 1px solid var(--line); background: var(--surf); color: var(--ink); border-radius: 99px; padding: 7px 14px; font: 500 14px var(--fb); cursor: pointer; }
+.pill small { color: var(--ink3); margin-left: 5px; font-family: var(--fd); }
+.pill[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pill[aria-pressed="true"] small { color: inherit; opacity: .7; }
+.watch { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.watch h3 { font: 600 15px var(--fd); margin: 0 0 8px; color: var(--ink2); }
+.wrow { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); text-decoration: none; }
+.wrow .gb { flex: none; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; font: 700 14px var(--fd); }
+.wrow span { flex: 1; font-size: 14px; line-height: 1.35; }
+.wrow b { font: 600 16px var(--fd); }
+.coverage { margin-top: 18px; font-size: 13.5px; color: var(--ink2); }
+.coverage b { color: var(--ink); }
+
+/* ───── ตัวเลขจริงล่าสุด ───── */
+.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 48px 0 16px; flex-wrap: wrap; }
+.sec-h h2 { font: 600 clamp(22px, 2.2vw, 28px)/1.25 var(--fd); margin: 0; }
+.sec-h p { margin: 0; color: var(--ink2); font-size: 14.5px; max-width: 40em; }
+.pulse { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surf); overflow: hidden; }
+.pv { padding: 18px 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; position: relative; }
+.pv .k { display: flex; gap: 7px; align-items: center; color: var(--ink2); font-size: 13.5px; line-height: 1.35; min-height: 36px; }
+.pv .k em { font-style: normal; flex: none; padding: 0 6px; border-radius: 5px; color: #fff; font: 600 11.5px/1.6 var(--fd); }
+.pv .v { font: 600 32px/1.15 var(--fd); margin-top: 6px; }
+.pv .v small { font: 400 13px var(--fb); color: var(--ink2); margin-left: 4px; }
+.pv .s { font-size: 12.5px; color: var(--ink3); }
+
+/* ───── 17 เป้าหมาย จัดตาม 5P ───── */
+.pillar { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--line); }
+.pillar h3 { font: 600 22px/1.2 var(--fd); margin: 0; }
+.pillar h3 small { display: block; font: 500 13px var(--fd); color: var(--ink3); margin-top: 3px; }
+.pillar p { color: var(--ink2); font-size: 14px; margin: 8px 0 0; }
+.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 12px; }
+.gt { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; padding: 14px 14px 13px; border-radius: var(--r-md); background: var(--surf);
+  border: 1px solid var(--line); text-decoration: none; position: relative; overflow: hidden; transition: border-color .15s, transform .15s; }
+.gt:hover { border-color: var(--gc); transform: translateY(-2px); }
+.gt::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--gc); }
+.gt .gn { grid-row: span 2; font: 700 40px/1 var(--fd); color: var(--gc); min-width: 44px; }
+.gt .gname { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.gt .gloc { grid-column: 1 / -1; color: var(--ink2); font-size: 13px; line-height: 1.45; margin-top: 4px; }
+.gt .gbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.gt .gbar i { flex: 1; height: 6px; border-radius: 9px; background: var(--bg2); position: relative; overflow: hidden; }
+.gt .gbar i u { position: absolute; inset: 0 auto 0 0; border-radius: 9px; background: var(--gc); }
+.gt .gbar b { font: 600 15px var(--fd); min-width: 30px; text-align: right; }
+.gt .gmeta { grid-column: 1 / -1; display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+
+/* ───── ระบบที่เชื่อมกัน ───── */
+.links { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+.lk { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surf); text-decoration: none; }
+.lk:hover { border-color: var(--brand); }
+.lk .sw { display: flex; gap: 3px; flex: none; }
+.lk .sw i { width: 22px; height: 22px; border-radius: 6px; color: #fff; font: 700 11px/22px var(--fd); text-align: center; font-style: normal; }
+.lk span { flex: 1; font-size: 14.5px; font-weight: 500; line-height: 1.35; }
+.lk.off { opacity: .6; border-style: dashed; cursor: default; }
+.lk .ic { color: var(--ink3); }
+
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; }
+  .lotus-wrap { max-width: 620px; margin: 0 auto; width: 100%; }
+  .pillar { grid-template-columns: 1fr; gap: 12px; }
+}
+@media (max-width: 860px) { .pulse { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .watch { grid-template-columns: 1fr; } .pv .v { font-size: 27px; } }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<main class="wrap">
+  <section class="hero">
+    <div class="lotus-wrap"><svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg></div>
+    <div class="intro" id="intro"></div>
+  </section>
+
+  <div class="sec-h"><h2>ตัวเลขจริงล่าสุดของจังหวัด</h2><p>ชุดข้อมูลที่หน่วยงานยืนยันแล้ว ชี้ที่ตัวเลขเพื่อดูที่มาและวิธีอ่าน</p></div>
+  <div class="pulse" id="pulse"></div>
+
+  <div class="sec-h"><h2>17 เป้าหมายในบริบทหนองบัวลำภู</h2><p>จัดกลุ่มตามหลัก 5P ของสหประชาชาติ แต่ละเป้าหมายเลือกตัวชี้วัดที่จังหวัดมีข้อมูลและลงมือแก้ได้จริง</p></div>
+  <div id="pillars"></div>
+
+  <div class="sec-h"><h2>ระบบข้อมูลของจังหวัดที่ป้อนเข้าเป้าหมาย</h2><p>แดชบอร์ดเฉพาะเรื่องที่มีอยู่แล้ว เชื่อมเข้ามาเป็นแหล่งข้อมูลของแต่ละเป้าหมาย</p></div>
+  <div class="links" id="links"></div>
+</main>
+<footer class="foot"><div class="wrap">
+  <div>สำนักงานสถิติจังหวัดหนองบัวลำภู · ศาลากลางจังหวัด ชั้น 2 · โทร 0 4231 6736</div>
+  <div>แหล่งข้อมูลหลัก: บัญชีข้อมูลจังหวัดหนองบัวลำภู (nongbualamphu.gdcatalog.go.th) และหน่วยงานเจ้าของตัวชี้วัด</div>
+</div></footer>
+
+<script src="sdg-data.js"></script>
+<script src="sdg.js"></script>
+<script>
+/* ลำดับกลีบ: เรียงตาม 5P ให้แต่ละกลุ่มอยู่ติดกัน */
+const ORDER = PILLARS.flatMap(p => p.goals);
+const R0 = 82, R1 = 272, STEP = 360 / 17, HALF = STEP / 2 - 1.3;
+const rad = d => (d - 90) * Math.PI / 180;
+const pt = (r, d) => [r * Math.cos(rad(d)), r * Math.sin(rad(d))];
+let FOCUS = null;
+
+function petalPath(a) {
+  /* กลีบบัว: โคนแคบ ป่องกลาง ปลายแหลม */
+  const [x0, y0] = pt(R0 - 4, a), [xt, yt] = pt(R1, a);
+  const [l1x, l1y] = pt(R0 + (R1 - R0) * .42, a - HALF), [r1x, r1y] = pt(R0 + (R1 - R0) * .42, a + HALF);
+  const [l2x, l2y] = pt(R1 * .93, a - HALF * .55), [r2x, r2y] = pt(R1 * .93, a + HALF * .55);
+  return `M${x0},${y0} C${l1x},${l1y} ${l2x},${l2y} ${xt},${yt} C${r2x},${r2y} ${r1x},${r1y} ${x0},${y0}Z`;
+}
+function arcPath(r, a1, a2) {
+  const [x1, y1] = pt(r, a1), [x2, y2] = pt(r, a2);
+  return `M${x1},${y1} A${r},${r} 0 ${a2 - a1 > 180 ? 1 : 0} 1 ${x2},${y2}`;
+}
+function goalTip(g) {
+  const s = goalScore(g.n), st = statusOf(s);
+  const rows = indsOf(g.n).map(x => {
+    const sc = indScore(x);
+    return `<div class="tp-sub"><i class="dot" style="background:${statusOf(sc).c}"></i>${x.name} · <b style="color:#fff">${fmt(x.value, x.dec)}</b> ${x.unit}${x.real ? ' ✓' : ''}</div>`;
+  }).join('');
+  return esc(`<div class="tp-h" style="--gc:${g.c}"><b>SDG ${g.n}</b> ${g.th}</div>
+    <div class="tp-v"><span>${s == null ? '—' : fmt(s, 0)}</span> <small>/ 100 · ${st.th}</small></div>
+    <div class="tp-note" style="margin:0 0 8px">${g.local}</div>${rows}
+    <div class="tp-src">${g.adapted ? g.adapted + ' · ' : ''}คลิกเพื่อดูรายละเอียดเป้าหมาย</div>`);
+}
+
+function drawLotus() {
+  const el = $('#lotus');
+  let h = '<defs>';
+  ORDER.forEach((n, i) => {
+    const s = goalScore(n) ?? 0;
+    h += `<clipPath id="cf${n}"><circle class="fillc" style="animation-delay:${.15 + i * .045}s" r="${R0 + (R1 - R0) * s / 100}"/></clipPath>`;
+  });
+  h += '</defs>';
+  [25, 50, 75, 100].forEach(v => {
+    const r = R0 + (R1 - R0) * v / 100;
+    h += `<circle class="scale" r="${r}"/><text class="scalet" x="${pt(r, -STEP / 2)[0] - 4}" y="${pt(r, -STEP / 2)[1] + 3}" text-anchor="end">${v}</text>`;
+  });
+  ORDER.forEach((n, i) => {
+    const g = goalOf(n), a = i * STEP, d = petalPath(a);
+    const [nx, ny] = pt(R1 + 20, a);
+    h += `<g class="petal" data-g="${n}" data-p="${pillarOf(n).id}" tabindex="0" role="link" aria-label="SDG ${n} ${g.th} คะแนน ${fmt(goalScore(n), 0)}" data-tip="${goalTip(g)}">
+      <path class="ghost" d="${d}" fill="${g.c}"/>
+      <path d="${d}" fill="${g.c}" clip-path="url(#cf${n})"/>
+      <path class="edge" d="${d}"/>
+      <circle cx="${nx}" cy="${ny}" r="14" fill="${g.c}"/><text class="gnum" x="${nx}" y="${ny}">${n}</text></g>`;
+  });
+  /* วงกลุ่ม 5P ด้านนอก */
+  let k = 0;
+  PILLARS.forEach(p => {
+    const a1 = k * STEP - STEP / 2 + 2, a2 = (k + p.goals.length) * STEP - STEP / 2 - 2;
+    const id = 'arc-' + p.id, r = R1 + 46, mid = (a1 + a2) / 2;
+    const flip = mid > 90 && mid < 270;
+    h += `<path class="ringarc" d="${arcPath(r - 8, a1, a2)}"/>`;
+    h += flip ? `<path id="${id}" d="${arcPath(r + 4, a2, a1).replace(' 0 1 ', ' 0 0 ')}" fill="none"/>`
+              : `<path id="${id}" d="${arcPath(r, a1, a2)}" fill="none"/>`;
+    h += `<text class="ringtxt"><textPath href="#${id}" startOffset="50%" text-anchor="middle">${p.goals.length > 1 ? p.th + ' · ' + p.en : p.th}</textPath></text>`;
+    k += p.goals.length;
+  });
+  const ov = overallScore();
+  h += `<circle class="core" r="${R0 - 12}"/>
+    <image href="assets/seal.png" x="-15" y="-58" width="30" height="30"/>
+    <text class="core-n" y="24">${fmt(ov, 0)}</text>
+    <text class="core-s" y="44">คะแนนตามเวลา</text>`;
+  el.innerHTML = h;
+  el.onclick = e => { const p = e.target.closest('.petal'); if (p && !e.defaultPrevented) location.href = 'goal.html?g=' + p.dataset.g; };
+  el.onkeydown = e => { const p = e.target.closest('.petal'); if (p && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = 'goal.html?g=' + p.dataset.g; } };
+  applyFocus();
+}
+function applyFocus() {
+  const el = $('#lotus');
+  el.classList.toggle('lotus-dim', !!FOCUS);
+  $$('.petal').forEach(p => p.classList.toggle('hl', p.dataset.p === FOCUS));
+  $$('.pill').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === FOCUS));
+}
+
+function renderIntro() {
+  const sc = GOALS.map(g => goalScore(g.n));
+  const cnt = STATUS.map(s => sc.filter(v => statusOf(v).key === s.key).length);
+  const rank = GOALS.map(g => ({ g, s: goalScore(g.n) })).sort((a, b) => a.s - b.s);
+  const wrow = o => `<a class="wrow" href="goal.html?g=${o.g.n}" data-tip="${goalTip(o.g)}"><em class="gb" style="background:${o.g.c}">${o.g.n}</em><span>${o.g.th}</span><b>${fmt(o.s, 0)}</b></a>`;
+  const real = INDICATORS.filter(x => x.real).length;
+  $('#intro').innerHTML = `
+    <h1><span>หนองบัวลำภู</span><span>เดินมาถึงไหนแล้ว</span> <span>ใน 17 เป้าหมาย</span> <span>การพัฒนาที่ยั่งยืน</span></h1>
+    <p class="lead">กลีบบัวหนึ่งกลีบคือหนึ่งเป้าหมาย สีที่เติมเต็มกลีบแปลว่าเดินได้ทันกำหนดเป้าหมายปี ${SDG_CFG.targetYear} วัดจาก ${INDICATORS.length} ตัวชี้วัดของ ${new Set(INDICATORS.map(x => x.agency)).size} หน่วยงาน ชี้หรือแตะที่กลีบเพื่อดูว่าตัวเลขไหนดึงคะแนนขึ้นหรือลง</p>
+    <div class="statbar" aria-hidden="true">${STATUS.map((s, i) => `<i style="flex:${cnt[i]};background:${s.c}"></i>`).join('')}</div>
+    <div class="statleg">${STATUS.map((s, i) => `<span><i class="dot" style="background:${s.c}"></i><b>${cnt[i]}</b> ${s.th}</span>`).join('')}</div>
+    <div class="pills" role="group" aria-label="กรองตามกลุ่ม 5P">${PILLARS.map(p => `<button class="pill" data-p="${p.id}" aria-pressed="false">${p.th}<small>${p.goals.length}</small></button>`).join('')}</div>
+    <div class="watch">
+      <div><h3>ต้องเร่งรัดก่อน</h3>${rank.slice(0, 3).map(wrow).join('')}</div>
+      <div><h3>ทำได้ดีที่สุด</h3>${rank.slice(-3).reverse().map(wrow).join('')}</div>
+    </div>
+    <div class="coverage" data-tip="${esc(`<b>ความครบถ้วนของข้อมูล</b><div class="tp-note">ตัวชี้วัดที่ยังไม่มีข้อมูลจริงใช้ค่าตัวอย่างเพื่อวางโครงระบบ คะแนนภาพรวมจะเปลี่ยนเมื่อหน่วยงานส่งข้อมูลเข้า Google Sheets</div>`)}">
+      ข้อมูลจริงแล้ว <b>${real} จาก ${INDICATORS.length}</b> ตัวชี้วัด · ที่เหลือเป็นค่าตัวอย่าง รอหน่วยงานเจ้าของยืนยัน</div>`;
+  $$('.pill').forEach(b => b.onclick = () => { FOCUS = FOCUS === b.dataset.p ? null : b.dataset.p; applyFocus(); });
+}
+
+function renderPulse() {
+  const base = [
+    { k: 'ประชากร', v: PROVINCE.pop, u: 'คน', s: `ชาย ${fmt(PROVINCE.popM)} · หญิง ${fmt(PROVINCE.popF)}`, tip: 'ฐานข้อมูลพื้นฐานด้านการเกษตร ณ ก.ค. 2569' },
+    { k: 'เขตปกครอง', v: PROVINCE.muban, u: 'หมู่บ้าน', s: `${PROVINCE.amphoe} อำเภอ ${PROVINCE.tambon} ตำบล`, tip: 'ฐานข้อมูลพื้นฐานด้านการเกษตร ณ ก.ค. 2569' }
+  ].map(o => `<div class="pv" data-tip="${esc(`<b>${o.k}</b><div class="tp-src real">ข้อมูลจริง · ${o.tip}</div>`)}"><div class="k">${o.k}</div><div class="v">${fmt(o.v)}<small>${o.u}</small></div><div class="s">${o.s}</div></div>`);
+  const real = INDICATORS.filter(x => x.real).map(x => {
+    const g = goalOf(x.g), last = x.series.at(-1);
+    const tr = x.series.length > 1 ? trendHtml(x, true) + ' · ' : '';
+    return `<div class="pv" data-tip="${indTip(x)}"><div class="k"><em style="background:${g.c}">${g.n}</em>${x.name}</div>
+      <div class="v">${fmt(x.value, x.dec)}<small>${x.unit}</small></div><div class="s">${tr}ช่วง ${last.p}</div></div>`;
+  });
+  $('#pulse').innerHTML = base.concat(real).join('');
+}
+
+function renderPillars() {
+  $('#pillars').innerHTML = PILLARS.map(p => `<section class="pillar"><div><h3>${p.th}<small>${p.en}</small></h3><p>${p.note}</p></div>
+    <div class="gtiles">${p.goals.map(n => {
+      const g = goalOf(n), s = goalScore(n), st = statusOf(s), inds = indsOf(n), real = inds.filter(x => x.real).length;
+      return `<a class="gt" style="--gc:${g.c}" href="goal.html?g=${n}" data-tip="${goalTip(g)}">
+        <span class="gn">${n}</span><span class="gname">${g.th}</span>
+        <span class="gloc">${g.local}</span>
+        <span class="gbar"><i><u style="width:${s ?? 0}%"></u></i><b>${fmt(s, 0)}</b></span>
+        <span class="gmeta"><span class="chip"><i class="dot" style="background:${st.c}"></i>${st.th}</span>
+        <span class="chip ${real ? 'real' : 'mock'}">${real ? `ข้อมูลจริง ${real}/${inds.length}` : 'ข้อมูลตัวอย่าง'}</span></span></a>`;
+    }).join('')}</div></section>`).join('');
+}
+
+function renderLinks() {
+  $('#links').innerHTML = LINKED.map(l => {
+    const sw = l.goals.map(n => `<i style="background:${goalOf(n).c}">${n}</i>`).join('');
+    const tip = esc(`<b>${l.name}</b><div class="tp-note">ป้อนข้อมูลให้ SDG ${l.goals.join(', ')}</div><div class="tp-src">${l.url ? 'เปิดแดชบอร์ดในแท็บใหม่' : 'ยังไม่ได้ตั้งลิงก์ · ผู้ดูแลกำหนดได้ในหน้าตั้งค่า'}</div>`);
+    return l.url
+      ? `<a class="lk" href="${l.url}" target="_blank" rel="noopener" data-tip="${tip}"><span class="sw">${sw}</span><span>${l.name}</span>${svg('ext')}</a>`
+      : `<div class="lk off" data-tip="${tip}"><span class="sw">${sw}</span><span>${l.name}</span></div>`;
+  }).join('');
+}
+
+function renderCover() {
+  $('#bar').innerHTML = topbar('cover');
+  drawLotus(); renderIntro(); renderPulse(); renderPillars(); renderLinks();
+}
+SDG.init('cover', renderCover);
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/* ══════════════════════════════════════════════════════════════
+   sdg.css — ธีมร่วม SDGs หนองบัวลำภู
+   สีสดมีแค่ 17 สีของเป้าหมาย พื้นหลังและตัวอักษรเป็นโทนเขียวหมอกเงียบ ๆ
+   ══════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #edf3f2; --bg2: #e3ecea; --surf: #ffffff; --surf2: #f6faf9;
+  --ink: #10292e; --ink2: #47626a; --ink3: #7b9398; --line: #d2e0dd;
+  --brand: #0b8a68; --brand-ink: #06533f;
+  --grid: rgba(16, 41, 46, .08);
+  --shadow: 0 1px 0 rgba(16, 41, 46, .04), 0 10px 30px -18px rgba(16, 41, 46, .35);
+  --r-lg: 22px; --r-md: 14px; --r-sm: 9px;
+  --fd: 'Chakra Petch', 'IBM Plex Sans Thai', system-ui, sans-serif;
+  --fb: 'IBM Plex Sans Thai', 'Sarabun', system-ui, sans-serif;
+  --bgimg: none; --bgop: .0;
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+:root[data-theme="dark"] {
+  --bg: #071619; --bg2: #0b1f23; --surf: #0f272c; --surf2: #122f35;
+  --ink: #e4f0ee; --ink2: #a6bfc2; --ink3: #6f8a8f; --line: #1f3f45;
+  --brand: #2fc497; --brand-ink: #7fe6c4;
+  --grid: rgba(228, 240, 238, .07);
+  --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 14px 34px -20px rgba(0, 0, 0, .9);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.65 var(--fb); -webkit-font-smoothing: antialiased; }
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: var(--bgimg) center/cover; opacity: var(--bgop); pointer-events: none; }
+a { color: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+.ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 36px); }
+.num { font-family: var(--fd); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+
+/* ───── แถบบน ───── */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; display: flex; align-items: center; gap: 14px;
+  padding: 10px clamp(16px, 3vw, 36px); background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand img { width: 38px; height: 38px; border-radius: 50%; background: #fff; }
+.brand b { display: block; font: 600 17px/1.2 var(--fd); }
+.brand small { display: block; color: var(--ink2); font-size: 12.5px; line-height: 1.3; }
+.livechip { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; padding: 5px 12px; border-radius: 99px;
+  border: 1px solid var(--line); color: var(--ink2); font-size: 13px; white-space: nowrap; background: var(--surf); }
+.livechip i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink3); }
+.livechip.on i { background: #1fbf6f; box-shadow: 0 0 0 0 rgba(31, 191, 111, .6); animation: ping 2.2s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(31, 191, 111, 0); } 100% { box-shadow: 0 0 0 0 rgba(31, 191, 111, 0); } }
+.tools { display: flex; gap: 6px; margin-left: auto; }
+.livechip + .tools { margin-left: 0; }
+.tbtn { display: inline-flex; align-items: center; gap: 6px; height: 38px; min-width: 38px; justify-content: center; padding: 0 10px;
+  border: 1px solid var(--line); border-radius: 11px; background: var(--surf); color: var(--ink); font: 500 14px var(--fb); cursor: pointer; text-decoration: none; }
+.tbtn:hover { border-color: var(--brand); color: var(--brand-ink); }
+@media (max-width: 720px) { .livechip { display: none; } .tbtn span { display: none; } .brand small { display: none; } }
+
+/* ───── Tooltip ───── */
+.tip { position: fixed; left: 0; top: 0; z-index: 100; max-width: min(360px, calc(100vw - 16px)); padding: 12px 14px 11px;
+  background: #0d2226; color: #e8f3f1; border-radius: 13px; box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .55);
+  font-size: 13.5px; line-height: 1.5; pointer-events: none; opacity: 0; transition: opacity .12s; }
+.tip.on { opacity: 1; }
+.tp-h { display: flex; gap: 8px; align-items: baseline; font-weight: 600; font-size: 14px; }
+.tp-h b { flex: none; padding: 1px 7px; border-radius: 6px; background: var(--gc); color: #fff; font: 600 12px var(--fd); }
+.tp-v { margin: 6px 0 4px; }
+.tp-v span { font: 600 26px/1.1 var(--fd); }
+.tp-v small { color: #9fbcbc; }
+.tp-dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 6px 0; }
+.tp-dl dt { color: #8fb0b0; }
+.tp-dl dd { margin: 0; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.tp-src { margin-top: 6px; padding-top: 7px; border-top: 1px solid rgba(255, 255, 255, .12); color: #f2c46d; font-size: 12.5px; }
+.tp-src.real { color: #7fe6b9; }
+.tp-note { margin-top: 5px; color: #b9cccc; font-size: 12.5px; }
+.tp-sub { color: #9fbcbc; font-size: 12.5px; }
+
+/* ───── ชิปสถานะ ───── */
+.chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 500;
+  background: var(--surf2); color: var(--ink2); border: 1px solid var(--line); white-space: nowrap; }
+.chip.real { background: color-mix(in srgb, #1e9e5a 14%, var(--surf)); color: #137a44; border-color: color-mix(in srgb, #1e9e5a 35%, transparent); }
+.chip.mock { background: color-mix(in srgb, #e89b1c 13%, var(--surf)); color: #9a5f00; border-color: color-mix(in srgb, #e89b1c 35%, transparent); }
+:root[data-theme="dark"] .petal .ghost { opacity: .22; }
+:root[data-theme="dark"] .chip.real { color: #7fe6b9; }
+:root[data-theme="dark"] .chip.mock { color: #f2c46d; }
+.trend { display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; }
+.trend .ic { width: 16px; height: 16px; stroke-width: 2.4; }
+.trend.good { color: #1e9e5a; } .trend.bad { color: #d8413a; } .trend.flat { color: var(--ink3); }
+
+.foot { margin: 60px 0 0; padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--ink2); font-size: 13.5px; }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 10px 30px; justify-content: space-between; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
