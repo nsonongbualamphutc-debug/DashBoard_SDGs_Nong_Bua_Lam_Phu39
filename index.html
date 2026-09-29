@@ -22,6 +22,26 @@
 .legend i.half { background: linear-gradient(90deg, var(--brand) 45%, var(--bg2) 45%); }
 .legend i.dotline { background: repeating-linear-gradient(90deg, var(--ink3) 0 3px, transparent 3px 7px); height: 4px; margin-top: 7px; }
 
+/* ───── เวทีแสดงผล 2 มุมมอง ───── */
+.stagewrap { position: relative; }
+.stage3d { display: none; width: 100%; min-height: 360px; }
+.stage3d canvas { border-radius: 26px; }
+body.v3d .stage3d { display: block; }
+body.v3d #lotus { display: none; }
+.r3d { display: none; position: absolute; left: 14px; bottom: 16px;
+  min-width: 168px; padding: 14px 18px 12px; border-radius: 18px; text-align: left; pointer-events: none;
+  background: color-mix(in srgb, var(--surf) 76%, transparent); border: 1px solid var(--line);
+  backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 24px 50px -30px rgba(0,0,0,.6); }
+body.v3d .r3d { display: block; }
+.r3d .g { font: 700 12px var(--fd); letter-spacing: .1em; color: var(--gc, var(--brand)); }
+.r3d .n { font: 700 40px/1 var(--fd); margin: 4px 0 2px; }
+.r3d .t { font-size: 13.5px; color: var(--ink2); max-width: 14em; line-height: 1.35; }
+.r3d .s { font-size: 12.5px; margin-top: 5px; }
+.seg { display: inline-flex; padding: 3px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); }
+.segb { border: 0; background: transparent; color: var(--ink2); font: 500 14px var(--fb); padding: 6px 15px; border-radius: 99px; cursor: pointer; }
+.segb[aria-pressed="true"] { background: var(--surf); color: var(--ink); box-shadow: var(--shadow); }
+.wheelhint { text-align: center; color: var(--ink3); font-size: 13px; margin-top: 8px; }
+
 /* ───── หน้าปก: บัว 17 กลีบ ───── */
 .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 4vw, 60px); align-items: center; padding: 40px 0 10px; }
 .lotus-wrap { position: relative; }
@@ -85,7 +105,8 @@
 .head4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .hcard { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surf);
   padding: 18px 20px 16px; text-decoration: none; color: inherit; display: block; transition: transform .15s, border-color .15s; }
-.hcard:hover { transform: translateY(-3px); border-color: var(--gc); }
+.head4 { perspective: 1400px; }
+.hcard:hover { transform: translateY(-4px) rotateX(2.5deg); border-color: var(--gc); box-shadow: 0 24px 44px -30px rgba(0,0,0,.55); }
 .hcard .k { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink2); min-height: 38px; line-height: 1.35; }
 .hcard .k em { font-style: normal; flex: none; padding: 1px 7px; border-radius: 6px; color: #fff; font: 600 12px var(--fd); background: var(--gc); }
 .hcard .v { font: 600 clamp(30px, 3vw, 40px)/1.05 var(--fd); margin: 8px 0 2px; }
@@ -106,10 +127,10 @@
 
 /* ───── การ์ด 17 เป้าหมาย ───── */
 .psec { margin-bottom: 40px; }
-.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 14px; }
+.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 14px; perspective: 1200px; }
 .gt { position: relative; overflow: hidden; display: block; padding: 16px 16px 14px; border-radius: var(--r-md); background: var(--surf);
   border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s, box-shadow .15s; }
-.gt:hover { border-color: var(--gc); transform: translateY(-3px); box-shadow: 0 18px 34px -24px color-mix(in srgb, var(--gc) 80%, transparent); }
+.gt:hover { border-color: var(--gc); transform: translateY(-4px) rotateX(3deg); box-shadow: 0 22px 40px -26px color-mix(in srgb, var(--gc) 85%, transparent); }
 .gt::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--gc); z-index: 1; }
 .gt .hd { display: flex; align-items: baseline; gap: 10px; }
 .gt .gn { font: 700 34px/1 var(--fd); color: var(--gc); }
@@ -142,9 +163,19 @@
 <main class="wrap">
   <section class="hero">
     <div class="lotus-wrap">
-      <svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg>
-      <div class="wheelbar"><button class="wbtn" id="tour" onclick="toggleTour()"></button>
-        <span style="color:var(--ink3);font-size:13px">ชี้ที่กลีบเพื่อดูรายละเอียด · คลิกเพื่อเปิดเป้าหมายนั้น</span></div>
+      <div class="stagewrap">
+        <div id="stage3d" class="stage3d" aria-hidden="true"></div>
+        <div class="r3d" id="r3d"></div>
+        <svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg>
+      </div>
+      <div class="wheelbar">
+        <div class="seg" role="group" aria-label="เลือกมุมมอง">
+          <button class="segb" data-v="3d" onclick="setView('3d')">3 มิติ</button>
+          <button class="segb" data-v="2d" onclick="setView('2d')">วงบัว</button>
+        </div>
+        <button class="wbtn" id="tour" onclick="toggleTour()"></button>
+      </div>
+      <div class="wheelhint" id="wheelhint"></div>
     </div>
     <div class="intro" id="intro"></div>
   </section>
@@ -167,9 +198,11 @@
   <div>แหล่งข้อมูลหลัก: บัญชีข้อมูลจังหวัดหนองบัวลำภู (nongbualamphu.gdcatalog.go.th) และหน่วยงานเจ้าของตัวชี้วัด</div>
 </div></footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="sdg-real.js"></script>
 <script src="sdg-data.js"></script>
 <script src="sdg.js"></script>
+<script src="sdg3d.js"></script>
 <script>
 const ORDER = PILLARS.flatMap(p => p.goals);
 const R0 = 82, R1 = 272, STEP = 360 / 17, HALF = STEP / 2 - 1.3;
@@ -275,11 +308,59 @@ function wrapThai(text, max) {
   return [lines[0].trim(), lines[1].trim()];
 }
 
+/* ───── สลับมุมมอง 3 มิติ / วงบัว ───── */
+let VIEW = '2d';
+function readout3d(n) {
+  const el = $('#r3d'); if (!el) return;
+  if (n == null) {
+    const st = statusOf(overallScore());
+    el.style.setProperty('--gc', 'var(--brand)');
+    el.innerHTML = `<div class="g">NONG BUA LAM PHU</div><div class="n">${fmt(overallScore(), 0)}</div>
+      <div class="t">คะแนนรวมทั้งจังหวัด</div><div class="s" style="color:${st.c}">${st.th}</div>`;
+    return;
+  }
+  const g = goalOf(n), sc = goalScore(n), st = statusOf(sc);
+  el.style.setProperty('--gc', g.c);
+  el.innerHTML = `<div class="g">SDG ${n}</div><div class="n">${fmt(sc, 0)}</div>
+    <div class="t">${esc(g.th)}</div><div class="s" style="color:${st.c}">${st.th}</div>`;
+}
+function drawLegend() {
+  const el = $('#legend'); if (!el) return;
+  el.innerHTML = VIEW === '3d'
+    ? `<h4>อ่านวง 3 มิตินี้อย่างไร</h4><ul>
+        <li><i></i><span>เสาหนึ่งต้นคือหนึ่งเป้าหมาย ยิ่งสูงยิ่งเดินได้ไกลเทียบกับเวลาที่ผ่านไป</span></li>
+        <li><i class="half"></i><span>เสาที่ยังไม่ถึงวงแหวนเรืองแสง = ช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
+        <li><i class="dotline"></i><span>เสาเรียงตามกลุ่ม 5P คน · ความมั่งคั่ง · สิ่งแวดล้อม · สันติภาพ · หุ้นส่วน</span></li>
+      </ul>`
+    : `<h4>อ่านวงบัวนี้อย่างไร</h4><ul>
+        <li><i></i><span>กลีบที่สีเต็มความยาว = เดินได้ทันกำหนดของเป้าหมายปี ${SDG_CFG.targetYear}</span></li>
+        <li><i class="half"></i><span>กลีบที่สีเติมไม่ถึงปลาย = ยังช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
+        <li><i class="dotline"></i><span>วงประด้านใน คือเส้นระดับคะแนน 25 · 50 · 75 · 100 · ตัวเลขกลางวงคือคะแนนเฉลี่ยทั้งจังหวัด</span></li>
+      </ul>`;
+}
+
+function setView(v) {
+  if (v === '3d' && !has3D()) v = '2d';
+  VIEW = v;
+  document.body.classList.toggle('v3d', v === '3d');
+  $$('.segb').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+  $('#wheelhint').textContent = v === '3d'
+    ? 'ลากเพื่อหมุนวง · ชี้ที่เสาเพื่อดูคะแนน · คลิกเพื่อเปิดเป้าหมายนั้น · เสาที่สูงถึงวงแหวนคือทันกำหนด'
+    : 'ชี้ที่กลีบเพื่อดูรายละเอียด · คลิกเพื่อเปิดเป้าหมายนั้น';
+  try { localStorage.setItem('nblSdg.view', v); } catch (e) {}
+  drawLegend();
+  if (v === '3d') {
+    if (!S3.ok) mount3D('#stage3d', readout3d, n => location.href = 'goal.html?g=' + n);
+    readout3d(null);
+  }
+}
+function hilite(n) { VIEW === '3d' && S3.setHover ? S3.setHover(n) : window.__setAct(n); }
+
 /* ลูกเล่นสำหรับที่ประชุม: ไล่ไฮไลต์ทีละเป้าหมายอัตโนมัติ */
 let TOUR = null;
 function startTour() {
   let i = 0;
-  const step = () => { window.__setAct(ORDER[i % 17]); i++; };
+  const step = () => { hilite(ORDER[i % 17]); i++; };
   step(); TOUR = setInterval(step, 2600);
   $('#tour').classList.add('on');
   $('#tour').innerHTML = svg('flat') + 'หยุดไล่ดู';
@@ -289,7 +370,7 @@ function stopTour() {
   clearInterval(TOUR); TOUR = null;
   $('#tour').classList.remove('on');
   $('#tour').innerHTML = svg('loop') + 'ไล่ดูทีละเป้าหมาย';
-  window.__setAct(null);
+  hilite(null);
 }
 function toggleTour() { TOUR ? stopTour() : startTour(); }
 
@@ -309,11 +390,7 @@ function renderIntro() {
     <p class="lead">กลีบบัวหนึ่งกลีบคือหนึ่งเป้าหมาย กลีบที่สีเติมเต็มคือเดินได้ทันกำหนดปี ${SDG_CFG.targetYear}
       วัดจาก ${indCount()} ตัวชี้วัดของ ${new Set(INDICATORS.map(x => x.agency)).size} หน่วยงาน
       โดย ${realCount()} ตัวใช้ข้อมูลจริงจากบัญชีข้อมูลจังหวัดแล้ว</p>
-    <div class="legend"><h4>อ่านวงบัวนี้อย่างไร</h4><ul>
-      <li><i></i><span>กลีบที่สีเต็มความยาว = เดินได้ทันกำหนดของเป้าหมายปี ${SDG_CFG.targetYear}</span></li>
-      <li><i class="half"></i><span>กลีบที่สีเติมไม่ถึงปลาย = ยังช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
-      <li><i class="dotline"></i><span>วงประด้านใน คือเส้นระดับคะแนน 25 · 50 · 75 · 100 · ตัวเลขกลางวงคือคะแนนเฉลี่ยทั้งจังหวัด</span></li>
-    </ul></div>
+    <div class="legend" id="legend"></div>
     <div class="statbar" aria-hidden="true">${STATUS.map((s, i) => `<i style="flex:${cnt[i]};background:${s.c}"></i>`).join('')}</div>
     <div class="statleg">${STATUS.map((s, i) => `<span><i class="dot" style="background:${s.c}"></i><b>${cnt[i]}</b> ${s.th}</span>`).join('')}</div>
     <div class="pills" role="group" aria-label="กรองตามกลุ่ม 5P">${PILLARS.map(p => `<button class="pill" data-p="${p.id}" aria-pressed="false">${p.th}<small>${p.goals.length}</small></button>`).join('')}</div>
@@ -322,6 +399,7 @@ function renderIntro() {
       <div><h3>ทำได้ดีที่สุด</h3>${rank.slice(-3).reverse().map(wrow).join('')}</div>
     </div>`;
   $$('.pill').forEach(b => b.onclick = () => { FOCUS = FOCUS === b.dataset.p ? null : b.dataset.p; applyFocus(); });
+  drawLegend();
 }
 
 /* ตัวเลขเด่น: เลือกตัวชี้วัดจริงที่สื่อสารง่ายที่สุด 4 ตัว */
@@ -408,6 +486,10 @@ function renderLinks() {
 function renderCover() {
   $('#bar').innerHTML = topbar('cover');
   renderBanner(); drawLotus(); renderIntro(); renderHead4(); renderMo(); renderPillars(); renderLinks();
+  let v = '3d';
+  try { v = localStorage.getItem('nblSdg.view') || (innerWidth < 640 ? '2d' : '3d'); } catch (e) {}
+  setView(v);
+  if (S3.ok) tint3D();
 }
 SDG.init('cover', renderCover);
 </script>

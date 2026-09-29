@@ -156,6 +156,7 @@ function renderList() {
 }
 
 function mapSvg(x) {
+  if (GEO === 'fail') return '<div class="empty">ยังไม่มีไฟล์ขอบเขตอำเภอ (assets/nbl-amphoe.geojson) จึงยังวาดแผนที่ไม่ได้ · ดูตัวเลขรายอำเภอได้จากกราฟด้านขวา</div>';
   if (!GEO) return '<div class="empty">กำลังโหลดแผนที่…</div>';
   const pts = GEO.features.flatMap(f => (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates).flat(1).flat(1));
   const lons = pts.map(p => p[0]), lats = pts.map(p => p[1]);
@@ -258,7 +259,8 @@ function drawMo(m) {
     options: baseOpts(m, ink2, grid) });
 }
 function renderGoal() { $('#bar').innerHTML = topbar('goal'); renderHead(); renderList(); renderPanel(); }
-fetch('assets/nbl-amphoe.geojson').then(r => r.json()).then(g => { GEO = g; renderPanel(); }).catch(() => {});
+fetch('assets/nbl-amphoe.geojson').then(r => r.ok ? r.json() : Promise.reject()).then(g => { GEO = g; renderPanel(); })
+  .catch(() => { GEO = 'fail'; renderPanel(); });
 SDG.init('goal', renderGoal);
 </script>
 </body>
