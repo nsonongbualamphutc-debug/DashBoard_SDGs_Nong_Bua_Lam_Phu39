@@ -62,14 +62,15 @@ const LINKED = [
   { id: 'water', name: 'ติดตามระดับน้ำ', goals: [6, 13, 14], url: GH + 'NongBuaLamPhu-Water-Level-Monitoring/' },
   { id: 'tourist', name: 'ความปลอดภัยนักท่องเที่ยว', goals: [8, 11], url: GH + 'Enhance_The_Safety_Of_Tourists/' },
   { id: 'land', name: 'แก้ปัญหาบุกรุกที่ดินและป่า', goals: [15, 16], url: GH + 'Operations_to_address_the_problem_of_encroachment_on_public_land_and_forest_areas/' },
-  { id: 'drug', name: 'สถานการณ์ยาเสพติด', goals: [3, 16], url: '' },
-  { id: 'debt', name: 'หนี้นอกระบบ', goals: [1, 10], url: '' },
-  { id: 'cyber', name: 'ป้องกันอาชญากรรมไซเบอร์', goals: [16], url: '' },
+  { id: 'security', name: 'ศูนย์บัญชาการข้อมูลความมั่นคง', goals: [16, 10, 15], url: GH + 'Nong-Bua-Lamphu-Provincial-Security-Information-Command-Center/' },
+  { id: 'drug', name: 'สถานการณ์ยาเสพติด', goals: [3, 16], url: '', via: 'security' },
+  { id: 'debt', name: 'หนี้นอกระบบ', goals: [1, 10], url: '', via: 'security' },
+  { id: 'cyber', name: 'ป้องกันอาชญากรรมไซเบอร์', goals: [16], url: '', via: 'security' },
   { id: 'fuel', name: 'สถานการณ์น้ำมัน 51 สถานี', goals: [7], url: '' },
   { id: 'agri', name: 'Roadmap เกษตรมูลค่าสูง', goals: [2, 9, 12], url: '' },
-  { id: 'infl', name: 'ปราบปรามผู้มีอิทธิพล', goals: [16], url: '' },
-  { id: 'nominee', name: 'ธุรกิจนอมินี', goals: [16], url: '' },
-  { id: 'aml', name: 'ศูนย์บัญชาการพิทักษ์ทรัพย์', goals: [16], url: '' }
+  { id: 'infl', name: 'ปราบปรามผู้มีอิทธิพล', goals: [16], url: '', via: 'security' },
+  { id: 'nominee', name: 'ธุรกิจนอมินี', goals: [16], url: '', via: 'security' },
+  { id: 'aml', name: 'ศูนย์บัญชาการพิทักษ์ทรัพย์', goals: [16], url: '', via: 'security' }
 ];
 
 /* ───────── ทะเบียนตัวชี้วัด ─────────
