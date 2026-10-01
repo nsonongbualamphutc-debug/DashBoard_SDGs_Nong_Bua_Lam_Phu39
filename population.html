@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ประชากรและโครงสร้างอายุ · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</title>
+<meta name="theme-color" content="#0b3c32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="stylesheet" href="ds.css">
+<style>
+.pyrcard .pyr-tools{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-end;margin-bottom:12px}
+.pyrcard .pt-g{display:flex;flex-direction:column;gap:5px;min-width:0}
+.pyrcard .pt-l{font-size:10.5px;color:var(--faint);font-weight:600;letter-spacing:.2px}
+.pyrcard .pt-g .sel{height:37px;min-width:190px}
+.pyrcard #playerBox{margin-bottom:12px}
+.pyr-wrap{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:18px;align-items:start}
+.pyr-main{min-width:0}
+.pyr.pyr2{grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);gap:0 6px}
+.pyr.pyr2 .pyr-l,.pyr.pyr2 .pyr-r{height:22px;overflow:hidden}
+.pyr.pyr2 .pyr-l i,.pyr.pyr2 .pyr-r i{height:17px;min-width:2px;flex:none}
+.pyr.pyr2 .pyr-n{flex:none;width:50px;box-sizing:border-box;font-size:10.5px}
+.pyr.pyr2 .pyr-l .pyr-n{text-align:right}
+.pyr.pyr2 .pyr-h{display:flex;align-items:center;justify-content:center;gap:6px;font-weight:500}
+.pyr.pyr2 .pyr-h i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.pyr.pyr2 .pyr-h b{font-family:var(--fn);color:var(--ink,inherit)}
+.pyr.pyr2 .pyr-row:hover .pyr-b{color:var(--brand);font-weight:600}
+.pyr-side{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pyr-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pyr-stats .mini{padding:9px 11px;min-width:0}
+.pyr-stats .mini .v{font-size:18px;white-space:nowrap}
+.pyr-stats .mini .s{font-size:10.5px;color:var(--faint);margin-top:2px;line-height:1.45;overflow-wrap:anywhere}
+.pyr-donut{display:grid;grid-template-columns:132px 1fr;gap:12px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.pyr-donut .ch.sm{height:132px!important;position:relative}
+.dep-lg div{display:flex;align-items:center;gap:7px;font-size:11.5px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.dep-lg div:last-child{border:0}
+.dep-lg i{width:10px;height:10px;border-radius:3px;flex:none}
+.dep-lg span{flex:1;color:var(--dim)}
+.dep-lg b{font-family:var(--fn)}
+@media (max-width:1150px){.pyr-wrap{grid-template-columns:1fr}.pyr-stats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:767px){
+  .pyrcard .pyr-tools{flex-direction:column;align-items:stretch}
+  .pyrcard .pt-g .sel{width:100%}
+  .pyr-stats{grid-template-columns:1fr 1fr}
+  .pyr.pyr2{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)}
+  .pyr.pyr2 .pyr-n{font-size:9.5px;padding:0 3px}
+  .pyr.pyr2 .pyr-h{font-size:10px;flex-wrap:wrap}
+  .pyr-donut{grid-template-columns:110px 1fr}.pyr-donut .ch.sm{height:110px!important}
+}
+</style>
+</head>
+<body>
+<div id="tip"></div>
+<div class="app" id="app">
+  <header class="top" id="topbar"></header>
+  <nav class="side" id="sidebar"></nav>
+  <main class="main">
+    <section class="view on" id="v-population"></section>
+  </main>
+</div>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script crossorigin="anonymous" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="ds.js"></script>
+<script>
+const P=DX.pop;
+const AMP6=['เมืองหนองบัวลำภู','ศรีบุญเรือง','นากลาง','โนนสัง','สุวรรณคูหา','นาวัง'];
+const BAND_ORDER=['0 ถึง 4 ปี','5 ถึง 9 ปี','10 ถึง 14 ปี','15 ถึง 19 ปี','20 ถึง 24 ปี','25 ถึง 29 ปี',
+  '30 ถึง 34 ปี','35 ถึง 39 ปี','40 ถึง 44 ปี','45 ถึง 49 ปี','50 ถึง 54 ปี','55 ถึง 59 ปี',
+  '60 ถึง 64 ปี','65 ถึง 69 ปี','70 ถึง 74 ปี','75 ถึง 79 ปี','80 ปี และมากกว่า'];
+const bandVal=b=>P.ageBands[b]||0;
+const ageOf=b=>parseInt(b)||0;
+
+function renderPop(){
+  const YS=Object.keys(P.popSeries).map(Number).sort((a,b)=>a-b);
+  const lastY=YS[YS.length-1], firstY=YS[0];
+  const popNow=P.popSeries[lastY], popFirst=P.popSeries[firstY];
+  const male=AMP6.reduce((a,x)=>a+((P.popByAmpSex[x]||{})['ชาย']||0),0);
+  const female=AMP6.reduce((a,x)=>a+((P.popByAmpSex[x]||{})['หญิง']||0),0);
+  const bY=Object.keys(P.birth).map(Number).sort((a,b)=>a-b);
+  const bLast=bY[bY.length-1];
+  const birth=P.birth[bLast], death=P.death[bLast];
+  const houses=Object.values(P.houses).reduce((a,b)=>a+b,0);
+  const mv=P.move[String(bLast)]||{};
+  /* โครงสร้างอายุ */
+  const totalBand=BAND_ORDER.reduce((a,b)=>a+bandVal(b),0)||1;
+  const kids=BAND_ORDER.filter(b=>ageOf(b)<15).reduce((a,b)=>a+bandVal(b),0);
+  const work=BAND_ORDER.filter(b=>ageOf(b)>=15&&ageOf(b)<60).reduce((a,b)=>a+bandVal(b),0);
+  const old=BAND_ORDER.filter(b=>ageOf(b)>=60).reduce((a,b)=>a+bandVal(b),0);
+  const dep=((kids+old)/work*100);
+
+  document.getElementById('v-population').innerHTML=`
+  <div class="ph"><div class="t" style="display:flex;gap:14px;align-items:flex-start">
+    <span class="bigico icow img" data-bigico="population"></span>
+    <span><h2>ประชากรและโครงสร้างอายุ</h2>
+    <p>ประชากรคือฐานของทุกตัวเลขเศรษฐกิจ จังหวัดกำลังเข้าสู่ภาวะประชากรลดลงและสังคมสูงวัย ซึ่งกระทบกำลังแรงงานและกำลังซื้อในระยะยาว</p></span></div>
+    <div class="r"><span class="chip real">ข้อมูลจริง</span><span class="chip br">ปี ${lastY}</span></div></div>
+
+  <div class="grid g6 mb" id="pKpi"></div>
+
+  <div class="secthead"><span class="sn">1</span><b>จำแนกรายปี</b>
+    <span>การเปลี่ยนแปลงของประชากรทั้งจังหวัดตลอด 7 ปี</span></div>
+
+  <div class="grid g21 mb">
+    <div class="c"><header><span class="hdico icow img">${icoImg('population',26)}</span><h3>จำนวนประชากรรายปี</h3><span class="u">${firstY}–${lastY}</span>
+      <span class="r">${viewToggle('cPop')}</span></header>
+      <div class="b">
+        <div id="cPop-chart"><div class="ch lg"><canvas id="cPop"></canvas></div></div>
+        <div id="cPop-table" class="hide"><div class="sc"><table class="t" id="tPop"></table></div></div>
+        <div class="note" id="popNote"></div>
+      </div></div>
+    <div class="c"><header><span class="hdico icow img">${icoImg('birth',26)}</span><h3>การเกิดและการตาย</h3>
+      <span class="u">คน</span></header>
+      <div class="b"><div class="ch lg"><canvas id="cBD"></canvas></div>
+        <div class="note" id="bdNote"></div></div></div>
+  </div>
+
+  <div class="secthead"><span class="sn">2</span><b>โครงสร้างอายุ</b>
+    <span>ปิรามิดประชากร เลือกสัญชาติ ปี พื้นที่ และรูปแบบการเปรียบเทียบได้</span></div>
+
+  <div class="c mb pyrcard"><header><span class="hdico icow img">${icoImg('pyramid',26)}</span><h3>ปิรามิดประชากร</h3>
+      <span class="u" id="pyrSub">ทะเบียนราษฎร พ.ศ. 2564–2568</span>
+      <span class="r">${viewToggle('cAge')}</span></header>
+    <div class="b">
+      <div class="pyr-tools">
+        <div class="pt-g"><span class="pt-l">สัญชาติ</span>
+          <div class="segs" id="pyrNat">
+            <button data-v="ALL" class="on">ทั้งหมด</button><button data-v="TH">สัญชาติไทย</button><button data-v="NT">ไม่ใช่สัญชาติไทย</button></div></div>
+        <div class="pt-g"><span class="pt-l">เปรียบเทียบ</span>
+          <div class="segs" id="pyrMode">
+            <button data-v="S" class="on">ชาย · หญิง</button><button data-v="Z">ในเขต · นอกเขตเทศบาล</button></div></div>
+        <div class="pt-g"><span class="pt-l">พื้นที่</span>
+          <select class="sel" id="pyrArea"><option value="PROV">ทั้งจังหวัด</option>
+            ${AMP6.map(a=>`<option value="${a}">อำเภอ${a}</option>`).join('')}</select></div>
+        <div class="pt-g"><span class="pt-l">แสดงเป็น</span>
+          <div class="segs" id="pyrUnit"><button data-v="p" class="on">ร้อยละ</button><button data-v="n">จำนวนคน</button></div></div>
+      </div>
+      <div id="playerBox"></div>
+      <div class="pyr-wrap">
+        <div class="pyr-main">
+          <div id="cAge-chart"><div id="pyrBox"></div></div>
+          <div id="cAge-table" class="hide"><div class="sc" style="max-height:470px"><table class="t" id="tAge"></table></div></div>
+        </div>
+        <aside class="pyr-side">
+          <div class="pyr-stats" id="pyrStats"></div>
+          <div class="pyr-donut"><div class="ch sm"><canvas id="cDep"></canvas></div><div id="depLegend" class="dep-lg"></div></div>
+        </aside>
+      </div>
+      <div class="note" id="ageNote"></div>
+    </div></div>
+
+  <div class="secthead"><span class="sn">3</span><b>จำแนกรายอำเภอ</b>
+    <span>เปรียบเทียบประชากร ครัวเรือน และการย้ายถิ่นระหว่าง 6 อำเภอ</span></div>
+
+  <div class="grid g21 mb">
+    <div class="c"><header><span class="hdico icow img">${icoImg('district',26)}</span><h3>ประชากรรายอำเภอ</h3><span class="u">แยกชายและหญิง</span>
+      <span class="r">${viewToggle('cAmp')}</span></header>
+      <div class="b">
+        <div id="cAmp-chart"><div class="ch"><canvas id="cAmp"></canvas></div></div>
+        <div id="cAmp-table" class="hide"><div class="sc"><table class="t" id="tAmp"></table></div></div>
+        <div class="note" id="ampNote"></div>
+      </div></div>
+    <div class="c"><header><span class="hdico icow img">${icoImg('migration',26)}</span><h3>การย้ายถิ่น</h3>
+      <span class="u">ย้ายเข้าและย้ายออก</span></header>
+      <div class="b"><div class="ch"><canvas id="cMove"></canvas></div>
+        <div class="note" id="moveNote"></div></div></div>
+  </div>
+
+  <div class="c mb"><header><span class="hdico icow img">${icoImg('area',26)}</span>
+    <h3>แผนที่ประชากรรายอำเภอ</h3><span class="u">เฉดสีเข้ม = มาก · เฉดสีอ่อน = น้อย</span>
+    <span class="r"><select class="sel" id="mapMetric">
+      <option value="pop">ประชากรรวม</option>
+      <option value="male">ประชากรชาย</option>
+      <option value="female">ประชากรหญิง</option>
+      <option value="house">จำนวนบ้าน</option>
+      <option value="perhouse">ประชากรต่อบ้าน</option>
+      <option value="density">สัดส่วนของประชากรทั้งจังหวัด</option>
+    </select></span></header>
+    <div class="b">
+      <div id="popMap"></div>
+      <div class="note" id="popMapNote"></div>
+    </div></div>
+
+  <div class="c"><header><span class="hdico icow img">${icoImg('source',26)}</span><h3>แหล่งข้อมูลและหน่วยงานผู้รับผิดชอบ</h3></header>
+    <div class="b">${srcBar(['popreg'],'ข้อมูลทะเบียนราษฎร ณ สิ้นปี ครอบคลุมจำนวนประชากรรายอำเภอแยกเพศ โครงสร้างอายุ การเกิด การตาย การย้ายถิ่น และจำนวนบ้าน')}</div></div>`;
+
+  /* ── KPI ── */
+  const natural=birth-death;
+  function sexTop(sex){
+    let best={n:'—',v:0};
+    AMP6.forEach(x=>{const v=(P.popByAmpSex[x]||{})[sex]||0; if(v>best.v)best={n:x,v}});
+    return best;
+  }
+  document.getElementById('pKpi').innerHTML=[
+    kpiCard({icon:'people',img:'population',color:cv('--brand'),label:'ประชากรทั้งจังหวัด',
+      value:f(popNow,0),unit:'คน',
+      chip:chip(pctc(popNow,P.popSeries[YS[YS.length-2]]))+' '+statusBadge(pctc(popNow,P.popSeries[YS[YS.length-2]]),false,'ประชากรเทียบปีก่อน'),
+      sub:'ลดลง '+f(popFirst-popNow,0)+' คน จากปี '+firstY,
+      tip:tipOf({t:'จำนวนประชากรทั้งจังหวัด',
+        d:'นับจากทะเบียนราษฎร ณ สิ้นปี ไม่ใช่จากการสำรวจ จึงเป็นตัวเลขที่ใช้อ้างอิงทางราชการ',
+        calc:'ผลรวมประชากรชายและหญิงทั้ง 6 อำเภอ',src:'popreg',when:'ปี '+lastY})}),
+    kpiCard({icon:'people',img:'male',color:cv('--blue'),label:'ประชากรชาย',value:f(male,0),unit:'คน',
+      chip:'<span class="chip">'+(male/(male+female)*100).toFixed(2)+'% ของประชากร</span>',
+      sub:'มากที่สุดที่อำเภอ'+sexTop('ชาย').n+' '+f(sexTop('ชาย').v,0)+' คน',
+      tip:tipOf({t:'ประชากรชาย',
+        d:'จำนวนผู้มีชื่อในทะเบียนราษฎรเพศชายรวมทั้ง 6 อำเภอ',
+        calc:'(ชาย ÷ ประชากรทั้งหมด) × 100 = ('+f_num(male)+' ÷ '+f_num(male+female)+') × 100 · น้อยกว่าหญิง '+f_num(female-male)+' คน',
+        src:'popreg',when:'ปี '+lastY})}),
+    kpiCard({icon:'people',img:'female',color:cv('--lotus')||cv('--plum'),label:'ประชากรหญิง',value:f(female,0),unit:'คน',
+      chip:'<span class="chip">'+(female/(male+female)*100).toFixed(2)+'% ของประชากร</span>',
+      sub:'มากที่สุดที่อำเภอ'+sexTop('หญิง').n+' '+f(sexTop('หญิง').v,0)+' คน',
+      tip:tipOf({t:'ประชากรหญิง',
+        d:'จำนวนผู้มีชื่อในทะเบียนราษฎรเพศหญิงรวมทั้ง 6 อำเภอ · สูงกว่าชายตามอายุคาดเฉลี่ยที่ยาวกว่า ใช้วางแผนบริการสาธารณสุขและสวัสดิการผู้สูงอายุ',
+        calc:'(หญิง ÷ ประชากรทั้งหมด) × 100 = ('+f_num(female)+' ÷ '+f_num(male+female)+') × 100 · อัตราส่วนเพศ = ชาย '+(male/female*100).toFixed(1)+' คนต่อหญิง 100 คน',
+        src:'popreg',when:'ปี '+lastY})}),
+    kpiCard({icon:'people',img:'birth',color:cv('--leaf'),label:'เด็กเกิดใหม่',value:f(birth,0),unit:'คน',
+      chip:chip(pctc(birth,P.birth[bY[bY.length-2]]))+' '+statusBadge(pctc(birth,P.birth[bY[bY.length-2]]),false,'จำนวนเด็กเกิดใหม่เทียบปีก่อน'),
+      sub:'ปี '+bLast+' · ลดลงจาก '+f(P.birth[bY[0]],0)+' คนในปี '+bY[0],
+      tip:tipOf({t:'จำนวนเด็กเกิดใหม่',
+        d:'จำนวนการเกิดที่แจ้งต่อนายทะเบียนในรอบปี · ลดลงต่อเนื่องทุกปี เป็นสัญญาณว่ากำลังแรงงานในอนาคตจะหดตัว',
+        calc:'นับจากใบแจ้งเกิดที่บันทึกในระบบทะเบียนราษฎร',src:'popreg',when:'ปี '+bLast})}),
+    kpiCard({icon:'chart',img:'natural',color:natural<0?cv('--bad'):cv('--good'),label:'การเปลี่ยนแปลงตามธรรมชาติ',
+      value:(natural>0?'+':'')+f(natural,0),unit:'คน',
+      chip:'<span class="chip '+(natural<0?'dn':'up')+'">'+(natural<0?'ตายมากกว่าเกิด':'เกิดมากกว่าตาย')+'</span>',
+      sub:'เกิด '+f(birth,0)+' · ตาย '+f(death,0),
+      tip:tipOf({t:'การเปลี่ยนแปลงประชากรตามธรรมชาติ',
+        d:'ผลต่างระหว่างการเกิดกับการตาย ไม่รวมการย้ายถิ่น · ค่าติดลบแปลว่าประชากรลดลงเองแม้ไม่มีใครย้ายออก',
+        calc:'จำนวนเกิด − จำนวนตาย = '+f(birth,0)+' − '+f(death,0),src:'popreg',when:'ปี '+bLast})}),
+    kpiCard({icon:'brief',img:'dependency',color:cv('--gold'),label:'อัตราพึ่งพิง',value:dep.toFixed(1),unit:'%',
+      chip:'<span class="chip fl">วัยทำงาน '+(work/totalBand*100).toFixed(1)+'%</span>',
+      sub:'ผู้สูงอายุ '+(old/totalBand*100).toFixed(1)+'% · เด็ก '+(kids/totalBand*100).toFixed(1)+'%',
+      tip:tipOf({t:'อัตราส่วนพึ่งพิง (Dependency ratio)',
+        d:'บอกว่าวัยทำงาน 100 คนต้องดูแลเด็กและผู้สูงอายุกี่คน ยิ่งสูงยิ่งเป็นภาระต่อกำลังแรงงาน',
+        calc:'((เด็กต่ำกว่า 15 ปี + ผู้สูงอายุ 60 ปีขึ้นไป) ÷ วัยทำงาน 15–59 ปี) × 100',
+        src:'popreg',when:'ปี '+P.ageYear})})
+  ].join('');
+
+  /* ── ประชากรรายปี ── */
+  mk('cPop',{data:{labels:YS.map(y=>'ปี '+y),datasets:[
+    {type:'line',label:'ประชากร (คน)',data:YS.map(y=>P.popSeries[y]),borderColor:cv('--brand'),
+      backgroundColor:cv('--brand')+'22',borderWidth:2.8,pointRadius:4,pointBackgroundColor:cv('--brand'),tension:.25,fill:true}]},
+    options:{plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>f(c.raw,0)+' คน',
+        footer:it=>{const i=it[0].dataIndex;if(!i)return'';
+          const d=P.popSeries[YS[i]]-P.popSeries[YS[i-1]];
+          return (d<0?'ลดลง ':'เพิ่มขึ้น ')+f(Math.abs(d),0)+' คนจากปีก่อน'}}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({ticks:{callback:v=>f(v,0)}})}}});
+  document.getElementById('tPop').innerHTML=`<thead><tr><th>ปี</th><th class="r">ประชากร</th><th class="r">เปลี่ยนแปลง</th><th class="r">%</th></tr></thead><tbody>`+
+    YS.map((y,i)=>{const d=i?P.popSeries[y]-P.popSeries[YS[i-1]]:null;
+      return `<tr><td>ปี ${y}</td><td class="r">${f(P.popSeries[y],0)}</td>
+        <td class="r" style="color:${d<0?'var(--bad)':'var(--good)'}">${d!=null?((d>0?'+':'')+f(d,0)):'—'}</td>
+        <td class="r">${d!=null?((d/P.popSeries[YS[i-1]]*100).toFixed(2)+'%'):'—'}</td></tr>`}).join('')+'</tbody>';
+  document.getElementById('popNote').innerHTML=
+    `ประชากรลดลงต่อเนื่องจาก ${f(popFirst,0)} คนในปี ${firstY} เหลือ <b>${f(popNow,0)} คน</b> ในปี ${lastY}
+     หายไป ${f(popFirst-popNow,0)} คนใน ${lastY-firstY} ปี เฉลี่ยปีละ ${f((popFirst-popNow)/(lastY-firstY),0)} คน
+     ทุกนโยบายที่วางบนสมมติฐานประชากรคงที่ต้องทบทวนใหม่`;
+
+  /* ── เกิด ตาย ── */
+  mk('cBD',{data:{labels:bY.map(y=>'ปี '+y),datasets:[
+    {type:'bar',label:'เกิด',data:bY.map(y=>P.birth[y]),backgroundColor:cv('--leaf'),borderRadius:6,barPercentage:.72},
+    {type:'bar',label:'ตาย',data:bY.map(y=>P.death[y]),backgroundColor:cv('--coral'),borderRadius:6,barPercentage:.72},
+    {type:'line',label:'เกิด − ตาย',data:bY.map(y=>P.birth[y]-P.death[y]),borderColor:cv('--gold'),
+      borderWidth:2.6,pointRadius:4,pointBackgroundColor:cv('--gold'),tension:.25}]},
+    options:{interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{padding:11}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+' '+f(c.raw,0)+' คน'}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({ticks:{callback:v=>f(v,0)}})}}});
+  const cross=bY.find(y=>P.death[y]>P.birth[y]);
+  document.getElementById('bdNote').innerHTML=
+    `จังหวัดมีคนตายมากกว่าคนเกิดตั้งแต่ปี <b>${cross}</b> เป็นต้นมา
+     ปี ${bLast} เกิด ${f(birth,0)} คน แต่ตาย ${f(death,0)} คน ต่างกัน ${f(death-birth,0)} คน
+     นี่คือสาเหตุหลักที่ประชากรลดลง ไม่ใช่การย้ายออกอย่างที่เข้าใจกัน`;
+
+  /* ── ปิรามิดประชากร ── */
+  buildPyramid();
+  renderPopMap();
+  /* กราฟแท่งช่วงอายุแบบเดิมถูกแทนที่ด้วยปิรามิดแล้ว
+     โค้ดเดิมยังเขียนทับตาราง #tAge และคำอธิบาย #ageNote ของปิรามิดทุกครั้ง
+     ตารางและคำอธิบายของปิรามิดจึงไม่เคยแสดงผลจริง ลบทิ้งทั้งบล็อก */
+
+  /* ── รายอำเภอ ── */
+  const rows=AMP6.map(a=>({a,m:(P.popByAmpSex[a]||{})['ชาย']||0,f:(P.popByAmpSex[a]||{})['หญิง']||0}))
+    .sort((x,y)=>(y.m+y.f)-(x.m+x.f));
+  mk('cAmp',{type:'bar',data:{labels:rows.map(r=>r.a),datasets:[
+    {label:'ชาย',data:rows.map(r=>r.m),backgroundColor:cv('--blue'),borderRadius:5,stack:'s'},
+    {label:'หญิง',data:rows.map(r=>r.f),backgroundColor:cv('--lotus')||cv('--plum'),borderRadius:5,stack:'s'}]},
+    options:{plugins:{legend:{position:'bottom',labels:{padding:11}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+' '+f(c.raw,0)+' คน',
+        footer:it=>{const r=rows[it[0].dataIndex];return 'รวม '+f(r.m+r.f,0)+' คน · บ้าน '+f(P.houses[r.a]||0,0)+' หลัง'}}}},
+      scales:{x:ax({grid:{display:false},stacked:true,ticks:{font:{size:10}}}),
+        y:ax({stacked:true,ticks:{callback:v=>f(v/1000,0)+'K'}})}}});
+  document.getElementById('tAmp').innerHTML=`<thead><tr><th>อำเภอ</th><th class="r">ชาย</th><th class="r">หญิง</th>
+    <th class="r">รวม</th><th class="r">บ้าน (หลัง)</th><th class="r">คน/หลัง</th></tr></thead><tbody>`+
+    rows.map(r=>{const h=P.houses[r.a]||0,t=r.m+r.f;
+      return `<tr><td>${r.a}</td><td class="r">${f(r.m,0)}</td><td class="r">${f(r.f,0)}</td>
+        <td class="r" style="font-weight:600">${f(t,0)}</td><td class="r">${f(h,0)}</td>
+        <td class="r">${h?(t/h).toFixed(2):'—'}</td></tr>`}).join('')+
+    `</tbody><tfoot><tr><td>รวม</td><td class="r">${f(male,0)}</td><td class="r">${f(female,0)}</td>
+      <td class="r">${f(male+female,0)}</td><td class="r">${f(houses,0)}</td>
+      <td class="r">${((male+female)/houses).toFixed(2)}</td></tr></tfoot>`;
+  document.getElementById('ampNote').innerHTML=
+    `<b>${rows[0].a}</b> มีประชากรมากที่สุด ${f(rows[0].m+rows[0].f,0)} คน คิดเป็น ${((rows[0].m+rows[0].f)/(male+female)*100).toFixed(1)}% ของจังหวัด
+     ทั้งจังหวัดมีบ้าน ${f(houses,0)} หลัง เฉลี่ย ${((male+female)/houses).toFixed(2)} คนต่อหลัง
+     ซึ่งต่ำกว่าค่าเฉลี่ยประเทศ สะท้อนว่าครัวเรือนมีขนาดเล็กลงและมีบ้านว่างจากการย้ายถิ่น`;
+
+  /* ── ย้ายถิ่น ── */
+  const mY=Object.keys(P.move).map(Number).sort((a,b)=>a-b);
+  mk('cMove',{data:{labels:mY.map(y=>'ปี '+y),datasets:[
+    {type:'bar',label:'ย้ายเข้า',data:mY.map(y=>P.move[y]['ย้ายเข้า']),backgroundColor:cv('--brand'),borderRadius:5},
+    {type:'bar',label:'ย้ายออก',data:mY.map(y=>P.move[y]['ย้ายออก']),backgroundColor:cv('--coral'),borderRadius:5},
+    {type:'line',label:'สุทธิ',data:mY.map(y=>P.move[y]['ย้ายเข้า']-P.move[y]['ย้ายออก']),
+      borderColor:cv('--gold'),borderWidth:2.4,pointRadius:4,tension:.25}]},
+    options:{interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{padding:11,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+' '+f(c.raw,0)+' คน'}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({ticks:{callback:v=>f(v/1000,0)+'K'}})}}});
+  const net=(mv['ย้ายเข้า']||0)-(mv['ย้ายออก']||0);
+  document.getElementById('moveNote').innerHTML=
+    `ปี ${bLast} ย้ายเข้า ${f(mv['ย้ายเข้า']||0,0)} คน ย้ายออก ${f(mv['ย้ายออก']||0,0)} คน สุทธิ ${net>=0?'+':''}${f(net,0)} คน
+     การย้ายถิ่นเกือบสมดุล ต่างจากที่หลายคนเข้าใจ ประชากรที่ลดลงจึงมาจากการเกิดน้อยกว่าตายเป็นหลัก`;
+}
+
+
+/* ══════════ ปิรามิดประชากร ══════════
+   ข้อมูล: DX_PYR.nat[สัญชาติ][ปี][พื้นที่] = {ชาย:[17], หญิง:[17]}
+          DX_PYR.natZone[สัญชาติ][ปี][พื้นที่] = {in:[17], out:[17]}
+   สัญชาติ ALL/TH/NT · พื้นที่ PROV หรือชื่ออำเภอ · ปี พ.ศ. 2564–2568
+   ทุกตัวกรองมีผลกับปิรามิด ตาราง ตัวเลขสรุป และวงกลมสัดส่วนวัยพร้อมกัน */
+const PYR=(typeof DX_PYR!=='undefined')?DX_PYR:null;
+const NAT_LB={ALL:'ทุกสัญชาติ',TH:'สัญชาติไทย',NT:'ไม่ใช่สัญชาติไทย'};
+const PS={nat:'ALL',mode:'S',area:'PROV',unit:'p',year:null,unitTouched:false};
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const areaLb=a=>a==='PROV'?'ทั้งจังหวัด':'อ.'+a;
+function natYears(){return PYR&&PYR.nat?Object.keys(PYR.nat.ALL).map(Number).sort((a,b)=>a-b):[]}
+function sexRec(nat,y,area){const b=PYR&&PYR.nat&&PYR.nat[nat]&&PYR.nat[nat][y];return b?b[area]||null:null}
+function zoneRec(nat,y,area){const b=PYR&&PYR.natZone&&PYR.natZone[nat]&&PYR.natZone[nat][y];return b?b[area]||null:null}
+function pyrSeries(){
+  if(PS.mode==='S'){
+    const r=sexRec(PS.nat,PS.year,PS.area); if(!r)return null;
+    return {left:{label:'ชาย',arr:r['ชาย'],color:'var(--blue)',grad:'#6f9fd8'},
+            right:{label:'หญิง',arr:r['หญิง'],color:'var(--lotus,#cf5f92)',grad:'#e59ab9'}};
+  }
+  const z=zoneRec(PS.nat,PS.year,PS.area); if(!z)return null;
+  return {left:{label:'ในเขตเทศบาล',arr:z.in,color:'#0f8a63',grad:'#4fbf93'},
+          right:{label:'นอกเขตเทศบาล',arr:z.out,color:'#c98a1b',grad:'#e8bd62'}};
+}
+function segBind(id,key,after){
+  const el=document.getElementById(id); if(!el||el.dataset.b)return; el.dataset.b='1';
+  el.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;
+    el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    PS[key]=b.dataset.v; if(after)after(); drawPyramid();});
+}
+function segSet(id,v){const el=document.getElementById(id);if(el)el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===v))}
+function buildPyramid(){
+  const box=document.getElementById('pyrBox');
+  const YS=natYears();
+  if(!YS.length){box.innerHTML='<div class="svc-empty">ไม่พบข้อมูลโครงสร้างอายุรายปี</div>';return}
+  if(PS.year==null||YS.indexOf(PS.year)<0)PS.year=YS[YS.length-1];
+  const pb=document.getElementById('playerBox');
+  if(pb){
+    pb.innerHTML=playerBar('pyrPlay',{
+      frames:YS.map(y=>({label:'พ.ศ. '+y,short:String(y),y})),
+      i:YS.indexOf(PS.year), ms:1500, hoverStop:'#pyrBox',
+      onFrame:fr=>{PS.year=fr.y;drawPyramid()}});
+    bindPlayer('pyrPlay',true);
+  }
+  segBind('pyrNat','nat',()=>{
+    /* คนไม่ใช่สัญชาติไทยมีหลักร้อย ร้อยละรายช่วงอายุแกว่งง่าย เปิดมาเป็นจำนวนคนก่อน */
+    if(!PS.unitTouched){PS.unit=PS.nat==='NT'?'n':'p';segSet('pyrUnit',PS.unit)}
+  });
+  segBind('pyrMode','mode');
+  segBind('pyrUnit','unit',()=>{PS.unitTouched=true});
+  const sel=document.getElementById('pyrArea');
+  if(sel&&!sel.dataset.b){sel.dataset.b='1';sel.addEventListener('change',()=>{PS.area=sel.value;drawPyramid()})}
+  drawPyramid();
+}
+function bandLb(b){return b.replace(' ปี','').replace(' ถึง ','–').replace(' และมากกว่า','+')}
+function drawPyramid(){
+  const B=PYR.bands, S=pyrSeries(), box=document.getElementById('pyrBox');
+  if(!S){box.innerHTML=`<div class="svc-empty">ไม่มีข้อมูล${NAT_LB[PS.nat]} ${areaLb(PS.area)} พ.ศ. ${PS.year}</div>`;return}
+  const L=S.left.arr, R=S.right.arr, tL=sum(L), tR=sum(R), T=tL+tR;
+  const pctL=L.map(v=>tL?v/tL*100:0), pctR=R.map(v=>tR?v/tR*100:0);
+  const isN=PS.unit==='n';
+  const mx=isN?Math.max(...L,...R,1):Math.max(...pctL,...pctR,1);
+  const lab=(v,p)=>isN?f(v,0):p.toFixed(1)+'%';
+  let h=`<div class="pyr pyr2">
+    <div class="pyr-h l"><i style="background:${S.left.color}"></i>${S.left.label} <b>${f(tL,0)}</b></div>
+    <div class="pyr-h">อายุ</div>
+    <div class="pyr-h r"><i style="background:${S.right.color}"></i>${S.right.label} <b>${f(tR,0)}</b></div>`;
+  for(let i=B.length-1;i>=0;i--){
+    const wl=(isN?L[i]:pctL[i])/mx*100, wr=(isN?R[i]:pctR[i])/mx*100;
+    const tip=tipOf({t:'อายุ '+B[i]+' · '+NAT_LB[PS.nat]+' · '+areaLb(PS.area),
+      d:S.left.label+' '+f(L[i],0)+' คน ('+pctL[i].toFixed(1)+'%) · '+S.right.label+' '+f(R[i],0)+' คน ('+pctR[i].toFixed(1)+'%)',
+      calc:'ร้อยละ = จำนวนในช่วงอายุ ÷ ประชากรรวมของฝั่งนั้น × 100 · รวมสองฝั่ง '+f_num(L[i]+R[i])+' คน',
+      src:'popreg',when:'พ.ศ. '+PS.year});
+    h+=`<div class="pyr-row" data-tip2="${tip}">
+      <div class="pyr-l"><span class="pyr-n">${L[i]||pctL[i]?lab(L[i],pctL[i]):'—'}</span><i style="width:calc((100% - 50px) * ${(wl/100).toFixed(4)});background:linear-gradient(270deg,${S.left.color},${S.left.grad})"></i></div>
+      <div class="pyr-b">${bandLb(B[i])}</div>
+      <div class="pyr-r"><i style="width:calc((100% - 50px) * ${(wr/100).toFixed(4)});background:linear-gradient(90deg,${S.right.color},${S.right.grad})"></i><span class="pyr-n">${R[i]||pctR[i]?lab(R[i],pctR[i]):'—'}</span></div></div>`;
+  }
+  h+='</div>';
+  box.innerHTML=h;
+
+  /* ── ตัวเลขสรุปของตัวกรองที่เลือก ── */
+  const both=B.map((_,i)=>L[i]+R[i]);
+  const age=i=>ageOf(B[i]);
+  const kids=sum(both.filter((_,i)=>age(i)<15)), work=sum(both.filter((_,i)=>age(i)>=15&&age(i)<60)), old=sum(both.filter((_,i)=>age(i)>=60));
+  const dep=work?(kids+old)/work*100:0, oldP=T?Math.round(old/T*1000)/10:0;
+  const YS=natYears(), pY=YS[YS.indexOf(PS.year)-1];
+  const prevS=pY?sexRec(PS.nat,pY,PS.area):null;
+  const prevT=prevS?sum(prevS['ชาย'])+sum(prevS['หญิง']):null;
+  const chg=prevT?(T-prevT)/prevT*100:null;
+  const sx=sexRec(PS.nat,PS.year,PS.area), m=sx?sum(sx['ชาย']):0, fe=sx?sum(sx['หญิง']):0;
+  const all=sexRec('ALL',PS.year,PS.area), nt=sexRec('NT',PS.year,PS.area);
+  const allT=all?sum(all['ชาย'])+sum(all['หญิง']):0, ntT=nt?sum(nt['ชาย'])+sum(nt['หญิง']):0;
+  const zn=zoneRec(PS.nat,PS.year,PS.area), inP=zn&&T?sum(zn.in)/(sum(zn.in)+sum(zn.out))*100:null;
+  const peak=both.indexOf(Math.max(...both));
+  const aging=oldP>=28?['สังคมสูงวัยระดับสุดยอด','var(--bad)']:oldP>=20?['สังคมสูงวัยอย่างสมบูรณ์','var(--coral)']:oldP>=10?['สังคมสูงวัย','var(--gold)']:['ยังไม่เข้าสู่สังคมสูงวัย','var(--good)'];
+  const st=[
+    ['ประชากรในตารางอายุ · '+NAT_LB[PS.nat],f(T,0),'คน',
+      (chg==null?'ปีแรกของชุดข้อมูล':(chg>0?'▲ +':chg<0?'▼ ':'')+chg.toFixed(2)+'% จาก พ.ศ. '+pY)+
+      (PS.nat==='ALL'&&PS.area==='PROV'&&P.popSeries&&P.popSeries[PS.year]?'<br><span style="color:var(--faint)">ยอดทะเบียนราษฎรรวม '+f(P.popSeries[PS.year],0)+' คน ต่างกัน '+f(Math.abs(P.popSeries[PS.year]-T),0)+' คน</span>':''),
+      chg==null?'':chg<0?'var(--bad)':'var(--good)'],
+    ['อัตราส่วนเพศ',fe?(m/fe*100).toFixed(1):'—','ชาย/หญิง 100','ชาย '+f(m,0)+' · หญิง '+f(fe,0),''],
+    ['ผู้สูงอายุ 60 ปีขึ้นไป',oldP.toFixed(1),'%',aging[0],aging[1]],
+    ['อัตราพึ่งพิง',dep.toFixed(1),'%','วัยทำงาน 100 คน ดูแล '+dep.toFixed(0)+' คน',''],
+    ['ไม่ใช่สัญชาติไทย',allT?(ntT/allT*100).toFixed(2):'—','%',f(ntT,0)+' คน จาก '+f(allT,0)+' คน',''],
+    ['อยู่ในเขตเทศบาล',inP==null?'—':inP.toFixed(1),'%','ช่วงอายุที่มีคนมากสุด '+bandLb(B[peak])+' ปี','']
+  ];
+  document.getElementById('pyrStats').innerHTML=st.map(r=>`<div class="mini"><div class="l">${r[0]}</div>
+    <div class="v">${r[1]}<small> ${r[2]}</small></div><div class="s"${r[4]?` style="color:${r[4]}"`:''}>${r[3]}</div></div>`).join('');
+
+  const DC=[cv('--leaf'),cv('--brand'),cv('--coral')], DL=['เด็ก 0–14 ปี','วัยทำงาน 15–59 ปี','ผู้สูงอายุ 60+ ปี'], DV=[kids,work,old];
+  mk('cDep',{type:'doughnut',data:{labels:DL,datasets:[{data:DV,backgroundColor:DC,borderColor:cv('--card'),borderWidth:3}]},
+    options:{cutout:'62%',animation:{duration:350},plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.label+' '+f(c.raw,0)+' คน',footer:it=>(T?it[0].raw/T*100:0).toFixed(1)+'% ของประชากร'}}}}});
+  document.getElementById('depLegend').innerHTML=DL.map((l,i)=>`<div><i style="background:${DC[i]}"></i><span>${l}</span>
+    <b>${(T?DV[i]/T*100:0).toFixed(1)}%</b></div>`).join('');
+
+  const sub=document.getElementById('pyrSub');
+  if(sub)sub.textContent=NAT_LB[PS.nat]+' · '+areaLb(PS.area)+' · พ.ศ. '+PS.year;
+
+  document.getElementById('tAge').innerHTML=`<thead><tr><th>ช่วงอายุ</th>
+      <th class="r">${S.left.label}</th><th class="r">%</th><th class="r">${S.right.label}</th><th class="r">%</th>
+      <th class="r">รวม</th></tr></thead><tbody>`+
+    B.map((b,i)=>`<tr><td>${b}</td><td class="r">${f(L[i],0)}</td><td class="r">${pctL[i].toFixed(1)}%</td>
+      <td class="r">${f(R[i],0)}</td><td class="r">${pctR[i].toFixed(1)}%</td><td class="r">${f(L[i]+R[i],0)}</td></tr>`).reverse().join('')+
+    `</tbody><tfoot><tr><td>รวม</td><td class="r">${f(tL,0)}</td><td class="r">100.0%</td>
+      <td class="r">${f(tR,0)}</td><td class="r">100.0%</td><td class="r">${f(T,0)}</td></tr></tfoot>`;
+
+  /* ── คำอธิบาย: เทียบกับปีแรกของชุดข้อมูล ── */
+  const y0=YS[0], s0=sexRec(PS.nat,y0,PS.area);
+  let trend='';
+  if(s0&&y0!==PS.year){
+    const b0=B.map((_,i)=>s0['ชาย'][i]+s0['หญิง'][i]), t0=sum(b0);
+    const o0=t0?sum(b0.filter((_,i)=>age(i)>=60))/t0*100:0, k0=t0?sum(b0.filter((_,i)=>age(i)<15))/t0*100:0;
+    trend=`เทียบ พ.ศ. ${y0} ผู้สูงอายุ ${o0.toFixed(1)}% → <b>${oldP.toFixed(1)}%</b> · เด็กต่ำกว่า 15 ปี ${k0.toFixed(1)}% → <b>${(T?kids/T*100:0).toFixed(1)}%</b> · `;
+  }
+  document.getElementById('ageNote').innerHTML=trend+(PS.nat==='NT'
+    ?`ประชากรไม่ใช่สัญชาติไทยมีจำนวนน้อย การเปลี่ยนเพียงไม่กี่คนทำให้ร้อยละแกว่งมาก จึงแสดงเป็นจำนวนคนเป็นค่าเริ่มต้น`
+    :PS.mode==='S'?`ฐานปิรามิดแคบกว่าช่วงกลาง แปลว่าเด็กเกิดน้อยกว่ารุ่นพ่อแม่ ผู้หญิงสูงวัยมากกว่าผู้ชายตามอายุคาดเฉลี่ยที่ยาวกว่า`
+    :`ในเขตเทศบาลคือแถวท้องถิ่นเทศบาลทุกแห่งในพื้นที่ นอกเขตคือส่วนที่เหลือของอำเภอ`)+
+    `<br>ที่มา: สถิติจำนวนประชากรแยกรายอายุ กรมการปกครอง · <b>ตัวเลขหลักของจังหวัดใช้ยอดทะเบียนราษฎรรวม</b> (การ์ดด้านบน) ส่วนปิรามิดใช้ตารางแยกอายุ ซึ่งยอดรวมต่างกันเล็กน้อยเพราะเป็นคนละรายงาน ใช้ดูสัดส่วนและโครงสร้างอายุ`;
+}
+
+/* ══════════ แผนที่ประชากรรายอำเภอ ══════════ */
+const MAP_METRIC={
+  pop     :{label:'ประชากรรวม',unit:'คน',dec:0,
+            val:a=>((P.popByAmpSex[a]||{})['ชาย']||0)+((P.popByAmpSex[a]||{})['หญิง']||0),
+            calc:'ผลรวมประชากรชายและหญิงของอำเภอนั้นตามทะเบียนราษฎร'},
+  male    :{label:'ประชากรชาย',unit:'คน',dec:0,
+            val:a=>(P.popByAmpSex[a]||{})['ชาย']||0,
+            calc:'จำนวนผู้มีชื่อในทะเบียนราษฎรเพศชายของอำเภอนั้น'},
+  female  :{label:'ประชากรหญิง',unit:'คน',dec:0,
+            val:a=>(P.popByAmpSex[a]||{})['หญิง']||0,
+            calc:'จำนวนผู้มีชื่อในทะเบียนราษฎรเพศหญิงของอำเภอนั้น'},
+  house   :{label:'จำนวนบ้าน',unit:'หลัง',dec:0,
+            val:a=>P.houses[a]||0,
+            calc:'จำนวนบ้านที่มีเลขที่บ้านในทะเบียนราษฎร ณ สิ้นปี'},
+  perhouse:{label:'ประชากรต่อบ้าน',unit:'คน/หลัง',dec:2,
+            val:a=>{const p=((P.popByAmpSex[a]||{})['ชาย']||0)+((P.popByAmpSex[a]||{})['หญิง']||0);
+                    const h=P.houses[a]||0; return h?p/h:0},
+            calc:'ประชากรของอำเภอ ÷ จำนวนบ้านของอำเภอ · ค่าต่ำอาจแปลว่ามีบ้านว่างหรือคนย้ายออกไปทำงานต่างถิ่น'},
+  density :{label:'สัดส่วนของประชากรทั้งจังหวัด',unit:'%',dec:2,
+            val:a=>{const p=((P.popByAmpSex[a]||{})['ชาย']||0)+((P.popByAmpSex[a]||{})['หญิง']||0);
+                    const t=AMP6.reduce((x,y)=>x+((P.popByAmpSex[y]||{})['ชาย']||0)+((P.popByAmpSex[y]||{})['หญิง']||0),0)||1;
+                    return p/t*100},
+            calc:'(ประชากรของอำเภอ ÷ ประชากรทั้งจังหวัด) × 100'}
+};
+let MAP_KEY='pop';
+function renderPopMap(){
+  const m=MAP_METRIC[MAP_KEY];
+  const rows=AMP6.map(a=>({name:a,value:m.val(a)}));
+  const sorted=rows.slice().sort((a,b)=>b.value-a.value);
+  const hi=sorted[0], lo=sorted[sorted.length-1];
+  drawAmpChoropleth('popMap',rows,{unit:m.unit,dec:m.dec,height:400,
+    tipOf:r=>tipOf({t:m.label+' · อำเภอ'+r.name,d:'หน่วยวัด '+m.unit,
+      calc:m.calc,src:'popreg',when:'ปี '+P.popYear})});
+  const note=document.getElementById('popMapNote');
+  if(note)note.innerHTML=
+    `${m.label} สูงสุดที่อำเภอ<b>${hi.name}</b> ${f(hi.value,m.dec)} ${m.unit}
+     ต่ำสุดที่อำเภอ<b>${lo.name}</b> ${f(lo.value,m.dec)} ${m.unit}
+     ห่างกัน ${f(hi.value-lo.value,m.dec)} ${m.unit}<br>
+     ข้อมูลทะเบียนราษฎร ปี ${P.popYear} · ชี้ที่อำเภอเพื่อดูตัวเลข กดที่พื้นที่เพื่อเปิดรายละเอียด`;
+  const sel=document.getElementById('mapMetric');
+  if(sel&&!sel.dataset.b){sel.dataset.b='1';
+    sel.addEventListener('change',()=>{MAP_KEY=sel.value;renderPopMap()})}
+}
+
+DS.init('population',renderPop);
+</script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ข้อมูลเชิงพื้นที่ · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</title>
+<meta name="theme-color" content="#0b3c32">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+<div id="tip"></div>
+<div class="app" id="app">
+  <header class="top" id="topbar"></header>
+  <nav class="side" id="sidebar"></nav>
+  <main class="main">
+    <section class="view on" id="v-area">
+  <div class="ph"><div class="t" style="display:flex;gap:14px;align-items:flex-start"><span class="bigico icow img" data-bigico="district"></span><span><h2>ข้อมูลเชิงพื้นที่</h2>
+    <p>เศรษฐกิจไม่ได้กระจายเท่ากันทั้ง 6 อำเภอ คลิกที่อำเภอบนแผนที่เพื่อเจาะลงระดับตำบล</p></span></div>
+    <div class="r"><select class="sel" id="areaSel"></select></div></div>
+
+  <div class="grid g21 mb">
+    <div class="c"><header><span class="hdico icow img" data-hdico="area"></span><h3 id="areaTitle">แผนที่จังหวัดหนองบัวลำภู</h3><span class="u" id="areaUnit"></span></header>
+      <div class="b">
+        <div class="mapwrap" id="mapWrapA">
+          <div id="tilemap" class="tilemap"></div>
+          <div id="map" class="hide"></div>
+          <div class="mapbar">
+            <div class="crumbm" id="crumbMap"></div>
+            <button id="btnBackProv" class="hide"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>กลับทั้งจังหวัด</button>
+            <span id="fsSlot"></span>
+          </div>
+          <div class="mapmode">
+            <button id="btnTile" class="on">แผนผัง</button>
+            <button id="btnReal" disabled>ขอบเขตจริง</button>
+          </div>
+          <div id="baseSlot"></div>
+          <div class="scalebar" id="scaleBar"></div>
+          <div class="maploading hide" id="mapLoad">กำลังโหลดขอบเขตตำบล…</div>
+        </div>
+        <div class="note" id="mapNote"></div>
+        <div class="note" style="border-top:0;padding-top:0">เคล็ดลับ: กด Shift ค้างแล้วคลิกที่อำเภอ จะได้ป๊อปอัปพร้อมปุ่มนำทางด้วย Google Maps</div>
+      </div></div>
+
+    <div class="c"><header><span class="hdico icow img" data-hdico="district"></span><h3>อันดับรายอำเภอ</h3><span class="u">คลิกเพื่อซูมไปที่อำเภอนั้น</span></header>
+      <div class="b"><div id="ampList" style="max-height:470px;overflow:auto"></div></div></div>
+  </div>
+
+  <div class="grid g3 mb">
+    <div class="c"><header><span class="hdico icow img" data-hdico="compare"></span><h3>สัดส่วนต่อจังหวัด</h3></header><div class="b"><div class="ch"><canvas id="cAreaShare"></canvas></div></div></div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="gap"></span><h3>เทียบกับค่าเฉลี่ยจังหวัด</h3><span class="u">ส่วนต่างจากค่าเฉลี่ย</span></header>
+      <div class="b"><div class="ch"><canvas id="cAreaDev"></canvas></div>
+      <div class="note" id="devNote"></div></div></div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="base"></span><h3>ข้อมูลพื้นฐานรายพื้นที่</h3></header><div class="b" id="areaAdmin"></div></div>
+  </div>
+
+  <div class="c"><header><span class="hdico icow img" data-hdico="report"></span><h3>ตารางข้อมูลรายอำเภอ</h3>
+    <span class="u" id="areaTblUnit"></span></header>
+    <div class="b"><div class="sc"><table class="t" id="tArea"></table></div>
+      <div class="note">ที่มาขอบเขตการปกครอง: ชุดข้อมูล OpenGISData-Thailand (github.com/chingchai/OpenGISData-Thailand) กรมการปกครอง กระทรวงมหาดไทย</div></div></div>
+</section>
+  </main>
+</div>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script crossorigin="anonymous" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="ds.js"></script>
+<script>
+/* ══════════ แผนที่จังหวัดหนองบัวลำภู ══════════ */
+const GEO_SRC=[
+  'https://raw.githubusercontent.com/chingchai/OpenGISData-Thailand/master/',
+  'https://cdn.jsdelivr.net/gh/chingchai/OpenGISData-Thailand@master/',
+  'https://raw.githubusercontent.com/chingchai/OpenGISData-Thailand/main/'
+];
+const PRO='39', PRONAME='หนองบัวลำภู';
+/* โหลดไฟล์จากหลายแหล่ง เผื่อแหล่งใดล่ม แล้วกรองเฉพาะจังหวัดหนองบัวลำภู */
+/* โหลดไฟล์ในระบบก่อน ถ้าไม่มีจึงไปดึงจากภายนอก */
+async function loadLocal(path){
+  try{
+    const r=await fetch(path);
+    if(!r.ok)return null;
+    const j=await r.json();
+    if(!j||!j.features||!j.features.length)return null;
+    return {ok:true,features:j.features,base:'ในระบบ'};
+  }catch(e){return null}
+}
+async function loadGeo(file){
+  let lastErr='';
+  for(const base of GEO_SRC){
+    try{
+      const r=await fetch(base+file,{cache:'force-cache'});
+      if(!r.ok){lastErr='HTTP '+r.status;continue}
+      const j=await r.json();
+      if(!j||!j.features)  {lastErr='รูปแบบไฟล์ไม่ถูกต้อง';continue}
+      const fs=j.features.filter(inProvince);
+      if(fs.length)return {ok:true,features:fs,total:j.features.length,base};
+      lastErr='ไม่พบพื้นที่จังหวัดในไฟล์ ('+j.features.length+' รูปทั้งประเทศ)';
+    }catch(e){lastErr=e.message}
+  }
+  return {ok:false,features:[],error:lastErr};
+}
+/* จับคู่จังหวัดจากรหัสหรือชื่อ รองรับทุกรูปแบบชื่อคอลัมน์ */
+function inProvince(f){
+  const p=f.properties||{};
+  for(const k in p){
+    const v=String(p[k]??'');
+    if(v===PRO||v==='39.0')return true;
+    if(v.indexOf(PRONAME)>=0)return true;
+    if(/nong\s*bua\s*lam\s*phu/i.test(v))return true;
+  }
+  return false;
+}
+let MAP=null,LAYER=null,TLAYER=null,BASE=null,GEO=null,TGEO=null,LABELS=[],DRILL=null,BASEON=false;
+const ampFill=k=>k==='sat'?.28:(k&&k!=='plain')?.42:.92;
+let ABASE={layer:null,key:'plain',onChange:k=>{ if(LAYER)LAYER.setStyle({fillOpacity:ampFill(k)}) }};
+
+const AREA_OPTS=(()=>{
+  const o=[{id:'tour',label:'แหล่งท่องเที่ยวเชิงเกษตร',unit:'แห่ง',dec:0,real:true,
+    agency:'สำนักงานเกษตรจังหวัดหนองบัวลำภู',
+    vals:()=>{const v={};DISTRICTS.forEach(d=>v[d.code]=D.base.tour.byAmphoe[d.code]||0);return v}}];
+  DATASETS.forEach(d=>d.series.forEach(s=>o.push({id:d.id+'|'+s.key,label:s.label,unit:s.unit,dec:s.dec??0,
+    agency:d.agency,vals:()=>Object.assign({},DBD[d.id][s.key])})));
+  return o})();
+
+const RAMP=[[0,'#eaf6f0'],[.2,'#c2e7d4'],[.4,'#8fd3b3'],[.6,'#4fb98c'],[.8,'#1d8e64'],[1,'#0a5c42']];
+function ramp(t){t=Math.max(0,Math.min(1,t));
+  for(let i=1;i<RAMP.length;i++)if(t<=RAMP[i][0]){
+    const a=RAMP[i-1],b=RAMP[i],k=(t-a[0])/(b[0]-a[0]);
+    return mixHex(a[1],b[1],k)}
+  return RAMP[RAMP.length-1][1]}
+function mixHex(a,b,k){
+  const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+  const A=p(a),B=p(b);
+  return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*k).toString(16).padStart(2,'0')).join('')}
+
+function propOf(f,keys){for(const k of keys){const v=f.properties[k];if(v!=null&&v!=='')return String(v)}return ''}
+const ampName=f=>propOf(f,['amp_th','AMPHOE_T','amphoe','AP_TN']).replace(/^อ\./,'').trim();
+const ampCode=f=>propOf(f,['amp_code','AMPHOE_ID','ap_idn']);
+const tamName=f=>propOf(f,['tam_th','TAMBON_T','tambon']).replace(/^ต\./,'').trim();
+const proCode=f=>propOf(f,['pro_code','PROV_CODE','pv_idn','province_code']);
+
+function curOpt(){return AREA_OPTS[+(document.getElementById('areaSel').value||0)]}
+function curVals(){return curOpt().vals()}
+function dtByName(nm){return DISTRICTS.find(x=>nm&&(nm.includes(x.name)||x.name.includes(nm)))}
+
+/* กล่องลอย */
+function mtip(){let e=document.getElementById('maptip');
+  if(!e){e=document.createElement('div');e.id='maptip';document.body.appendChild(e)}return e}
+function showTip(ev,html){const e=mtip();e.innerHTML=html;e.classList.add('on');moveTipM(ev)}
+function moveTipM(ev){
+  const e=mtip(),w=e.offsetWidth,h=e.offsetHeight;
+  const x0=ev.originalEvent?ev.originalEvent.clientX:ev.clientX;
+  const y0=ev.originalEvent?ev.originalEvent.clientY:ev.clientY;
+  let x=x0+18,y=y0-h/2;
+  if(x+w>innerWidth-10)x=x0-w-18;
+  if(y<8)y=8; if(y+h>innerHeight-8)y=innerHeight-h-8;
+  e.style.left=x+'px';e.style.top=y+'px'}
+function hideTip(){mtip().classList.remove('on')}
+
+
+/* ══════════ แผนผังจังหวัดฝังในระบบ ══════════
+   วางตำแหน่งตามภูมิศาสตร์จริงโดยประมาณ ใช้เมื่อไฟล์ขอบเขตจากภายนอกโหลดไม่ได้
+   หรือเมื่อผู้ใช้ต้องการมุมมองที่อ่านตัวเลขง่ายกว่าแผนที่จริง */
+const TILE_POS={
+  '3906':{x:.20,y:.14,label:'นาวัง'},
+  '3905':{x:.56,y:.08,label:'สุวรรณคูหา'},
+  '3902':{x:.34,y:.42,label:'นากลาง'},
+  '3901':{x:.72,y:.46,label:'เมืองหนองบัวลำภู'},
+  '3904':{x:.28,y:.78,label:'ศรีบุญเรือง'},
+  '3903':{x:.76,y:.82,label:'โนนสัง'}
+};
+function isLight(hex){
+  const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+  const [r,g,b]=p(hex);
+  return (r*299+g*587+b*114)/1000>165;
+}
+function renderTileMap(){
+  const el=document.getElementById('tilemap'); if(!el)return;
+  const o=curOpt(),vals=curVals();
+  const arr=Object.values(vals),mn=Math.min(...arr),mx=Math.max(...arr),r=(mx-mn)||1;
+  const tot=arr.reduce((a,b)=>a+b,0)||1;
+  const W=1000,H=620,RW=232,RH=132;
+  let g=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">
+    <defs><filter id="tsh" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0b3c32" flood-opacity=".28"/></filter></defs>`;
+  /* เส้นเชื่อมแสดงการติดกันของอำเภอโดยคร่าว */
+  const link=[['3906','3905'],['3906','3902'],['3905','3902'],['3902','3901'],
+              ['3902','3904'],['3901','3903'],['3904','3903'],['3904','3901']];
+  link.forEach(([a,b])=>{
+    const A=TILE_POS[a],B=TILE_POS[b];
+    g+=`<line x1="${A.x*W}" y1="${A.y*H+RH/2}" x2="${B.x*W}" y2="${B.y*H+RH/2}"
+      stroke="${cv('--line')}" stroke-width="2" stroke-dasharray="5 6"/>`;
+  });
+  DISTRICTS.forEach(d=>{
+    const p=TILE_POS[d.code]; if(!p)return;
+    const v=vals[d.code], t=(v-mn)/r, col=ramp(t);
+    const x=p.x*W-RW/2, y=p.y*H;
+    const rk=DISTRICTS.slice().sort((a,b)=>vals[b.code]-vals[a.code]).findIndex(z=>z.code===d.code)+1;
+    g+=`<g class="tile${isLight(col)?' light':''}${DRILL&&DRILL.code===d.code?' sel':''}" data-tile="${d.code}"
+        data-v="${v}" data-rank="${rk}" data-share="${(v/tot*100).toFixed(1)}">
+      <rect class="tsh" x="${x}" y="${y}" width="${RW}" height="${RH}" rx="22" fill="${col}" filter="url(#tsh)"/>
+      <rect class="tbody" x="${x}" y="${y}" width="${RW}" height="${RH}" rx="22" fill="${col}"
+        stroke="#fff" stroke-width="2.5"/>
+      <text class="tn" x="${x+RW/2}" y="${y+38}">${p.label}</text>
+      <text class="tv" x="${x+RW/2}" y="${y+78}">${f_(v,o.dec)}</text>
+      <text class="tu" x="${x+RW/2}" y="${y+102}">${o.unit} · อันดับ ${rk}</text>
+    </g>`;
+  });
+  g+=`<text x="${W-14}" y="${H-12}" text-anchor="end" font-size="12" fill="${cv('--faint')}">
+    แผนผังแสดงตำแหน่งอำเภอโดยประมาณ ไม่ใช่ขอบเขตตามมาตราส่วน</text></svg>`;
+  el.innerHTML=g;
+  el.querySelectorAll('[data-tile]').forEach(t=>{
+    const dt=DISTRICTS.find(x=>x.code===t.dataset.tile);
+    t.addEventListener('mouseenter',e=>showTip(e,
+      `<div class="mt"><i style="background:${ramp((vals[dt.code]-mn)/r)}"></i>อำเภอ${dt.name}</div>
+       <div class="mv">${f_(vals[dt.code],o.dec)}<small>${o.unit}</small></div>
+       <div class="mr"><span>อันดับ <b>${t.dataset.rank}</b> จาก 6</span><span>สัดส่วน <b>${t.dataset.share}%</b></span></div>
+       <div class="mgo">คลิกเพื่อเลือกอำเภอนี้ →</div>`));
+    t.addEventListener('mousemove',moveTipM);
+    t.addEventListener('mouseleave',hideTip);
+    t.addEventListener('click',()=>{hideTip();DRILL=dt;renderCrumb();renderList();renderTileMap();
+      document.getElementById('mapNote').innerHTML=
+        `เลือก <b>อำเภอ${dt.name}</b> · ${curOpt().label} <b>${f_(vals[dt.code],o.dec)} ${o.unit}</b><br>
+         ${REAL_OK?'สลับไปโหมดขอบเขตจริงเพื่อเจาะลงระดับตำบล':'ระดับตำบลดูได้เมื่อขอบเขตจริงโหลดสำเร็จ'}`;
+      document.getElementById('btnBackProv').classList.remove('hide');});
+  });
+  document.getElementById('scaleBar').innerHTML=
+    `<div class="ttl">${o.label}</div><div style="font-size:10px">หน่วย: ${o.unit}</div>
+     <div class="bar"></div><div class="ends"><span>${f_(mn,o.dec)}</span><span>${f_(mx,o.dec)}</span></div>`;
+}
+let REAL_OK=false, MODE='tile';
+function setMode(m){
+  MODE=m;
+  document.getElementById('tilemap').classList.toggle('hide',m!=='tile');
+  document.getElementById('map').classList.toggle('hide',m!=='real');
+  document.getElementById('btnTile').classList.toggle('on',m==='tile');
+  document.getElementById('btnReal').classList.toggle('on',m==='real');
+  if(m==='tile')renderTileMap();
+  else if(MAP){setTimeout(()=>{MAP.invalidateSize();if(GEO&&!DRILL)paintProvince()},60)}
+}
+
+/* ══ วาดแผนที่ระดับอำเภอ ══ */
+function paintProvince(){
+  if(!MAP||!GEO)return;
+  const o=curOpt(),vals=curVals();
+  const arr=Object.values(vals),mn=Math.min(...arr),mx=Math.max(...arr),r=(mx-mn)||1;
+  const tot=arr.reduce((a,b)=>a+b,0)||1;
+  const rank=DISTRICTS.map(d=>({c:d.code,v:vals[d.code]})).sort((a,b)=>b.v-a.v);
+  const rankOf=c=>rank.findIndex(x=>x.c===c)+1;
+
+  if(LAYER){MAP.removeLayer(LAYER)}
+  LABELS.forEach(l=>MAP.removeLayer(l));LABELS=[];
+
+  LAYER=L.geoJSON(GEO,{
+    style:f=>{const dt=dtByName(ampName(f));const v=dt?vals[dt.code]:null;
+      return{color:'#ffffff',weight:2.2,fillOpacity:v==null?.25:ampFill(ABASE.key),
+        fillColor:v==null?'#dfe8e3':ramp((v-mn)/r)}},
+    onEachFeature:(f,l)=>{
+      const dt=dtByName(ampName(f)); if(!dt)return;
+      const v=vals[dt.code];
+      l.on('mouseover',e=>{
+        l.setStyle({weight:3.4,color:cv('--brand')});l.bringToFront();
+        showTip(e,`<div class="mt"><i style="background:${ramp((v-mn)/r)}"></i>อำเภอ${dt.name}</div>
+          <div class="mv">${f_(v,o.dec)}<small>${o.unit}</small></div>
+          <div class="mr"><span>อันดับ <b>${rankOf(dt.code)}</b> จาก 6</span>
+            <span>สัดส่วน <b>${(v/tot*100).toFixed(1)}%</b></span></div>
+          <div class="mgo">คลิกเพื่อดูระดับตำบล →</div>`);
+      });
+      l.on('mousemove',moveTipM);
+      l.on('mouseout',()=>{LAYER.resetStyle(l);hideTip()});
+      l.on('click',e=>{hideTip();
+        if(e.originalEvent&&e.originalEvent.shiftKey){
+          L.popup({maxWidth:300}).setLatLng(e.latlng).setContent(servicePopup({
+            name:'อำเภอ'+dt.name,sub:'จังหวัดหนองบัวลำภู',
+            rows:[[o.label,f_(v,o.dec)+' '+o.unit],['อันดับ',rankOf(dt.code)+' จาก 6']],
+            lat:e.latlng.lat,lng:e.latlng.lng,nearby:'ส่วนราชการ'})).openOn(MAP);
+          return;
+        }
+        drillTo(dt,f)});
+      const c=l.getBounds().getCenter();
+      const lb=L.marker(c,{interactive:false,icon:L.divIcon({className:'amplbl',
+        html:`<div class="lb"><span class="n">${dt.name}</span><span class="v">${f_(v,o.dec)}</span></div>`,
+        iconSize:[110,34],iconAnchor:[55,17]})}).addTo(MAP);
+      LABELS.push(lb);
+    }}).addTo(MAP);
+  try{MAP.fitBounds(LAYER.getBounds(),{padding:[26,26]})}catch(e){}
+
+  document.getElementById('scaleBar').innerHTML=
+    `<div class="ttl">${o.label}</div><div style="font-size:10px">หน่วย: ${o.unit}</div>
+     <div class="bar"></div><div class="ends"><span>${f_(mn,o.dec)}</span><span>${f_(mx,o.dec)}</span></div>`;
+}
+const f_=(v,d)=>f(v,d);
+
+/* ══ เจาะลงระดับตำบล ══ */
+async function drillTo(dt,feat){
+  DRILL=dt;
+  document.getElementById('btnBackProv').classList.remove('hide');
+  renderCrumb();
+  if(LAYER)LAYER.setStyle({fillOpacity:.12,weight:1.2});
+  LABELS.forEach(l=>MAP.removeLayer(l));LABELS=[];
+  if(feat){try{MAP.fitBounds(L.geoJSON(feat).getBounds(),{padding:[40,40]})}catch(e){}}
+
+  if(!TGEO){
+    document.getElementById('mapLoad').classList.remove('hide');
+    const res=await loadLocal('assets/nbl-tambon.geojson')||await loadGeo('subdistricts.geojson');
+    TGEO={type:'FeatureCollection',features:(res&&res.features)||[]};
+    document.getElementById('mapLoad').classList.add('hide');
+  }
+  if(TLAYER){MAP.removeLayer(TLAYER);TLAYER=null}
+  const feats=TGEO.features.filter(ft=>{const n=ampName(ft);const d=dtByName(n);return d&&d.code===dt.code});
+  const o=curOpt(),vals=curVals(),v=vals[dt.code];
+
+  if(!feats.length){
+    document.getElementById('mapNote').innerHTML=
+      `โหลดขอบเขตตำบลของอำเภอ${dt.name}ไม่สำเร็จ · ค่าระดับอำเภอคือ <b>${f_(v,o.dec)} ${o.unit}</b>`;
+    return;
+  }
+  TLAYER=L.geoJSON({type:'FeatureCollection',features:feats},{
+    style:(f)=>({color:'#fff',weight:1.6,fillOpacity:.85,
+      fillColor:ramp(0.28+0.5*(hashStr(tamName(f))%100)/100)}),
+    onEachFeature:(f,l)=>{
+      const nm=tamName(f);
+      l.on('mouseover',e=>{l.setStyle({weight:3,color:cv('--brand')});l.bringToFront();
+        showTip(e,`<div class="mt"><i style="background:${cv('--brand')}"></i>ตำบล${nm}</div>
+          <div style="font-size:11.5px;color:var(--dim);margin-top:5px">อำเภอ${dt.name}</div>
+          <div class="mr"><span>ค่าระดับอำเภอ <b>${f_(v,o.dec)} ${o.unit}</b></span></div>
+          <div class="mgo">ยังไม่มีข้อมูลรายตำบลของตัวชี้วัดนี้</div>`)});
+      l.on('mousemove',moveTipM);
+      l.on('mouseout',()=>{TLAYER.resetStyle(l);hideTip()});
+      const c=l.getBounds().getCenter();
+      const lb=L.marker(c,{interactive:false,icon:L.divIcon({className:'amplbl tamlbl',
+        html:`<div class="lb"><span class="n">${nm}</span></div>`,iconSize:[92,18],iconAnchor:[46,9]})}).addTo(MAP);
+      LABELS.push(lb);
+    }}).addTo(MAP);
+  try{MAP.fitBounds(TLAYER.getBounds(),{padding:[34,34]})}catch(e){}
+  document.getElementById('mapNote').innerHTML=
+    `กำลังดู <b>อำเภอ${dt.name}</b> จำนวน <b>${feats.length}</b> ตำบล · ค่าระดับอำเภอ <b>${f_(v,o.dec)} ${o.unit}</b><br>
+     ข้อมูลรายตำบลของตัวชี้วัดนี้ยังไม่มีในระบบ เมื่อหน่วยงานส่งข้อมูลระดับตำบลเข้ามา แผนที่นี้จะระบายสีตามค่าจริงทันที`;
+  renderCrumb();
+}
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h}
+
+function backProvince(){
+  DRILL=null;
+  renderTileMap();
+  document.getElementById('btnBackProv').classList.add('hide');
+  if(TLAYER){MAP.removeLayer(TLAYER);TLAYER=null}
+  paintProvince();renderCrumb();
+  document.getElementById('mapNote').innerHTML=defaultNote();
+}
+function defaultNote(){
+  const o=curOpt();
+  return `ระบายสีตาม <b>${o.label}</b> (${o.unit}) · สีเข้มคือค่าสูง · คลิกที่อำเภอเพื่อเจาะลงระดับตำบล
+   ${o.agency?`<br>ที่มา: ${o.agency.split(' · ')[0]}`:''}`;
+}
+function renderCrumb(){
+  document.getElementById('crumbMap').innerHTML= DRILL
+    ? `<b>จังหวัดหนองบัวลำภู</b><span class="sep">›</span><b style="color:var(--brand)">อำเภอ${DRILL.name}</b>`
+    : `<b>จังหวัดหนองบัวลำภู</b><span class="sep">·</span><span style="color:var(--faint)">6 อำเภอ 59 ตำบล</span>`;
+}
+
+/* ══ คำอธิบายตัวชี้วัดที่เลือก ══ */
+function areaSrcKey(){const o=curOpt();return o.id.indexOf('|')>0?o.id.split('|')[0]:'crop'}
+function areaTip(r,tot,rank,n){
+  const o=curOpt(), monthly=o.id.indexOf('|')>0;
+  return tipOf({t:o.label+' · อำเภอ'+r.n,
+    d:'หน่วยวัด '+o.unit+(rank?' · อยู่อันดับ '+rank+' จาก '+n+' อำเภอ':''),
+    calc:'สัดส่วนของจังหวัด = (ค่าของอำเภอ ÷ ผลรวมทุกอำเภอ) × 100 = ('+f_(r.v,o.dec)+' ÷ '+f_(tot,o.dec)+') × 100 = '+(r.v/tot*100).toFixed(1)+'%'+
+      (monthly?' · ค่ารายอำเภอเป็นค่าของเดือนล่าสุดที่หน่วยงานรายงาน ไม่ใช่ยอดสะสมทั้งปี':' · เป็นจำนวนคงค้าง ณ งวดที่ประกาศ ไม่นำแต่ละงวดมาบวกกัน'),
+    src:areaSrcKey(),
+    when:monthly?((typeof MONTHS!=='undefined'&&MONTHS[35])?MONTHS[35].label:''):'ข้อมูล ณ ก.ค. 2569'});
+}
+
+/* ══ รายการอำเภอ ══ */
+function renderList(){
+  const o=curOpt(),vals=curVals();
+  const rows=DISTRICTS.map(d=>({d,v:vals[d.code]})).sort((a,b)=>b.v-a.v);
+  const mx=rows[0].v||1,tot=rows.reduce((a,b)=>a+b.v,0)||1;
+  document.getElementById('ampList').innerHTML=rows.map((r,i)=>`
+    <div class="amprow${i===0?' top':''}${DRILL&&DRILL.code===r.d.code?' act':''}" data-amp="${r.d.code}"
+      data-tip2="${areaTip({n:r.d.name,v:r.v},tot,i+1,rows.length)}">
+      <span class="rk">${i+1}</span><span class="nm">${r.d.name}</span>
+      <span class="bar"><i style="width:${(r.v/mx*100).toFixed(0)}%;background:${ramp(r.v/mx)}"></i></span>
+      <span class="vl">${f_(r.v,o.dec)}</span></div>`).join('')+
+    `<div class="note">รวมทั้งจังหวัด ${f_(tot,o.dec)} ${o.unit}</div>`;
+}
+
+/* ══ กราฟประกอบ ══ */
+function renderCharts(){
+  const o=curOpt(),vals=curVals();
+  const rows=DISTRICTS.map(d=>({n:d.name,v:vals[d.code]})).sort((a,b)=>b.v-a.v);
+  const tot=rows.reduce((a,b)=>a+b.v,0)||1, avg=tot/rows.length;
+  mk('cAreaShare',{type:'doughnut',data:{labels:rows.map(r=>r.n),
+    datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map((r,i)=>ramp(1-i/(rows.length-1||1))),
+      borderColor:cv('--card'),borderWidth:3}]},
+    options:{cutout:'58%',plugins:{legend:{position:'bottom',labels:{padding:8,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>c.label+' '+f_(c.raw,o.dec)+' '+o.unit,
+        footer:it=>'คิดเป็น '+(it[0].raw/tot*100).toFixed(1)+'% ของจังหวัด'}}}}});
+  const dev=rows.map(r=>+(r.v-avg).toFixed(2));
+  mk('cAreaDev',{type:'bar',data:{labels:rows.map(r=>r.n),
+    datasets:[{data:dev,backgroundColor:dev.map(v=>v>=0?cv('--brand'):cv('--coral')),borderRadius:5,barThickness:15}]},
+    options:{
+      indexAxis:'y',
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{
+          label:c=>(c.raw>=0?'สูงกว่า':'ต่ำกว่า')+'ค่าเฉลี่ย '+f_(Math.abs(c.raw),o.dec)+' '+o.unit,
+          footer:it=>'ค่าเฉลี่ยจังหวัด '+f_(avg,o.dec)+' '+o.unit
+        }}
+      },
+      scales:{
+        x:ax({ticks:{callback:v=>f_(v,0)}}),
+        y:ax({grid:{display:false},ticks:{font:{size:11}}})
+      }
+    }});
+  const hi=rows[0],lo=rows[rows.length-1];
+  document.getElementById('devNote').innerHTML=
+    `<b>${hi.n}</b> สูงกว่าค่าเฉลี่ยมากที่สุด ขณะที่ <b>${lo.n}</b> ต่ำกว่าค่าเฉลี่ย
+     ${f_(avg-lo.v,o.dec)} ${o.unit} ช่องว่างระหว่างอำเภอสูงสุดกับต่ำสุดอยู่ที่ ${f_(hi.v-lo.v,o.dec)} ${o.unit}`;
+}
+
+function renderTable(){
+  const o=curOpt(),vals=curVals();
+  const rows=DISTRICTS.map(d=>({n:d.name,v:vals[d.code]})).sort((a,b)=>b.v-a.v);
+  const tot=rows.reduce((a,b)=>a+b.v,0)||1,mx=rows[0].v||1;
+  document.getElementById('tArea').innerHTML=`<thead><tr><th style="width:34px">#</th><th>อำเภอ</th>
+    <th class="r">${o.unit}</th><th class="r">สัดส่วน</th><th style="width:120px"></th></tr></thead><tbody>`+
+    rows.map((r,i)=>`<tr data-tip2="${areaTip(r,tot,i+1,rows.length)}"><td class="r" style="color:var(--faint)">${i+1}</td><td>${r.n}</td>
+      <td class="r">${f_(r.v,o.dec)}</td><td class="r">${(r.v/tot*100).toFixed(1)}%</td>
+      <td><div class="bar"><i style="width:${(r.v/mx*100).toFixed(0)}%;background:${ramp(r.v/mx)}"></i></div></td></tr>`).join('')+
+    `</tbody><tfoot><tr><td></td><td>รวมทั้งจังหวัด</td><td class="r">${f_(tot,o.dec)}</td><td class="r">100.0%</td><td></td></tr></tfoot>`;
+}
+
+/* ══ เริ่มระบบ ══ */
+function renderArea(){
+  const sel=document.getElementById('areaSel');
+  const fsSlot=document.getElementById('fsSlot');
+  if(fsSlot)fsSlot.outerHTML=fullscreenBtn('#mapWrapA');
+  const bSlot=document.getElementById('baseSlot');
+  if(bSlot)bSlot.outerHTML=baseSwitcher('abase');
+  if(!sel.options.length){
+    sel.innerHTML=AREA_OPTS.map((o,i)=>`<option value="${i}">${o.label}${o.real?' · ข้อมูลจริง':''}</option>`).join('');
+    sel.onchange=()=>{DRILL=null;if(TLAYER){MAP.removeLayer(TLAYER);TLAYER=null}
+      document.getElementById('btnBackProv').classList.add('hide');
+      refreshAll()};
+  }
+  if(typeof L==='undefined'){document.getElementById('map').innerHTML=
+    '<div style="padding:24px;color:var(--faint)">โหลดแผนที่ไม่สำเร็จ ตรวจการเชื่อมต่ออินเทอร์เน็ต</div>';refreshSide();return}
+  if(!MAP){
+    MAP=L.map('map',{zoomControl:false,attributionControl:false,scrollWheelZoom:false,
+      zoomSnap:.25,minZoom:8,maxZoom:14});
+    L.control.zoom({position:'topright'}).addTo(MAP);
+    MAP.setView([17.22,102.36],9.4);
+    document.getElementById('btnBackProv').onclick=backProvince;
+    bindBase('abase',MAP,ABASE);
+    document.getElementById('ampList').addEventListener('click',e=>{
+      const r=e.target.closest('[data-amp]'); if(!r)return;
+      const dt=DISTRICTS.find(x=>x.code===r.dataset.amp);
+      const ft=GEO&&GEO.features.find(f=>{const d=dtByName(ampName(f));return d&&d.code===dt.code});
+      drillTo(dt,ft); renderList();
+    });
+    document.getElementById('mapLoad').textContent='กำลังโหลดขอบเขตอำเภอ…';
+    document.getElementById('mapLoad').classList.remove('hide');
+    loadLocal('assets/nbl-amphoe.geojson').then(r=>r||loadGeo('amphoes.geojson')).then(res=>{
+      document.getElementById('mapLoad').classList.add('hide');
+      if(res&&res.ok){
+        GEO={type:'FeatureCollection',features:res.features};
+        REAL_OK=true;
+        const br=document.getElementById('btnReal'); if(br)br.disabled=false;
+        setMode('real');
+        document.getElementById('mapNote').innerHTML=defaultNote();
+      }else{
+        document.getElementById('mapNote').innerHTML=
+          '<b style="color:var(--warn)">ยังไม่พบไฟล์ขอบเขตจริง</b> — กำลังแสดงเป็นแผนผังจังหวัดแทน '+
+          'อัปโหลด <code>assets/nbl-amphoe.geojson</code> และ <code>assets/nbl-tambon.geojson</code> เพื่อเปิดแผนที่ขอบเขตจริง'+
+          (res&&res.error?'<br><span style="color:var(--faint)">รายละเอียด: '+res.error+'</span>':'');
+      }
+    });
+  }else{MAP.invalidateSize();if(GEO&&!DRILL)paintProvince()}
+  refreshSide();
+  renderTileMap();
+  const bt=document.getElementById('btnTile'), br=document.getElementById('btnReal');
+  if(bt&&!bt.dataset.b){bt.dataset.b='1';bt.onclick=()=>setMode('tile')}
+  if(br&&!br.dataset.b){br.dataset.b='1';br.onclick=()=>{if(REAL_OK)setMode('real')}}
+  document.getElementById('mapNote').innerHTML=defaultNote();
+  renderCrumb();
+}
+function refreshAll(){if(GEO&&MODE==='real')paintProvince();renderTileMap();refreshSide();
+  document.getElementById('mapNote').innerHTML=defaultNote()}
+function refreshSide(){
+  renderList();renderCharts();renderTable();
+  const o=curOpt();
+  document.getElementById('areaTitle').textContent=o.label;
+  document.getElementById('areaUnit').textContent='หน่วย: '+o.unit+(o.agency?' · '+o.agency.split(' · ')[0].replace('สำนักงาน','สนง.'):'');
+  const B=D.base;
+  const adminTip=t=>tipOf({t:t,
+    d:'ข้อมูลฐานการปกครองที่ใช้เป็นตัวหารและขอบเขตอ้างอิงของทุกตัวชี้วัดเชิงพื้นที่ในหน้านี้',
+    calc:'ยอด ณ สิ้นงวดที่ประกาศ ไม่นำแต่ละงวดมาบวกกัน · ขอบเขตแผนที่ใช้ '+B.amphoe+' อำเภอ '+B.tambon+' ตำบล',
+    src:'popreg',when:'ข้อมูล ณ ก.ค. 2569'});
+  document.getElementById('areaAdmin').innerHTML=`<div class="grid g2" style="gap:9px">
+      ${[['อำเภอ',B.amphoe,''],['ตำบล',B.tambon,''],['หมู่บ้าน',f(B.muban,0),''],['ชุมชน',B.chumchon,''],
+         ['ประชากร',f(B.pop,0),'คน'],['ครัวเรือนเกษตร',f(B.agriHH,0),'ครัวเรือน']].map(x=>
+        `<div class="mini" data-tip2="${adminTip(x[0])}"><div class="l">${x[0]}</div><div class="v">${x[1]}<small> ${x[2]}</small></div></div>`).join('')}</div>
+    <div class="note">อำเภอเมืองเป็นศูนย์กลางเศรษฐกิจและมีแหล่งท่องเที่ยวเชิงเกษตรมากที่สุด 18 แห่ง
+    รองลงมาคืออำเภอนากลาง 17 แห่ง ขณะที่อำเภอโนนสังมีน้อยที่สุด 7 แห่ง ทั้งที่มีเขื่อนอุบลรัตน์เป็นทุนทางธรรมชาติ</div>`;
+}
+DS.init('area',renderArea);
+</script>
+</body>
+</html>

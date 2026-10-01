@@ -3,503 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SDGs หนองบัวลำภู · ศูนย์ข้อมูลการพัฒนาที่ยั่งยืน</title>
-<meta name="theme-color" content="#0b8a68">
-<link rel="icon" href="assets/seal.png">
-<link rel="stylesheet" href="sdg.css">
-<style>
-/* ───── ภาพพื้นหลังหน้าปก ───── */
-:root { --cover: url('assets/bg/cover-light.webp'); }
-:root[data-theme="dark"] { --cover: url('assets/bg/cover-dark.webp'); }
-@media (max-width: 640px) { :root { --cover: url('assets/bg/cover-mobile.webp'); } }
+<title>หน้าปกจังหวัด · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</title>
+<meta name="theme-color" content="#0b3c32">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
 
-/* ───── วิธีอ่านกลีบบัว ───── */
-.legend { border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surf); padding: 14px 16px; margin: 0 0 18px; }
-.legend h4 { font: 600 14px var(--fd); margin: 0 0 8px; color: var(--ink2); }
-.legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 7px; font-size: 13.8px; color: var(--ink2); line-height: 1.45; }
-.legend li { display: flex; gap: 9px; align-items: flex-start; }
-.legend i { flex: none; margin-top: 3px; width: 26px; height: 12px; border-radius: 3px; background: var(--brand); }
-.legend i.half { background: linear-gradient(90deg, var(--brand) 45%, var(--bg2) 45%); }
-.legend i.dotline { background: repeating-linear-gradient(90deg, var(--ink3) 0 3px, transparent 3px 7px); height: 4px; margin-top: 7px; }
-
-/* ───── เวทีแสดงผล 2 มุมมอง ───── */
-.stagewrap { position: relative; }
-.stage3d { display: none; width: 100%; min-height: 360px; }
-.stage3d canvas { border-radius: 26px; }
-body.v3d .stage3d { display: block; }
-body.v3d #lotus { display: none; }
-.r3d { display: none; position: absolute; left: 14px; bottom: 16px;
-  min-width: 168px; padding: 14px 18px 12px; border-radius: 18px; text-align: left; pointer-events: none;
-  background: color-mix(in srgb, var(--surf) 76%, transparent); border: 1px solid var(--line);
-  backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 24px 50px -30px rgba(0,0,0,.6); }
-body.v3d .r3d { display: block; }
-.r3d .g { font: 700 12px var(--fd); letter-spacing: .1em; color: var(--gc, var(--brand)); }
-.r3d .n { font: 700 40px/1 var(--fd); margin: 4px 0 2px; }
-.r3d .t { font-size: 13.5px; color: var(--ink2); max-width: 14em; line-height: 1.35; }
-.r3d .s { font-size: 12.5px; margin-top: 5px; }
-.seg { display: inline-flex; padding: 3px; border-radius: 99px; background: var(--bg2); border: 1px solid var(--line); }
-.segb { border: 0; background: transparent; color: var(--ink2); font: 500 14px var(--fb); padding: 6px 15px; border-radius: 99px; cursor: pointer; }
-.segb[aria-pressed="true"] { background: var(--surf); color: var(--ink); box-shadow: var(--shadow); }
-.wheelhint { text-align: center; color: var(--ink3); font-size: 13px; margin-top: 8px; }
-
-/* ───── หน้าปก: บัว 17 กลีบ ───── */
-.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(20px, 4vw, 60px); align-items: center; padding: 40px 0 10px; }
-.lotus-wrap { position: relative; }
-#lotus { width: 100%; height: auto; display: block; overflow: visible; }
-.petal { cursor: pointer; transition: opacity .2s; }
-.petal .ghost { opacity: .13; }
-.petal:hover .ghost { opacity: .3; }
-.petal:focus { outline: none; }
-.petal:focus-visible .edge { stroke: var(--ink); stroke-width: 2.5; }
-.petal .edge { fill: none; stroke: var(--surf); stroke-width: 1.4; }
-.lotus-dim .petal { opacity: .16; }
-.lotus-dim .petal.hl { opacity: 1; }
-.ringtxt { font: 600 13px var(--fd); fill: var(--ink2); }
-.ringarc { fill: none; stroke: var(--line); stroke-width: 1.2; }
-.scale { fill: none; stroke: var(--grid); stroke-dasharray: 2 5; }
-.scalet { font: 500 10px var(--fd); fill: var(--ink3); }
-.gnum { font: 700 13px var(--fd); fill: #fff; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
-.core { fill: var(--surf); stroke: var(--line); }
-.core-ring { fill: none; stroke: var(--gc, var(--brand)); stroke-width: 3; opacity: .9; transition: stroke .2s; }
-.petal path { transition: filter .2s; }
-.petal.act { filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .28)); }
-.pace { fill: none; stroke: var(--ink3); stroke-width: 1.6; stroke-dasharray: 7 6; opacity: .55; }
-.pacelab { font: 600 11px var(--fd); fill: var(--ink2); }
-.core-g { font: 700 12px var(--fd); fill: var(--gc); text-anchor: middle; letter-spacing: .08em; }
-.core-t { font: 500 13px var(--fb); fill: var(--ink2); text-anchor: middle; }
-.wheelbar { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 6px; flex-wrap: wrap; }
-.wbtn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 99px; border: 1px solid var(--line);
-  background: var(--surf); color: var(--ink); font: 500 14px var(--fb); cursor: pointer; }
-.wbtn:hover { border-color: var(--brand); }
-.wbtn.on { background: var(--brand); border-color: var(--brand); color: #fff; }
-.wbtn .ic { width: 16px; height: 16px; }
-.core-n { font: 700 54px var(--fd); fill: var(--ink); text-anchor: middle; }
-.core-s { font: 500 12.5px var(--fb); fill: var(--ink2); text-anchor: middle; }
-@keyframes bloom { from { r: 60; } }
-.fillc { animation: bloom 1.5s cubic-bezier(.2, .8, .2, 1) both; }
-:root[data-theme="dark"] .petal .ghost { opacity: .2; }
-
-.intro h1 { font: 600 clamp(28px, 3.2vw, 45px)/1.2 var(--fd); margin: 0 0 14px; letter-spacing: -.01em; }
-.intro h1 span { display: inline-block; }
-.intro p.lead { color: var(--ink2); margin: 0 0 20px; max-width: 34em; }
-.statbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; background: var(--bg2); margin: 8px 0 10px; }
-.statbar i { display: block; height: 100%; }
-.statleg { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; color: var(--ink2); margin-bottom: 20px; }
-.statleg b { color: var(--ink); font-family: var(--fd); font-size: 17px; margin-right: 2px; }
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-.pill { border: 1px solid var(--line); background: var(--surf); color: var(--ink); border-radius: 99px; padding: 7px 14px; font: 500 14px var(--fb); cursor: pointer; }
-.pill small { color: var(--ink3); margin-left: 5px; font-family: var(--fd); }
-.pill[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.pill[aria-pressed="true"] small { color: inherit; opacity: .7; }
-.watch { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.watch h3 { font: 600 15px var(--fd); margin: 0 0 8px; color: var(--ink2); }
-.wrow { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); text-decoration: none; }
-.wrow .gb { flex: none; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: #fff; font: 700 14px var(--fd); font-style: normal; }
-.wrow span { flex: 1; font-size: 14px; line-height: 1.35; }
-.wrow b { font: 600 16px var(--fd); }
-
-/* ───── ตัวเลขที่ต้องเห็นก่อน ───── */
-.sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 64px 0 18px; flex-wrap: wrap; }
-.sec-h h2 { font: 600 clamp(22px, 2.2vw, 29px)/1.25 var(--fd); margin: 0; }
-.sec-h p { margin: 0; color: var(--ink2); font-size: 14.5px; max-width: 42em; }
-.head4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.hcard { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surf);
-  padding: 18px 20px 16px; text-decoration: none; color: inherit; display: block; transition: transform .15s, border-color .15s; }
-.head4 { perspective: 1400px; }
-.hcard:hover { transform: translateY(-4px) rotateX(2.5deg); border-color: var(--gc); box-shadow: 0 24px 44px -30px rgba(0,0,0,.55); }
-.hcard .k { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink2); min-height: 38px; line-height: 1.35; }
-.hcard .k em { font-style: normal; flex: none; padding: 1px 7px; border-radius: 6px; color: #fff; font: 600 12px var(--fd); background: var(--gc); }
-.hcard .v { font: 600 clamp(30px, 3vw, 40px)/1.05 var(--fd); margin: 8px 0 2px; }
-.hcard .v small { font: 400 13px var(--fb); color: var(--ink2); margin-left: 5px; }
-.hcard .f { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
-.hcard .f span { font-size: 12.5px; color: var(--ink3); }
-
-/* ───── แถบรายเดือน ───── */
-.mo { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 14px; }
-.mocard { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surf); padding: 18px 20px; }
-.mocard h4 { font: 600 16px var(--fd); margin: 0; }
-.mocard .sub { color: var(--ink2); font-size: 13px; margin: 2px 0 12px; }
-.bars { display: flex; align-items: flex-end; gap: 3px; height: 92px; }
-.bars i { flex: 1; background: color-mix(in srgb, var(--gc) 70%, transparent); border-radius: 4px 4px 0 0; min-height: 3px; transition: background .15s; }
-.bars i:hover { background: var(--gc); }
-.bars i.last { background: var(--gc); }
-.molab { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink3); margin-top: 6px; }
-
-/* ───── การ์ด 17 เป้าหมาย ───── */
-.psec { margin-bottom: 40px; }
-.gtiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 14px; perspective: 1200px; }
-.gt { position: relative; overflow: hidden; display: block; padding: 16px 16px 14px; border-radius: var(--r-md); background: var(--surf);
-  border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s, box-shadow .15s; }
-.gt:hover { border-color: var(--gc); transform: translateY(-4px) rotateX(3deg); box-shadow: 0 22px 40px -26px color-mix(in srgb, var(--gc) 85%, transparent); }
-.gt::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 5px; background: var(--gc); z-index: 1; }
-.gt .hd { display: flex; align-items: baseline; gap: 10px; }
-.gt .gn { font: 700 34px/1 var(--fd); color: var(--gc); }
-.gt .gname { font-weight: 600; font-size: 15px; line-height: 1.3; }
-.gt .gtag { color: var(--ink2); font-size: 13px; line-height: 1.45; margin-top: 6px; min-height: 2.9em; max-width: 24em; }
-.gt .gbar { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-.gt .gbar i { flex: 1; height: 7px; border-radius: 9px; background: var(--bg2); overflow: hidden; }
-.gt .gbar i u { display: block; height: 100%; border-radius: 9px; background: var(--gc); }
-.gt .gbar b { font: 600 16px var(--fd); min-width: 30px; text-align: right; }
-.gt .gmeta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 9px; }
-
-/* ───── ระบบที่เชื่อมกัน ───── */
-.links { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
-.lk { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surf); text-decoration: none; }
-.lk:hover { border-color: var(--brand); }
-.lk .sw { display: flex; gap: 3px; flex: none; }
-.lk .sw i { width: 22px; height: 22px; border-radius: 6px; color: #fff; font: 700 11px/22px var(--fd); text-align: center; font-style: normal; }
-.lk span { flex: 1; font-size: 14.5px; font-weight: 500; line-height: 1.35; }
-.lk.off { opacity: .6; border-style: dashed; cursor: default; }
-.lk.sub { background: var(--surf2); }
-.lk.sub .ic { opacity: .55; }
-.lk .ic { color: var(--ink3); }
-
-@media (max-width: 1100px) { .head4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 980px) { .hero { grid-template-columns: 1fr; } .lotus-wrap { max-width: 620px; margin: 0 auto; width: 100%; } }
-@media (max-width: 560px) { .watch { grid-template-columns: 1fr; } .head4 { grid-template-columns: 1fr; } }
-</style>
 </head>
-<body>
-<div id="bar"></div>
-<header class="heroband" id="heroband"></header>
-<main class="wrap">
-  <section class="hero">
-    <div class="lotus-wrap">
-      <div class="stagewrap">
-        <div id="stage3d" class="stage3d" aria-hidden="true"></div>
-        <div class="r3d" id="r3d"></div>
-        <svg id="lotus" viewBox="-330 -330 660 660" role="img" aria-label="ความก้าวหน้า 17 เป้าหมาย SDGs ของจังหวัดหนองบัวลำภู"></svg>
+<body class="cover">
+<div id="tip"></div>
+<div class="app" id="app">
+  <header class="top" id="topbar"></header>
+  <nav class="side" id="sidebar"></nav>
+  <main class="main">
+    <section class="view on" id="v-cover">
+  <div class="cv">
+    <div class="bgimg" id="coverBg"></div><div class="veil"></div>
+    <div class="in">
+      <div class="crest">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAAB/lBMVEXeXl3lnGChWCslHBqkX1rb5uEhoUpbJirp2JrzkCOhMBnioJqfLlQYGhnZYicebTYWIR3eapSilWLVMSikzdpgUjRqXk2dW5AeKyRWnlJjUJNfojdpsN2goqBeYmEfba1xwk8hldYljjobfMP6PYLPNGgnckxmmqOhzaIuOZFwMUfuyXYmZFEJUyhVO40mjaJTXFqcpqOfrc7dssbY2tqfO4SYozZuAAB0xO6PxzxRVFI1wk1mw4qLyHb/AAA2UEdXk3EA/3hrloqdxLf/AP8jn2om7qtc57GSl5a13NMlRjo9TEcA/wAA//9owT5y///+yQAAAH8vRD5nKj1VAFV/fwDfv7////8CAgL2+voAAADzdpk5lNHuOnvyZ5D6/LIHqk7U5+0yicnyV4dEmdOItuJNt0kxs0rxZy201e2oyun1haVrqtpUo9j1SYTVl0vuWC2PxkKVxOczh0OxaDLTSynNiEjxdynJeDZ2teTb69Ly1pHPhjpqu0eGttvvt3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADG+YkxAAAAgHRSTlP+///p/v//+f////78nv/+YP7//////v8f//////8Q///////8/f7////9/xcT//9iFv//Fv//Av//n////wFNEQMcHAEHBAlDGFeMAQH/A/8Ch7wDAggA/P8C/v/+/v/////+//////////7///3//////////////////////xjwg9cAACaCSURBVHja5Z2JWyJJmv8jLzIhAcmUQ470KhHLq7qsruqaq2d2ZnZm793fiQdioaCiCDYiYIP6r+/3jciExFLbqunZ2efZt0STK/OT7xVvREZGseJ/c2H/MwB3P5PZ3d3/JoBE8+Q7s7t/W8AR3NuZmZlYxJNYbGZmdnb0kb8VoHvoWYApyvbnokQi38y+/YsZ2V9CR1rbflaUSGzmL2NkX4cn6HyKUxQlkUgKSegTKnUZv9If2VfixSJjtKRtG8bBpBiOndSVMSO5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" alt="ตราประจำจังหวัดหนองบัวลำภู">
+        <div class="ct">จังหวัดหนองบัวลำภู<br>NONG BUA LAM PHU PROVINCE</div>
       </div>
-      <div class="wheelbar">
-        <div class="seg" role="group" aria-label="เลือกมุมมอง">
-          <button class="segb" data-v="3d" onclick="setView('3d')">3 มิติ</button>
-          <button class="segb" data-v="2d" onclick="setView('2d')">วงบัว</button>
-        </div>
-        <button class="wbtn" id="tour" onclick="toggleTour()"></button>
+      <h1><span>ศูนย์บัญชาการข้อมูลเศรษฐกิจ</span><span>จังหวัดหนองบัวลำภู</span></h1>
+      <div class="tag">ศูนย์รวมข้อมูลเศรษฐกิจทุกภาคส่วนของจังหวัด ในหน้าจอเดียว</div>
+      <div style="font-size:10.5px;color:#7fbfa4;letter-spacing:1px;margin-top:6px">BUILD <span data-build>2.7.0</span></div>
+      <p class="lead">รวมข้อมูลจากทุกหน่วยงานในจังหวัด ตั้งแต่การคลัง เกษตร อุตสาหกรรม การค้า แรงงาน ไปจนถึงการท่องเที่ยว
+        อัปเดตรายเดือน เทียบย้อนหลัง 3 ปี ลงลึกถึงระดับอำเภอ พร้อมระบุหน่วยงานเจ้าของข้อมูลทุกตัวเลข</p>
+      <div class="cvstats" id="cvStats"></div>
+      <div class="cvcta">
+        <button class="cbtn p" data-go="overview"><svg viewBox="0 0 24 24"><path d="M3.5 17.5 9 11l4 3.6 7.2-8.4"/><path d="M15.6 6.2h4.9v4.9"/></svg>เข้าสู่แดชบอร์ด</button>
+        <button class="cbtn g" data-go="report"><svg viewBox="0 0 24 24"><path d="M4 5.5A2 2 0 0 1 6 3.5h9l5 5V19a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M14.5 3.6V9h5.2"/></svg>สรุปผู้บริหาร</button>
+        <a class="cbtn g" href="input.html"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>หน่วยงานกรอกข้อมูล</a>
       </div>
-      <div class="wheelhint" id="wheelhint"></div>
     </div>
-    <div class="intro" id="intro"></div>
-  </section>
-
-  <div class="sec-h"><h2>ตัวเลขที่ต้องเห็นก่อน</h2><p>ข้อมูลจริงล่าสุดจากบัญชีข้อมูลจังหวัด ชี้หรือแตะเพื่อดูที่มา ค่าเป้าหมาย และค่าที่ควรถึงแล้วในปีนี้</p></div>
-  <div class="head4" id="head4"></div>
-
-  <div class="sec-h"><h2>ความเคลื่อนไหวรายเดือน</h2><p>ชุดข้อมูลที่รายงานถี่กว่ารายปี ใช้ดูจังหวะเศรษฐกิจฐานรากระหว่างปี</p></div>
-  <div class="mo" id="mo"></div>
-
-  <div class="sec-h"><h2>17 เป้าหมายในบริบทหนองบัวลำภู</h2><p>จัดกลุ่มตามหลัก 5P ของสหประชาชาติ แต่ละการ์ดบอกว่าเป้าหมายนั้นแปลว่าอะไรในจังหวัดเรา และตอนนี้เดินถึงไหน</p></div>
-</main>
-<div id="pillars"></div>
-<main class="wrap">
-  <div class="sec-h"><h2>ระบบข้อมูลของจังหวัดที่ป้อนเข้าเป้าหมาย</h2><p>แดชบอร์ดเฉพาะเรื่องที่มีอยู่แล้ว เชื่อมเข้ามาเป็นแหล่งข้อมูลของแต่ละเป้าหมาย</p></div>
-  <div class="links" id="links"></div>
-</main>
-<footer class="foot"><div class="wrap">
-  <div>สำนักงานสถิติจังหวัดหนองบัวลำภู · ศาลากลางจังหวัด ชั้น 2 · โทร 0 4231 6736</div>
-  <div>แหล่งข้อมูลหลัก: บัญชีข้อมูลจังหวัดหนองบัวลำภู (nongbualamphu.gdcatalog.go.th) และหน่วยงานเจ้าของตัวชี้วัด</div>
-</div></footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="sdg-real.js"></script>
-<script src="sdg-data.js"></script>
-<script src="sdg.js"></script>
-<script src="sdg3d.js"></script>
+  </div>
+  <div class="portal">
+    <div class="ph2">เลือกภาคส่วนที่ต้องการดู</div>
+    <p class="pd">แต่ละภาคส่วนรวมข้อมูลที่เชื่อมโยงกันไว้ด้วยกัน และมีหน่วยงานเจ้าของข้อมูลชัดเจน</p>
+    <div class="pgrid" id="portalGrid"></div>
+  </div></section>
+  </main>
+</div>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="ds.js"></script>
 <script>
-const ORDER = PILLARS.flatMap(p => p.goals);
-const R0 = 82, R1 = 272, STEP = 360 / 17, HALF = STEP / 2 - 1.3;
-const rad = d => (d - 90) * Math.PI / 180;
-const pt = (r, d) => [r * Math.cos(rad(d)), r * Math.sin(rad(d))];
-let FOCUS = null;
-
-function petalPath(a) {
-  const [x0, y0] = pt(R0 - 4, a), [xt, yt] = pt(R1, a);
-  const [l1x, l1y] = pt(R0 + (R1 - R0) * .42, a - HALF), [r1x, r1y] = pt(R0 + (R1 - R0) * .42, a + HALF);
-  const [l2x, l2y] = pt(R1 * .93, a - HALF * .55), [r2x, r2y] = pt(R1 * .93, a + HALF * .55);
-  return `M${x0},${y0} C${l1x},${l1y} ${l2x},${l2y} ${xt},${yt} C${r2x},${r2y} ${r1x},${r1y} ${x0},${y0}Z`;
-}
-function arcPath(r, a1, a2) {
-  const [x1, y1] = pt(r, a1), [x2, y2] = pt(r, a2);
-  return `M${x1},${y1} A${r},${r} 0 ${a2 - a1 > 180 ? 1 : 0} 1 ${x2},${y2}`;
-}
-function drawLotus() {
-  const el = $('#lotus');
-  let h = '<defs>';
-  ORDER.forEach((n, i) => {
-    const s = goalScore(n) ?? 0;
-    h += `<clipPath id="cf${n}"><circle class="fillc" style="animation-delay:${.15 + i * .045}s" r="${R0 + (R1 - R0) * s / 100}"/></clipPath>`;
-  });
-  h += '</defs>';
-  [25, 50, 75].forEach(v => {
-    const r = R0 + (R1 - R0) * v / 100, [tx, ty] = pt(r, -STEP / 2);
-    h += `<circle class="scale" r="${r}"/><text class="scalet" x="${tx - 4}" y="${ty + 3}" text-anchor="end">${v}</text>`;
-  });
-  ORDER.forEach((n, i) => {
-    const g = goalOf(n), a = i * STEP, d = petalPath(a), [nx, ny] = pt(R1 + 20, a);
-    h += `<g class="petal" data-g="${n}" data-p="${pillarOf(n).id}" tabindex="0" role="link"
-      aria-label="SDG ${n} ${g.th} คะแนน ${fmt(goalScore(n), 0)}" data-tip="${goalTip(g)}">
-      <path class="ghost" d="${d}" fill="${g.c}"/>
-      <path d="${d}" fill="${g.c}" clip-path="url(#cf${n})"/>
-      <path class="edge" d="${d}"/>
-      <circle cx="${nx}" cy="${ny}" r="14" fill="${g.c}"/><text class="gnum" x="${nx}" y="${ny}">${n}</text></g>`;
-  });
-  let k = 0;
-  PILLARS.forEach(p => {
-    const a1 = k * STEP - STEP / 2 + 2, a2 = (k + p.goals.length) * STEP - STEP / 2 - 2;
-    const id = 'arc-' + p.id, r = R1 + 46, mid = (a1 + a2) / 2, flip = mid > 90 && mid < 270;
-    h += `<path class="ringarc" d="${arcPath(r - 8, a1, a2)}"/>`;
-    h += flip ? `<path id="${id}" d="${arcPath(r + 4, a2, a1).replace(' 0 1 ', ' 0 0 ')}" fill="none"/>`
-              : `<path id="${id}" d="${arcPath(r, a1, a2)}" fill="none"/>`;
-    h += `<text class="ringtxt"><textPath href="#${id}" startOffset="50%" text-anchor="middle">${p.goals.length > 1 ? p.th + ' · ' + p.en : p.th}</textPath></text>`;
-    k += p.goals.length;
-  });
-  /* วงประ "ควรถึงแล้ว ณ ปีนี้" = คะแนน 100 */
-  h += `<circle class="pace" r="${R1}"/>`;
-  h += `<g id="core"></g>`;
-  el.innerHTML = h;
-  drawCore(null);
-  const setAct = n => {
-    $$('.petal').forEach(p => p.classList.toggle('act', +p.dataset.g === n));
-    drawCore(n);
-  };
-  el.addEventListener('pointerover', e => { const p = e.target.closest('.petal'); if (p) { stopTour(); setAct(+p.dataset.g); } });
-  el.addEventListener('pointerleave', () => { if (!TOUR) setAct(null); });
-  el.addEventListener('focusin', e => { const p = e.target.closest('.petal'); if (p) setAct(+p.dataset.g); });
-  window.__setAct = setAct;
-  if ($('#tour') && !TOUR) $('#tour').innerHTML = svg('loop') + 'ไล่ดูทีละเป้าหมาย';
-  el.onclick = e => { const p = e.target.closest('.petal'); if (p && !e.defaultPrevented) location.href = 'goal.html?g=' + p.dataset.g; };
-  el.onkeydown = e => { const p = e.target.closest('.petal'); if (p && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = 'goal.html?g=' + p.dataset.g; } };
-  applyFocus();
-}
-/* วงในตรงกลาง: ปกติแสดงคะแนนรวม ถ้าชี้ที่กลีบไหนจะเล่าเรื่องกลีบนั้น */
-function drawCore(n) {
-  const c = $('#core'); if (!c) return;
-  if (n == null) {
-    const st = statusOf(overallScore());
-    c.innerHTML = `<circle class="core" r="${R0 - 12}"/>
-      <circle class="core-ring" style="--gc:${st.c}" r="${R0 - 12}" stroke-dasharray="${2 * Math.PI * (R0 - 12) * overallScore() / 100} 9999" transform="rotate(-90)"/>
-      <image href="assets/seal.png" x="-15" y="-58" width="30" height="30"/>
-      <text class="core-n" y="22">${fmt(overallScore(), 0)}</text>
-      <text class="core-s" y="42">คะแนนรวมทั้งจังหวัด</text>`;
-    return;
-  }
-  const g = goalOf(n), s = goalScore(n), st = statusOf(s);
-  const [l1, l2] = wrapThai(g.th, 13);
-  c.innerHTML = `<circle class="core" r="${R0 - 12}"/>
-    <circle class="core-ring" style="--gc:${g.c}" r="${R0 - 12}" stroke-dasharray="${2 * Math.PI * (R0 - 12) * (s || 0) / 100} 9999" transform="rotate(-90)"/>
-    <text class="core-g" style="--gc:${g.c}" y="-38">SDG ${n}</text>
-    <text class="core-n" y="4" style="font-size:44px">${fmt(s, 0)}</text>
-    <text class="core-t" y="24">${esc(l1)}</text>${l2 ? `<text class="core-t" y="41">${esc(l2)}</text>` : ''}
-    <text class="core-s" y="${l2 ? 58 : 44}" style="fill:${st.c}">${st.th}</text>`;
+/* ─────────────── 9) หน้าปก ─────────────── */
+function renderCover(){
+  /* ตัวเลขหน้าปกอ่านจากข้อมูลจริงทั้งหมด ไม่มีค่าที่พิมพ์ฝังไว้
+     ตัวแรกคือภาวะเศรษฐกิจเดือนล่าสุดที่หน่วยงานกรอก ซึ่งเป็นตัวเลขเดียวกับหน้าภาพรวม */
+  const MC=((typeof DX!=='undefined'&&DX.macro&&DX.macro.rows)||[]).slice().sort((a,b)=>(a.y-b.y)||(a.m-b.m));
+  const cm=MC[MC.length-1], cp=MC[MC.length-2], D0=D.fiscal.fn.dis[0];
+  const stats=[];
+  if(cm)stats.push([(cm.overall>0?'+':'')+f(cm.overall,1)+'%','ภาวะเศรษฐกิจ '+TH_M[cm.m-1]+' '+String(cm.y).slice(-2)+'<br>เทียบเดือนเดียวกันปีก่อน',
+    tipOf({t:'ภาวะเศรษฐกิจรายเดือน',d:'ตัวเลขรวมของจังหวัดเดือน '+TH_M[cm.m-1]+' '+cm.y,
+      calc:'ต้นทางรายงานเป็นร้อยละเทียบปีก่อน'+(cp?' · เดือนก่อนอยู่ที่ '+f(cp.overall,2)+'% เปลี่ยนแปลง '+(cm.overall-cp.overall>0?'+':'')+f(cm.overall-cp.overall,1)+' จุด':''),
+      src:'แฟ้มเครื่องชี้เศรษฐกิจจังหวัดหนองบัวลำภู',when:'เดือน '+TH_M[cm.m-1]+' '+cm.y})]);
+  stats.push([f(D0.pct,2)+'%','เบิกจ่ายงบประมาณ<br>อันดับ '+D0.rank+' ของประเทศ',
+    tipOf({t:'ร้อยละการเบิกจ่ายงบประมาณภาพรวม',d:'ปีงบประมาณ 2569',
+      calc:'(เบิกจ่ายสะสม ÷ งบที่ได้รับจัดสรร) × 100 = ('+f_num(D0.val)+' ÷ '+f_num(D0.alloc)+') × 100',
+      src:'spend',when:'ข้อมูล ณ '+CFG.asof})]);
+  stats.push([f(D0.val,0),'ล้านบาท เม็ดเงินภาครัฐ<br>ที่ลงสู่พื้นที่แล้ว',
+    tipOf({t:'เม็ดเงินภาครัฐที่ลงสู่พื้นที่แล้ว',d:'ยอดเบิกจ่ายสะสมของทุกส่วนราชการในจังหวัด',
+      calc:'เป็นยอดสะสม ไม่นำรายเดือนมาบวกกัน · คงเหลือรอเบิก '+f_num(D0.alloc-D0.val)+' ล้านบาท',
+      src:'spend',when:'ปีงบประมาณ 2569'})]);
+  stats.push([f(D.base.pop,0),'ประชากรจังหวัด<br>ใน 6 อำเภอ 59 ตำบล',
+    tipOf({t:'ประชากรตามทะเบียนราษฎร',d:'ใช้เป็นตัวหารของตัวชี้วัดต่อหัวทุกตัวในระบบ',
+      calc:'ยอด ณ สิ้นงวดที่ประกาศ ไม่นำรายเดือนมาบวกกัน',src:'popreg',when:'ข้อมูล ณ ก.ค. 2569'})]);
+  $('#cvStats').innerHTML=stats.map(x=>
+    `<div class="cvst" data-tip2="${x[2]}"><b class="n">${x[0]}</b><span>${x[1]}</span></div>`).join('');
+  $('#portalGrid').innerHTML=SECTORS.map(s=>{
+    const agy=[...new Set(s.datasets.map(id=>DATASETS.find(x=>x.id===id).agency))]
+      .map(a=>a.replace('สำนักงาน','สนง.').replace('จังหวัดหนองบัวลำภู','จ.นภ.')).join(' · ');
+    const real=s.datasets.some(id=>DATASETS.find(x=>x.id===id).real);
+    return`<button class="pcard" data-go="${s.id}">
+      <span class="pimg"><i style="background-image:url('${s.img}')"></i>
+        <span class="pi" style="background:${s.color}"><svg viewBox="0 0 24 24" style="stroke:#fff">${IC[s.icon]}</svg></span></span>
+      <span class="pbody"><h4>${s.name}</h4><p>${s.desc}</p>
+      <span class="pm">${real?'<span class="chip real">ข้อมูลจริง</span>':'<span class="chip mock">โครงร่าง</span>'}<span>${agy}</span></span></span></button>`}).join('')+
+    `<button class="pcard" data-go="area">
+      <span class="pimg"><i style="background-image:url('assets/cover-city.jpg')"></i>
+        <span class="pi" style="background:${cv('--brand2')}"><svg viewBox="0 0 24 24" style="stroke:#fff"><path d="M9 3.5 3.5 6v14.5L9 18l6 2.5 5.5-2.5V3.5L15 6z"/><path d="M9 3.5V18M15 6v14.5"/></svg></span></span>
+      <span class="pbody"><h4>ข้อมูลเชิงพื้นที่</h4><p>เปรียบเทียบทุกตัวชี้วัดระหว่าง 6 อำเภอ บนแผนที่</p>
+      <span class="pm"><span class="chip">แผนที่รายอำเภอ</span></span></span></button>`;
 }
 
-/* ตัดคำไทยให้พอดีวงกลางไม่เกิน 2 บรรทัด */
-function wrapThai(text, max) {
-  let parts;
-  try { parts = [...new Intl.Segmenter('th', { granularity: 'word' }).segment(text)].map(x => x.segment); }
-  catch (e) { parts = text.split(/(\s+)/); }
-  const lines = ['', ''];
-  let i = 0, cut = false;
-  for (const w of parts) {
-    if (cut) { cut = true; break; }
-    if ((lines[i] + w).trim().length <= max) { lines[i] += w; continue; }
-    if (i === 0) { i = 1; lines[1] = w; continue; }
-    cut = true;
-  }
-  if (cut) lines[1] = lines[1].trim().slice(0, max - 1) + '…';
-  return [lines[0].trim(), lines[1].trim()];
-}
 
-/* ───── สลับมุมมอง 3 มิติ / วงบัว ───── */
-let VIEW = '2d';
-function readout3d(n) {
-  const el = $('#r3d'); if (!el) return;
-  if (n == null) {
-    const st = statusOf(overallScore());
-    el.style.setProperty('--gc', 'var(--brand)');
-    el.innerHTML = `<div class="g">NONG BUA LAM PHU</div><div class="n">${fmt(overallScore(), 0)}</div>
-      <div class="t">คะแนนรวมทั้งจังหวัด</div><div class="s" style="color:${st.c}">${st.th}</div>`;
-    return;
-  }
-  const g = goalOf(n), sc = goalScore(n), st = statusOf(sc);
-  el.style.setProperty('--gc', g.c);
-  el.innerHTML = `<div class="g">SDG ${n}</div><div class="n">${fmt(sc, 0)}</div>
-    <div class="t">${esc(g.th)}</div><div class="s" style="color:${st.c}">${st.th}</div>`;
-}
-function drawLegend() {
-  const el = $('#legend'); if (!el) return;
-  el.innerHTML = VIEW === '3d'
-    ? `<h4>อ่านวง 3 มิตินี้อย่างไร</h4><ul>
-        <li><i></i><span>เสาหนึ่งต้นคือหนึ่งเป้าหมาย ยิ่งสูงยิ่งเดินได้ไกลเทียบกับเวลาที่ผ่านไป</span></li>
-        <li><i class="half"></i><span>เสาที่ยังไม่ถึงวงแหวนเรืองแสง = ช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
-        <li><i class="dotline"></i><span>เสาเรียงตามกลุ่ม 5P คน · ความมั่งคั่ง · สิ่งแวดล้อม · สันติภาพ · หุ้นส่วน</span></li>
-      </ul>`
-    : `<h4>อ่านวงบัวนี้อย่างไร</h4><ul>
-        <li><i></i><span>กลีบที่สีเต็มความยาว = เดินได้ทันกำหนดของเป้าหมายปี ${SDG_CFG.targetYear}</span></li>
-        <li><i class="half"></i><span>กลีบที่สีเติมไม่ถึงปลาย = ยังช้ากว่าที่ควรจะเป็น ณ ปีนี้</span></li>
-        <li><i class="dotline"></i><span>วงประด้านใน คือเส้นระดับคะแนน 25 · 50 · 75 · 100 · ตัวเลขกลางวงคือคะแนนเฉลี่ยทั้งจังหวัด</span></li>
-      </ul>`;
-}
-
-function setView(v) {
-  if (v === '3d' && !has3D()) v = '2d';
-  VIEW = v;
-  document.body.classList.toggle('v3d', v === '3d');
-  $$('.segb').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
-  $('#wheelhint').textContent = v === '3d'
-    ? 'ลากเพื่อหมุนวง · ชี้ที่เสาเพื่อดูคะแนน · คลิกเพื่อเปิดเป้าหมายนั้น · เสาที่สูงถึงวงแหวนคือทันกำหนด'
-    : 'ชี้ที่กลีบเพื่อดูรายละเอียด · คลิกเพื่อเปิดเป้าหมายนั้น';
-  try { localStorage.setItem('nblSdg.view', v); } catch (e) {}
-  drawLegend();
-  if (v === '3d') {
-    if (!S3.ok) mount3D('#stage3d', readout3d, n => location.href = 'goal.html?g=' + n);
-    readout3d(null);
-  }
-}
-function hilite(n) { VIEW === '3d' && S3.setHover ? S3.setHover(n) : window.__setAct(n); }
-
-/* ลูกเล่นสำหรับที่ประชุม: ไล่ไฮไลต์ทีละเป้าหมายอัตโนมัติ */
-let TOUR = null;
-function startTour() {
-  let i = 0;
-  const step = () => { hilite(ORDER[i % 17]); i++; };
-  step(); TOUR = setInterval(step, 2600);
-  $('#tour').classList.add('on');
-  $('#tour').innerHTML = svg('flat') + 'หยุดไล่ดู';
-}
-function stopTour() {
-  if (!TOUR) return;
-  clearInterval(TOUR); TOUR = null;
-  $('#tour').classList.remove('on');
-  $('#tour').innerHTML = svg('loop') + 'ไล่ดูทีละเป้าหมาย';
-  hilite(null);
-}
-function toggleTour() { TOUR ? stopTour() : startTour(); }
-
-function applyFocus() {
-  $('#lotus').classList.toggle('lotus-dim', !!FOCUS);
-  $$('.petal').forEach(p => p.classList.toggle('hl', p.dataset.p === FOCUS));
-  $$('.pill').forEach(b => b.setAttribute('aria-pressed', b.dataset.p === FOCUS));
-}
-
-function renderIntro() {
-  const sc = GOALS.map(g => goalScore(g.n));
-  const cnt = STATUS.map(s => sc.filter(v => statusOf(v).key === s.key).length);
-  const rank = GOALS.map(g => ({ g, s: goalScore(g.n) })).sort((a, b) => a.s - b.s);
-  const wrow = o => `<a class="wrow" href="goal.html?g=${o.g.n}" data-tip="${goalTip(o.g)}"><em class="gb" style="background:${o.g.c}">${o.g.n}</em><span>${o.g.th}</span><b>${fmt(o.s, 0)}</b></a>`;
-  $('#intro').innerHTML = `
-    <h1><span>วันนี้จังหวัดเรา</span><span>ทันเป้าหมายแค่ไหน</span></h1>
-    <p class="lead">กลีบบัวหนึ่งกลีบคือหนึ่งเป้าหมาย กลีบที่สีเติมเต็มคือเดินได้ทันกำหนดปี ${SDG_CFG.targetYear}
-      วัดจาก ${indCount()} ตัวชี้วัดของ ${new Set(INDICATORS.map(x => x.agency)).size} หน่วยงาน
-      โดย ${realCount()} ตัวใช้ข้อมูลจริงจากบัญชีข้อมูลจังหวัดแล้ว</p>
-    <div class="legend" id="legend"></div>
-    <div class="statbar" aria-hidden="true">${STATUS.map((s, i) => `<i style="flex:${cnt[i]};background:${s.c}"></i>`).join('')}</div>
-    <div class="statleg">${STATUS.map((s, i) => `<span><i class="dot" style="background:${s.c}"></i><b>${cnt[i]}</b> ${s.th}</span>`).join('')}</div>
-    <div class="pills" role="group" aria-label="กรองตามกลุ่ม 5P">${PILLARS.map(p => `<button class="pill" data-p="${p.id}" aria-pressed="false">${p.th}<small>${p.goals.length}</small></button>`).join('')}</div>
-    <div class="watch">
-      <div><h3>ต้องเร่งรัดก่อน</h3>${rank.slice(0, 3).map(wrow).join('')}</div>
-      <div><h3>ทำได้ดีที่สุด</h3>${rank.slice(-3).reverse().map(wrow).join('')}</div>
-    </div>`;
-  $$('.pill').forEach(b => b.onclick = () => { FOCUS = FOCUS === b.dataset.p ? null : b.dataset.p; applyFocus(); });
-  drawLegend();
-}
-
-/* ตัวเลขเด่น: เลือกตัวชี้วัดจริงที่สื่อสารง่ายที่สุด 4 ตัว */
-const HEAD = ['p8c', 'p1a', 'p3b', 'p15a'];
-function renderHead4() {
-  $('#head4').innerHTML = HEAD.map(id => {
-    const x = IND_BY_ID[id]; if (!x) return '';
-    const g = goalOf(x.g);
-    return `<a class="hcard" style="--gc:${g.c}" href="goal.html?g=${x.g}" data-tip="${indTip(x)}">
-      ${cardArt(g)}
-      <span class="k"><em>${x.g}</em>${x.name}</span>
-      <span class="v"><span data-n="${x.value}" data-dec="${x.dec}">${fmt(x.value, x.dec)}</span><small>${x.unit}</small></span>
-      <span class="f"><span>${periodLabel(x)} · ${x.real ? 'ข้อมูลจริง' : 'จำลอง'}</span>${trendHtml(x, true)}</span>
-      <span class="f">${spark(x.series, g.c, 150, 32)}</span></a>`;
-  }).join('');
-}
-
-function renderMo() {
-  const mos = INDICATORS.filter(x => x.mo);
-  $('#mo').innerHTML = mos.map(x => {
-    const g = goalOf(x.g), s = x.series, mx = Math.max(...s.map(p => p.v));
-    const bars = s.map((p, i) => `<i style="height:${(p.v / mx * 100).toFixed(1)}%" class="${i === s.length - 1 ? 'last' : ''}"
-      data-tip="${esc(`<b>${periodLabel(x, p.p)}</b><div class="tp-v"><span>${fmt(p.v, x.dec)}</span> <small>${x.unit}</small></div><div class="tp-sub">${x.name}</div>`)}"></i>`).join('');
-    return `<div class="mocard" style="--gc:${g.c}">${cardArt(g)}
-      <h4>${x.name}</h4><div class="sub">${x.agency} · ล่าสุด ${periodLabel(x)} = ${fmt(x.value, x.dec)} ${x.unit}</div>
-      <div class="bars">${bars}</div>
-      <div class="molab"><span>${periodLabel(x, s[0].p)}</span><span>${periodLabel(x)}</span></div></div>`;
-  }).join('') || '<div class="empty">ยังไม่มีชุดข้อมูลรายเดือน</div>';
-}
-
-function renderBanner() {
-  const real = realCount(), all = indCount();
-  $('#heroband').innerHTML = `<span class="lockup"><img src="assets/sdg-logo.webp" alt="Sustainable Development Goals"></span>
-    <div class="wrap">
-    <span class="kicker"><img src="assets/seal.png" alt="">ศูนย์ข้อมูลการพัฒนาที่ยั่งยืน จังหวัดหนองบัวลำภู</span>
-    <h1>17 เป้าหมายโลก อ่านเป็นภาษาหนองบัวลำภู</h1>
-    <p>รวมตัวชี้วัดจากทุกหน่วยงานในจังหวัดไว้ที่เดียว บอกตรง ๆ ว่าเรื่องไหนทันเป้า เรื่องไหนช้า และตัวเลขนั้นมาจากไหน</p>
-    <div class="hstats">
-      <div class="hstat" data-tip="${esc('<b>คะแนนตามเวลา</b><div class="tp-note">ค่าเฉลี่ยของทั้ง 17 เป้าหมาย · 100 คือเดินได้ทันกำหนดปี ' + SDG_CFG.targetYear + '</div>')}">
-        <b>${fmt(overallScore(), 0)}</b><span>คะแนนรวมของจังหวัด</span></div>
-      <div class="hstat"><b>${real}/${all}</b><span>ตัวชี้วัดที่เป็นข้อมูลจริงแล้ว</span></div>
-      <div class="hstat"><b>6</b><span>อำเภอที่ไล่ดูรายพื้นที่ได้</span></div>
-      <div class="hstat"><b>${SDG_CFG.targetYear}</b><span>ปีเป้าหมาย (ค.ศ. 2030)</span></div>
-    </div></div>`;
-}
-
-function renderPillars() {
-  $('#pillars').innerHTML = PILLARS.map(p => {
-    const sc = p.goals.map(goalScore).filter(v => v != null);
-    const avg = sc.reduce((a, b) => a + b, 0) / (sc.length || 1);
-    const st = statusOf(avg);
-    return `<section class="psec">
-    <div class="pband" style="--img:url('assets/pillar/${p.id}.webp')"><div class="wrap">
-      <div class="pnum">${p.en}</div><h3>${p.th}</h3><p>${p.note}</p>
-      <div class="pmeta">
-        <span class="pchip"><b>${p.goals.length}</b> เป้าหมาย</span>
-        <span class="pchip"><i class="dot" style="background:${st.c}"></i><b>${fmt(avg, 0)}</b> คะแนนเฉลี่ย · ${st.th}</span>
-        <span class="pchip">SDG ${p.goals.join(' · ')}</span>
-      </div></div></div>
-    <div class="wrap"><div class="gtiles">${p.goals.map(n => {
-      const g = goalOf(n), s = goalScore(n), st = statusOf(s), inds = indsOf(n), real = inds.filter(x => x.real).length;
-      const per = inds.filter(x => x.real).map(x => x.period).sort().pop();
-      return `<a class="gt" style="--gc:${g.c}" href="goal.html?g=${n}" data-tip="${goalTip(g)}">
-        ${cardArt(g)}
-        <span class="hd"><span class="gn">${n}</span><span class="gname">${g.th}</span></span>
-        <span class="gtag">${g.tag}</span>
-        <span class="gbar"><i><u style="width:${s ?? 0}%"></u></i><b>${fmt(s, 0)}</b></span>
-        <span class="gmeta"><span class="chip"><i class="dot" style="background:${st.c}"></i>${st.th}</span>
-        ${real ? `<span class="chip real">ข้อมูลจริง ${real}/${inds.length}</span>` : '<span class="chip sim">จำลองทั้งหมด</span>'}</span></a>`;
-    }).join('')}</div></div></section>`;
-  }).join('');
-}
-
-function renderLinks() {
-  $('#links').innerHTML = LINKED.map(l => {
-    const sw = l.goals.map(n => `<i style="background:${goalOf(n).c}">${n}</i>`).join('');
-    const hub = l.via ? LINKED.find(h => h.id === l.via) : null;
-    const url = l.url || (hub && hub.url) || '';
-    const how = l.url ? 'เปิดแดชบอร์ดในแท็บใหม่'
-      : hub && hub.url ? 'เป็นส่วนหนึ่งของ' + hub.name + ' · กดเพื่อเปิดศูนย์นั้น'
-      : 'ยังไม่ได้ตั้งลิงก์ · ผู้ดูแลกำหนดได้ในหน้าตั้งค่า';
-    const tip = esc(`<b>${l.name}</b><div class="tp-note">ป้อนข้อมูลให้ SDG ${l.goals.join(', ')}</div><div class="tp-src">${how}</div>`);
-    return url
-      ? `<a class="lk${l.url ? '' : ' sub'}" href="${url}" target="_blank" rel="noopener" data-tip="${tip}">
-          <span class="sw">${sw}</span><span>${l.name}</span>${svg('ext')}</a>`
-      : `<div class="lk off" data-tip="${tip}"><span class="sw">${sw}</span><span>${l.name}</span></div>`;
-  }).join('');
-}
-
-function renderCover() {
-  $('#bar').innerHTML = topbar('cover');
-  renderBanner(); drawLotus(); renderIntro(); renderHead4(); renderMo(); renderPillars(); renderLinks();
-  let v = '3d';
-  try { v = localStorage.getItem('nblSdg.view') || (innerWidth < 640 ? '2d' : '3d'); } catch (e) {}
-  setView(v);
-  if (S3.ok) tint3D();
-}
-SDG.init('cover', renderCover);
+DS.init('cover',renderCover);
 </script>
 </body>
 </html>

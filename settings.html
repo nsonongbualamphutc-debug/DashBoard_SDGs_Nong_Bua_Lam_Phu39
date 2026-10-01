@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ตั้งค่าระบบ · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</title>
+<meta name="theme-color" content="#0b3c32">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+
+</head>
+<body>
+<div id="tip"></div>
+<div class="app" id="app">
+  <header class="top" id="topbar"></header>
+  <nav class="side" id="sidebar"></nav>
+  <main class="main">
+    <section class="view on" id="v-settings">
+  <div class="ph"><div class="t" style="display:flex;gap:14px;align-items:flex-start"><span class="bigico icow img" data-bigico="settings"></span><span><h2>ตั้งค่าระบบ</h2>
+    <p>ปรับภาพพื้นหลัง สีหลัก และการนำเสนอ ค่าที่ตั้งไว้จะถูกบันทึกในเครื่องนี้ ไม่กระทบผู้ใช้คนอื่น</p></span></div>
+    <div class="r"><span class="chip">สำหรับผู้ดูแลระบบ</span></div></div>
+  <div class="c" id="setGate">
+    <div class="b" style="padding:26px 24px">
+      <div style="display:flex;gap:16px;align-items:flex-start;max-width:760px">
+        <span style="width:52px;height:52px;border-radius:15px;background:var(--gold-l);display:grid;place-items:center;flex:none">
+          <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="var(--gold)" stroke-width="1.6">
+            <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg></span>
+        <div style="flex:1">
+          <h2 style="font-family:var(--fd);font-size:20px;margin:0 0 6px;font-weight:600">หน้านี้สงวนสำหรับผู้ดูแลระบบ</h2>
+          <p style="margin:0 0 4px;font-size:13px;color:var(--dim);line-height:1.8">
+            การตั้งค่าระบบ ภาพพื้นหลัง การเชื่อมฐานข้อมูล และการจัดการรหัสหน่วยงาน
+            เปิดให้เฉพาะผู้ดูแลระบบสองหน่วยงานเท่านั้น</p>
+          <ul style="margin:10px 0 16px;padding-left:19px;font-size:13px;color:var(--ink);line-height:1.9">
+            <li>สำนักงานสถิติจังหวัดหนองบัวลำภู <code style="font-size:11.5px;color:var(--faint)">admin</code></li>
+            <li>สำนักงานจังหวัดหนองบัวลำภู <code style="font-size:11.5px;color:var(--faint)">province</code></li>
+          </ul>
+          <button class="tb on" id="btnGateLogin" style="height:42px;padding:0 22px;font-size:14px">
+            <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg>
+            เข้าสู่ระบบผู้ดูแล</button>
+          <div class="note" style="max-width:60ch">หน่วยงานทั่วไปที่ต้องการส่งข้อมูล ให้ใช้หน้า
+            <a href="input.html" style="color:var(--blue)">ระบบกรอกข้อมูล</a> แทน
+            ส่วนการแก้ไขตารางบนแดชบอร์ดกดได้จากไอคอนดินสอบนแถบบนได้ตามปกติ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="setBody" class="hide">
+
+  <div class="grid g2 mb">
+    <div class="c"><header><span class="hdico icow img" data-hdico="area"></span><h3>ภาพพื้นหลังหน้าปก</h3><span class="u">แนะนำขนาด 2400×1350 px</span></header>
+      <div class="b">
+        <div class="fieldrow"><label>เลือกจากภาพที่เตรียมไว้</label>
+          <div class="covpick" id="covPick"></div></div>
+        <div class="fieldrow"><label>หรือวางลิงก์รูปภาพ (URL)</label>
+          <input class="inp" id="setCoverUrl" placeholder="https://... หรือ assets/cover-fields.jpg"></div>
+        <div class="fieldrow"><label>หรืออัปโหลดจากเครื่อง (เก็บในเบราว์เซอร์ ไม่เกิน 2 MB)</label>
+          <input type="file" id="setCoverFile" accept="image/*" class="inp" style="padding:6px 9px;height:auto"></div>
+        <div class="fieldrow"><label>ความเข้มของภาพ <span class="n" id="setCoverOpV">34</span>%</label>
+          <input type="range" id="setCoverOp" min="0" max="70" value="34"></div>
+      </div></div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="settings"></span><h3>ภาพพื้นหลังแถบเมนู</h3><span class="u">แนะนำภาพแนวตั้ง 600×1400 px</span></header>
+      <div class="b">
+        <div class="fieldrow"><label>วางลิงก์รูปภาพ (URL)</label>
+          <input class="inp" id="setSideUrl" placeholder="https://... หรือ assets/side-forest.jpg"></div>
+        <div class="fieldrow"><label>หรืออัปโหลดจากเครื่อง</label>
+          <input type="file" id="setSideFile" accept="image/*" class="inp" style="padding:6px 9px;height:auto"></div>
+        <div class="fieldrow"><label>ความเข้มของภาพ <span class="n" id="setSideOpV">22</span>%</label>
+          <input type="range" id="setSideOp" min="0" max="70" value="22"></div>
+      </div></div>
+  </div>
+  <div class="grid g3 mb">
+    <div class="c"><header><span class="hdico icow img" data-hdico="settings"></span><h3>สีหลักของระบบ</h3></header>
+      <div class="b"><div class="grid g4" id="accentPick" style="gap:9px"></div>
+      <div class="note">สีหลักใช้กับปุ่ม เมนูที่เลือก และเส้นกราฟหลัก</div></div></div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="target"></span><h3>โหมดจอนำเสนอ</h3></header>
+      <div class="b"><div class="fieldrow"><label>เปลี่ยนหน้าอัตโนมัติทุก <span class="n" id="setKioskV">20</span> วินาที</label>
+        <input type="range" id="setKiosk" min="8" max="60" step="2" value="20"></div>
+        <div class="note">กดปุ่ม “จอนำเสนอ” บนแถบบนเพื่อเริ่มหมุนหน้าอัตโนมัติ เหมาะกับจอในห้องประชุมหรือโถงสำนักงาน</div></div></div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="history"></span><h3>ข้อมูลที่แก้ไขไว้ในเครื่อง</h3></header>
+      <div class="b"><div id="editStatus" style="font-size:12.5px;color:var(--dim);line-height:1.8"></div>
+        <div style="display:flex;gap:8px;margin-top:11px;flex-wrap:wrap">
+          <button class="tb" id="btnExportEdits">ส่งออกเป็น JSON</button>
+          <button class="tb" id="btnResetEdits">คืนค่าเดิมทั้งหมด</button></div></div></div>
+  </div>
+  <div class="c"><header><span class="hdico icow img" data-hdico="network"></span><h3>การเชื่อมต่อฐานข้อมูล</h3></header>
+    <div class="b">
+      <div class="grid g2">
+        <div class="fieldrow"><label>Google Apps Script Web App URL (ลงท้ายด้วย /exec)</label>
+          <input class="inp" id="setApi" placeholder="https://script.google.com/macros/s/.../exec"></div>
+        <div class="fieldrow"><label>สถานะ</label><div id="apiStatus" style="padding-top:8px;font-size:12.5px"></div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="tb on" id="btnSaveSet">บันทึกการตั้งค่า</button>
+        <button class="tb" id="btnTestApi">ทดสอบการเชื่อมต่อ</button>
+      </div>
+      <div class="note">เมื่อใส่ URL แล้วบันทึก ระบบจะดึงข้อมูลจริงจาก Google Sheet มาทับข้อมูลโครงร่างโดยอัตโนมัติทุกครั้งที่เปิดหน้า</div>
+    </div></div>
+  <div class="c mb" id="pinAdmin" style="margin-top:13px">
+    <header><span class="hdico icow img"><img class="ico" src="assets/icons/ic-lock.png" alt="" width="26" height="26" loading="lazy" onerror="this.remove()"></span><h3>จัดการรหัสหน่วยงาน</h3><span class="u">เฉพาะผู้ดูแลระบบ</span>
+      <span class="r"><span id="pinWho"></span>
+        <button class="tb" id="btnPinLogin">เข้าสู่ระบบผู้ดูแล</button>
+        <button class="tb hide" id="btnPinOut">ออกจากระบบ</button></span></header>
+    <div class="b">
+      <div id="pinLocked">
+        <div style="display:flex;gap:13px;align-items:flex-start;padding:6px 0">
+          <span style="width:38px;height:38px;border-radius:11px;background:var(--gold-l);display:grid;place-items:center;flex:none">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="var(--gold)" stroke-width="1.7">
+              <rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></svg></span>
+          <div style="font-size:12.5px;color:var(--dim);line-height:1.8">
+            ส่วนนี้ใช้สุ่มรหัส PIN ใหม่ ตั้งรหัสเอง ปลดล็อกบัญชี และเปิด-ปิดการใช้งานของแต่ละหน่วยงาน
+            โดยไม่ต้องเข้าไปแก้ที่ Google Apps Script<br>
+            ต้องเข้าสู่ระบบด้วยบัญชีผู้ดูแล (<b>สำนักงานจังหวัด</b> หรือ <b>สำนักงานสถิติจังหวัด</b>) เท่านั้น
+          </div>
+        </div>
+      </div>
+      <div id="pinPanel" class="hide">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+          <button class="tb on" id="btnGenAll">สุ่มรหัสใหม่ทั้งหมด</button>
+          <button class="tb" id="btnGenSel">สุ่มเฉพาะที่เลือก</button>
+          <button class="tb hide" id="btnShowLast">
+            <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            ดูรหัสที่เพิ่งสุ่ม</button>
+          <button class="tb hide" id="btnSaveLast">
+            <svg viewBox="0 0 24 24"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4.5 20.5h15"/></svg>
+            บันทึกไฟล์รหัส</button>
+          <span class="sp" style="flex:1"></span>
+          <button class="tb" id="btnReload">รีเฟรชสถานะ</button>
+        </div>
+        <div id="pinReveal" class="hide"></div>
+        <div class="sc" style="max-height:460px"><table class="t" id="tUsers"></table></div>
+        <div class="note" style="border-top-style:solid;border-color:var(--line)">
+          <b style="color:var(--ink)">ถ้าหน่วยงานลืมรหัส ทำอย่างไร</b><br>
+          ระบบเก็บเฉพาะค่า hash ซึ่งย้อนกลับเป็นรหัสจริงไม่ได้ ผู้ดูแลจึงกดดูรหัสเดิมไม่ได้
+          นี่เป็นการออกแบบโดยตั้งใจ เพราะถ้าเก็บรหัสจริงไว้ วันหนึ่งที่ไฟล์หรือชีตหลุด รหัสทุกหน่วยงานจะหลุดตามไปด้วย<br>
+          <b style="color:var(--ink)">วิธีที่ถูกต้องคือกด “สุ่มใหม่” ที่แถวของหน่วยงานนั้น</b>
+          ใช้เวลาไม่ถึงสิบวินาที ได้รหัสใหม่ทันที แล้วแจ้งกลับไปให้หน่วยงาน<br>
+          รหัสที่เพิ่งสุ่มในรอบนี้ยังเปิดดูซ้ำได้จากปุ่ม “ดูรหัสที่เพิ่งสุ่ม” ตราบใดที่ยังไม่ปิดหรือรีเฟรชหน้านี้
+          และทุกการกระทำถูกบันทึกในชีต Log</div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /setBody -->
+</section>
+  </main>
+</div>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="ds.js"></script>
+<script>
+/* ─────────────── 18) ตั้งค่า ─────────────── */
+const COVERS=[['assets/cover-fields.jpg','ทุ่งนายามเช้า'],['assets/cover-lotus.jpg','บึงบัวสะท้อนน้ำ'],['assets/cover-city.jpg','มุมสูงเมืองยามค่ำ']];
+const ACCENTS=[['#0d9268','เขียวมรกต'],['#12867e','เขียวน้ำทะเล'],['#1d6fb8','น้ำเงินราชการ'],
+  ['#b5851a','ทองอ่อน'],['#c2185b','ชมพูบัวหลวง'],['#5b6cc4','ม่วงคราม'],['#c0562f','ส้มอิฐ'],['#3f7d3a','เขียวใบไม้']];
+function renderSettings(){
+  $('#setCoverUrl').value=SET.coverUrl&&!SET.coverUrl.startsWith('data:')?SET.coverUrl:'';
+  $('#setSideUrl').value=SET.sideUrl&&!SET.sideUrl.startsWith('data:')?SET.sideUrl:'';
+  $('#setCoverOp').value=SET.coverOp;$('#setCoverOpV').textContent=SET.coverOp;
+  $('#setSideOp').value=SET.sideOp;$('#setSideOpV').textContent=SET.sideOp;
+  $('#setKiosk').value=SET.kiosk;$('#setKioskV').textContent=SET.kiosk;
+  $('#setApi').value=SET.api||'';
+  $('#apiStatus').innerHTML=SET.api?'<span class="chip up">ตั้งค่าแล้ว</span>':'<span class="chip mock">ยังไม่ได้เชื่อม ใช้ข้อมูลโครงร่าง</span>';
+  $('#covPick').innerHTML=COVERS.map(c=>`<button data-cover="${c[0]}" class="${SET.coverUrl===c[0]?'on':''}">
+    <i style="background-image:url('${c[0]}')"></i><span>${c[1]}</span></button>`).join('');
+  $('#accentPick').innerHTML=ACCENTS.map(a=>`<button class="tb" data-accent="${a[0]}" style="justify-content:flex-start;${SET.accent===a[0]?'border-color:'+a[0]+';color:'+a[0]:''}">
+    <span style="width:15px;height:15px;border-radius:5px;background:${a[0]};display:inline-block"></span>${a[1]}</button>`).join('');
+  $('#editStatus').innerHTML=editCount()
+    ?'มีข้อมูลที่แก้ไขไว้ในเบราว์เซอร์นี้ ค่าที่แก้จะถูกใช้แทนค่าเริ่มต้นทุกครั้งที่เปิดหน้า'
+    :'ยังไม่มีการแก้ไขข้อมูล กำลังใช้ค่าตั้งต้นจากเอกสารหน่วยงาน';
+}
+function readImg(file,cb){
+  if(file.size>2*1024*1024){alert('ไฟล์ใหญ่เกิน 2 MB กรุณาย่อขนาดก่อน หรือใช้วิธีวางลิงก์ URL แทน');return}
+  const r=new FileReader();r.onload=()=>cb(r.result);r.readAsDataURL(file)}
+
+
+window.onCoverPick=function(v){SET.coverUrl=v;saveSet();applySet();renderSettings()};
+window.onAccentPick=function(v){SET.accent=v;saveSet();applySet();chDefaults();renderSettings()};
+function wireSettings(){
+  var $=function(s){return document.querySelector(s)};
+  $('#setCoverOp').oninput=function(e){SET.coverOp=+e.target.value;$('#setCoverOpV').textContent=SET.coverOp;applySet()};
+  $('#setSideOp').oninput=function(e){SET.sideOp=+e.target.value;$('#setSideOpV').textContent=SET.sideOp;applySet()};
+  $('#setKiosk').oninput=function(e){SET.kiosk=+e.target.value;$('#setKioskV').textContent=SET.kiosk};
+  $('#setCoverFile').onchange=function(e){var f0=e.target.files[0];if(f0)readImg(f0,function(d){SET.coverUrl=d;saveSet();applySet()})};
+  $('#setSideFile').onchange=function(e){var f0=e.target.files[0];if(f0)readImg(f0,function(d){SET.sideUrl=d;saveSet();applySet()})};
+  $('#btnSaveSet').onclick=function(){
+    var cu=$('#setCoverUrl').value.trim(), su=$('#setSideUrl').value.trim();
+    if(cu)SET.coverUrl=cu; if(su)SET.sideUrl=su;
+    SET.api=$('#setApi').value.trim();
+    saveSet();applySet();renderSettings();wireSettings();loadLive();
+    $('#apiStatus').innerHTML='<span class="chip up">บันทึกแล้ว</span>'};
+  $('#btnTestApi').onclick=function(){
+    var u=$('#setApi').value.trim();
+    if(!u){$('#apiStatus').innerHTML='<span class="chip dn">ยังไม่ได้ใส่ URL</span>';return}
+    $('#apiStatus').innerHTML='<span class="chip fl">กำลังทดสอบ…</span>';
+    jsonp(u,{action:'meta'}).then(function(r){
+      $('#apiStatus').innerHTML=(r&&r.ok)?'<span class="chip up">เชื่อมต่อสำเร็จ</span>':'<span class="chip dn">ตอบกลับผิดรูปแบบ</span>';
+    }).catch(function(){$('#apiStatus').innerHTML='<span class="chip dn">เชื่อมต่อไม่สำเร็จ</span>'})};
+  $('#btnExportEdits').onclick=function(){
+    var b=new Blob([JSON.stringify(D,null,1)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='nbl-econ-edits.json';a.click()};
+  $('#btnResetEdits').onclick=function(){
+    if(confirm('คืนค่าข้อมูลทั้งหมดเป็นค่าตั้งต้น? การแก้ไขที่บันทึกไว้จะหายไป')){
+      localStorage.removeItem(LS.data);location.reload()}};
+}
+
+/* ═══════════ จัดการรหัสหน่วยงาน (แอดมิน) ═══════════ */
+let USERS=[], LASTGEN=null;
+function isAdmin(){return AUTH&&authValid()&&(AUTH.role==='admin'||String(AUTH.domains||'').split(',').map(x=>x.trim()).indexOf('*')>=0)}
+function pinMsg(t,cls){
+  const el=document.getElementById('pinReveal');
+  el.classList.remove('hide');
+  el.innerHTML=`<div class="edbar" style="${cls==='err'?'background:var(--coral-l);border-color:rgba(201,69,47,.35);color:var(--bad)':''}">${t}</div>`;
+}
+async function pinApi(action,extra){
+  if(!CFG.API)throw new Error('ยังไม่ได้ตั้งค่า URL ของ Apps Script');
+  const r=await jsonp(CFG.API,Object.assign({action,token:AUTH.token},extra||{}));
+  if(!r||!r.ok)throw new Error((r&&r.error)||'คำสั่งไม่สำเร็จ');
+  return r;
+}
+function pinGate(){
+  const admin=isAdmin();
+  const gate=document.getElementById('setGate'), body=document.getElementById('setBody');
+  if(gate)gate.classList.toggle('hide',admin);
+  if(body)body.classList.toggle('hide',!admin);
+  document.getElementById('pinLocked').classList.toggle('hide',admin);
+  document.getElementById('pinPanel').classList.toggle('hide',!admin);
+  document.getElementById('btnPinLogin').classList.toggle('hide',admin);
+  document.getElementById('btnPinOut').classList.toggle('hide',!admin);
+  document.getElementById('pinWho').innerHTML=admin
+    ? `<span class="chip up">${AUTH.name||AUTH.code}</span>` : '';
+  if(admin)loadUsers();
+}
+async function loadUsers(){
+  try{
+    const r=await pinApi('users');
+    USERS=r.users; renderUsers();
+  }catch(e){
+    const hint = /ไม่รู้จักคำสั่ง/.test(e.message)
+      ? 'โค้ดหลังบ้านยังเป็นเวอร์ชันเก่า — ให้วาง Code.gs ตัวล่าสุดใน Apps Script แล้วกด Deploy → Manage deployments → ไอคอนดินสอ → Version เลือก New version → Deploy'
+      : e.message;
+    pinMsg('โหลดรายชื่อไม่สำเร็จ: '+hint,'err');
+  }
+}
+function renderUsers(){
+  const t=document.getElementById('tUsers');
+  t.innerHTML=`<thead><tr>
+      <th style="width:30px"><input type="checkbox" id="uAll"></th>
+      <th>หน่วยงาน</th><th style="width:88px">รหัส</th><th style="width:74px">สิทธิ์</th>
+      <th style="width:96px">สถานะ</th><th style="width:110px">เข้าใช้ล่าสุด</th>
+      <th style="width:190px">จัดการ</th></tr></thead><tbody>`+
+    USERS.map(u=>{
+      const st=!u.active?'<span class="chip dn">ปิดใช้งาน</span>'
+        :u.locked?'<span class="chip dn">ถูกล็อก</span>'
+        :!u.hasPin?'<span class="chip fl">ยังไม่ตั้ง PIN</span>'
+        :'<span class="chip up">พร้อมใช้</span>';
+      const last=u.lastLogin?new Date(u.lastLogin).toLocaleDateString('th-TH',{day:'2-digit',month:'short',year:'2-digit'}):'—';
+      return `<tr>
+        <td><input type="checkbox" class="uPick" value="${u.code}"></td>
+        <td>${u.name}${u.fail?`<span style="font-size:10px;color:var(--warn)"> · ผิด ${u.fail} ครั้ง</span>`:''}</td>
+        <td><code style="font-size:11px">${u.code}</code></td>
+        <td>${u.role==='admin'?'<span class="chip br">แอดมิน</span>':'หน่วยงาน'}</td>
+        <td>${st}</td><td style="font-size:11px;color:var(--faint)">${last}</td>
+        <td style="white-space:nowrap">
+          <button class="tb" style="height:26px;font-size:11px" data-act="gen" data-code="${u.code}">สุ่มใหม่</button>
+          <button class="tb" style="height:26px;font-size:11px" data-act="set" data-code="${u.code}">ตั้งเอง</button>
+          ${u.locked?`<button class="tb" style="height:26px;font-size:11px" data-act="unlock" data-code="${u.code}">ปลดล็อก</button>`:''}
+          <button class="tb" style="height:26px;font-size:11px" data-act="active" data-code="${u.code}" data-on="${u.active?'0':'1'}">${u.active?'ปิด':'เปิด'}</button>
+        </td></tr>`}).join('')+'</tbody>';
+  const all=document.getElementById('uAll');
+  if(all)all.onchange=()=>document.querySelectorAll('.uPick').forEach(c=>c.checked=all.checked);
+}
+function picked(){return [...document.querySelectorAll('.uPick:checked')].map(c=>c.value)}
+function showGenerated(list){
+  LASTGEN={at:new Date(),list};
+  const rowsHtml=list.map((x,i)=>`<tr><td>${x.name}</td><td><code>${x.code}</code></td>
+     <td class="r"><span class="pinv" data-i="${i}" data-show="0"
+        style="font-family:var(--fn);font-size:17px;font-weight:600;letter-spacing:3px">••••••</span></td>
+     <td style="width:38px">
+       <button class="tb eye" data-i="${i}" style="height:26px;padding:0 8px" title="แสดง/ซ่อนรหัส">
+         <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+       </button></td></tr>`).join('');
+  document.getElementById('pinReveal').classList.remove('hide');
+  document.getElementById('pinReveal').innerHTML=`
+    <div class="c" style="border-color:var(--gold);margin-bottom:13px">
+      <header><span class="hdico icow img" data-hdico="lock"></span><h3>รหัสใหม่ ${list.length} หน่วยงาน</h3>
+        <span class="u">แสดงครั้งเดียว · ${new Date().toLocaleString('th-TH')}</span>
+        <span class="r">
+          <button class="tb" id="btnEyeAll">
+            <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            แสดงรหัสทั้งหมด</button>
+          <button class="tb" id="btnPinCopy">คัดลอก</button>
+          <button class="tb" id="btnPinCsv">บันทึกไฟล์ CSV</button>
+          <button class="tb" id="btnPinTxt">บันทึกไฟล์ข้อความ</button>
+          <button class="tb" id="btnPinPrint">พิมพ์</button>
+          <button class="tb" id="btnPinHide">ปิด</button></span></header>
+      <div class="b">
+        <div class="edbar" style="background:var(--coral-l);border-color:rgba(201,69,47,.35);color:var(--bad)">
+          <b>บันทึกเก็บไว้ทันที</b> — ระบบไม่เก็บรหัสจริงไว้ที่ใดเลย ปิดหน้านี้แล้วจะดูย้อนหลังไม่ได้อีก</div>
+        <div class="sc" style="max-height:320px"><table class="t">
+          <thead><tr><th>หน่วยงาน</th><th style="width:100px">รหัสเข้าระบบ</th><th class="r" style="width:110px">PIN</th><th style="width:38px"></th></tr></thead>
+          <tbody>${rowsHtml}</tbody></table></div>
+      </div></div>`;
+  const txt=()=>'รหัสเข้าใช้ระบบ ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู\n'+
+    'ออกให้เมื่อ '+new Date().toLocaleString('th-TH')+'\n\n'+
+    list.map(x=>x.name+'\t'+x.code+'\t'+x.pin).join('\n')+
+    '\n\nเอกสารลับ โปรดแจกให้หัวหน้าหน่วยงานโดยตรง และแจ้งให้เปลี่ยน PIN เมื่อเข้าระบบครั้งแรก';
+  document.getElementById('btnPinCopy').onclick=()=>{
+    navigator.clipboard.writeText(txt()).then(()=>alert('คัดลอกแล้ว'),()=>alert('คัดลอกไม่สำเร็จ กรุณาใช้ปุ่มบันทึกไฟล์แทน'))};
+  document.getElementById('btnPinCsv').onclick=()=>dlFile('รหัสหน่วยงาน-'+stamp()+'.csv',
+    '\ufeff'+'หน่วยงาน,รหัสเข้าระบบ,PIN\n'+list.map(x=>`"${x.name}","${x.code}","${x.pin}"`).join('\n'),'text/csv;charset=utf-8');
+  document.getElementById('btnPinTxt').onclick=()=>dlFile('รหัสหน่วยงาน-'+stamp()+'.txt','\ufeff'+txt(),'text/plain;charset=utf-8');
+  document.getElementById('btnPinPrint').onclick=()=>printPins(list);
+  const setEye=(i,show)=>{
+    const el=document.querySelector(`.pinv[data-i="${i}"]`);
+    if(!el)return;
+    el.dataset.show=show?'1':'0';
+    el.textContent=show?list[i].pin:'••••••';
+  };
+  document.querySelectorAll('.eye').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i;
+    const el=document.querySelector(`.pinv[data-i="${i}"]`);
+    setEye(i, el.dataset.show!=='1');
+  });
+  let allOn=false;
+  document.getElementById('btnEyeAll').onclick=()=>{
+    allOn=!allOn;
+    list.forEach((_,i)=>setEye(i,allOn));
+    const b=document.getElementById('btnEyeAll');
+    b.classList.toggle('on',allOn);
+    b.lastChild.textContent=allOn?' ซ่อนรหัสทั้งหมด':' แสดงรหัสทั้งหมด';
+  };
+  document.getElementById('btnShowLast').classList.remove('hide');
+  document.getElementById('btnSaveLast').classList.remove('hide');
+  document.getElementById('btnPinHide').onclick=()=>{
+    if(confirm('ปิดแล้วจะดูรหัสชุดนี้ไม่ได้อีก บันทึกเก็บเรียบร้อยแล้วใช่หรือไม่'))
+      document.getElementById('pinReveal').classList.add('hide')};
+}
+function stamp(){const d=new Date();return d.getFullYear()+543+''+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')}
+function dlFile(name,text,type){
+  const b=new Blob([text],{type:type});const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+}
+function printPins(list){
+  const w=window.open('','_blank');
+  w.document.write(`<html><head><meta charset="utf-8"><title>รหัสเข้าใช้ระบบ</title>
+    <style>body{font-family:'IBM Plex Sans Thai',sans-serif;padding:26px;color:#12241f}
+    h1{font-size:19px;margin:0 0 3px}p{font-size:12px;color:#666;margin:0 0 16px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{border:1px solid #ddd;padding:8px 10px;text-align:left}
+    th{background:#f2f6f3;font-size:11px}
+    .pin{font-family:monospace;font-size:17px;letter-spacing:2px;font-weight:700}
+    .w{margin-top:18px;padding:11px 14px;border:1px solid #e0b4ab;background:#fbeeea;color:#c9452f;font-size:12px;border-radius:8px}
+    </style></head><body>
+    <h1>รหัสเข้าใช้ระบบ · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</h1>
+    <p>ออกให้เมื่อ ${new Date().toLocaleString('th-TH')} · เอกสารลับ</p>
+    <table><thead><tr><th>หน่วยงาน</th><th>รหัสเข้าระบบ</th><th>PIN</th><th>ผู้รับ / วันที่รับ</th></tr></thead><tbody>
+    ${list.map(x=>`<tr><td>${x.name}</td><td>${x.code}</td><td class="pin">${x.pin}</td><td></td></tr>`).join('')}
+    </tbody></table>
+    <div class="w">โปรดตัดเฉพาะแถวของหน่วยงานนั้นส่งให้หัวหน้าหน่วยงานโดยตรง ห้ามส่งทั้งเอกสารในกลุ่มแชทหรืออีเมลเวียน
+    และแจ้งให้เปลี่ยน PIN ด้วยตนเองเมื่อเข้าระบบครั้งแรก</div>
+    </body></html>`);
+  w.document.close(); setTimeout(()=>w.print(),400);
+}
+async function adminLogin(){
+  if(!CFG.API){
+    alert('ยังไม่ได้ตั้งค่า URL ของ Google Apps Script\n\nครั้งแรกให้ตั้งค่าผ่านหน้านี้ไม่ได้ เพราะยังไม่มีฐานข้อมูลให้ตรวจสอบรหัส\nกรุณาแจ้งผู้พัฒนาให้ฝัง URL ในไฟล์ หรือเปิดไฟล์ ds.js แล้วใส่ค่า API ก่อน');
+    return;
+  }
+  if(!authValid())AUTH=null;
+  const ok=await authBox(); if(!ok)return;
+  if(!isAdmin()){
+    alert('บัญชีนี้ไม่ใช่ผู้ดูแลระบบ\n\nเข้าได้เฉพาะสำนักงานสถิติจังหวัดหนองบัวลำภู (admin)\nและสำนักงานจังหวัดหนองบัวลำภู (province)');
+    authLogout();
+  }
+  pinGate();
+}
+function wirePinAdmin(){
+  const bg=document.getElementById('btnGateLogin');
+  if(bg)bg.onclick=adminLogin;
+  document.getElementById('btnPinLogin').onclick=async()=>{
+    adminLogin();
+  };
+  document.getElementById('btnPinOut').onclick=()=>{authLogout();USERS=[];pinGate()};
+  document.getElementById('btnReload').onclick=loadUsers;
+  document.getElementById('btnShowLast').onclick=()=>{
+    if(!LASTGEN){alert('ยังไม่ได้สุ่มรหัสในรอบนี้');return}
+    showGenerated(LASTGEN.list);
+    document.getElementById('pinReveal').scrollIntoView({behavior:'smooth',block:'nearest'});};
+  document.getElementById('btnSaveLast').onclick=()=>{
+    if(!LASTGEN){alert('ยังไม่ได้สุ่มรหัสในรอบนี้');return}
+    const list=LASTGEN.list;
+    const txt='รหัสเข้าใช้ระบบ ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู\n'+
+      'ออกให้เมื่อ '+LASTGEN.at.toLocaleString('th-TH')+'\n\n'+
+      'หน่วยงาน\tรหัสเข้าระบบ\tPIN\n'+
+      list.map(x=>x.name+'\t'+x.code+'\t'+x.pin).join('\n')+
+      '\n\nเอกสารลับ โปรดแจกให้หัวหน้าหน่วยงานโดยตรง และแจ้งให้เปลี่ยน PIN เมื่อเข้าระบบครั้งแรก';
+    dlFile('รหัสหน่วยงาน-'+stamp()+'.txt','\ufeff'+txt,'text/plain;charset=utf-8');};
+  document.getElementById('btnGenAll').onclick=async()=>{
+    if(!confirm('สุ่มรหัสใหม่ให้ทุกหน่วยงาน? รหัสเดิมทั้งหมดจะใช้ไม่ได้ทันที'))return;
+    try{const r=await pinApi('genpins',{codes:'all'});showGenerated(r.generated);loadUsers()}
+    catch(e){pinMsg('สุ่มรหัสไม่สำเร็จ: '+e.message,'err')}};
+  document.getElementById('btnGenSel').onclick=async()=>{
+    const c=picked(); if(!c.length){alert('เลือกหน่วยงานที่ต้องการก่อน');return}
+    if(!confirm('สุ่มรหัสใหม่ให้ '+c.length+' หน่วยงาน?'))return;
+    try{const r=await pinApi('genpins',{codes:c.join(',')});showGenerated(r.generated);loadUsers()}
+    catch(e){pinMsg('สุ่มรหัสไม่สำเร็จ: '+e.message,'err')}};
+  document.getElementById('tUsers').addEventListener('click',async e=>{
+    const b=e.target.closest('[data-act]'); if(!b)return;
+    const code=b.dataset.code;
+    try{
+      if(b.dataset.act==='gen'){
+        if(!confirm('สุ่มรหัสใหม่ให้ '+code+' ?'))return;
+        const r=await pinApi('genpins',{codes:code});showGenerated(r.generated);
+      }else if(b.dataset.act==='set'){
+        const pin=prompt('ตั้ง PIN ใหม่ให้ '+code+' (ตัวเลข 6–10 หลัก)');
+        if(!pin)return;
+        await pinApi('setpin',{code,pin});
+        pinMsg('ตั้ง PIN ให้ '+code+' เรียบร้อย');
+      }else if(b.dataset.act==='unlock'){
+        await pinApi('unlock',{code});pinMsg('ปลดล็อกบัญชี '+code+' เรียบร้อย');
+      }else if(b.dataset.act==='active'){
+        await pinApi('setactive',{code,active:b.dataset.on==='1'?'true':'false'});
+      }
+      loadUsers();
+    }catch(err){pinMsg('ไม่สำเร็จ: '+err.message,'err')}
+  });
+  pinGate();
+}
+
+DS.init('settings',function(){renderSettings();wireSettings();wirePinAdmin()});
+</script>
+</body>
+</html>

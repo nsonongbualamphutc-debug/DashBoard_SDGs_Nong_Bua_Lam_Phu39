@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ภาคเกษตร · ศูนย์บัญชาการข้อมูลเศรษฐกิจ จังหวัดหนองบัวลำภู</title>
+<meta name="theme-color" content="#0b3c32">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds.css">
+
+</head>
+<body>
+<div id="tip"></div>
+<div class="app" id="app">
+  <header class="top" id="topbar"></header>
+  <nav class="side" id="sidebar"></nav>
+  <main class="main">
+    <section class="view on" id="v-agri">
+  <div class="ph"><div class="t" style="display:flex;gap:14px;align-items:flex-start">
+    <span class="bigico icow img" id="agriBigIco"></span><span><h2>ภาคเกษตรและฐานรากเศรษฐกิจ</h2>
+    <p>ครัวเรือนเกษตรกรกว่า 1 แสนครัวเรือน คือฐานรายได้ของคนส่วนใหญ่ ภาคนี้จึงเป็นตัวชี้กำลังซื้อระดับหมู่บ้าน</p></span></div>
+    <div class="r"><span class="chip real">ข้อมูลจริง</span><span class="chip">สนง.เกษตรจังหวัด</span></div></div>
+  <div class="grid g5 mb" id="agriKpi"></div>
+  <div class="segs mb" id="agriSeg">
+    <button class="on" data-t="crop"><img class="segico" src="assets/icons/ic-crop.png" alt="" onerror="this.remove()">พืชอายุสั้น</button>
+    <button data-t="fruit"><img class="segico" src="assets/icons/ic-fruit.png" alt="" onerror="this.remove()">ไม้ผลเศรษฐกิจ</button>
+    <button data-t="main"><img class="segico" src="assets/icons/ic-maincrop.png" alt="" onerror="this.remove()">พืชเศรษฐกิจหลัก</button>
+    <button data-t="water"><img class="segico" src="assets/icons/ic-water.png" alt="" onerror="this.remove()">แหล่งน้ำเพื่อการเกษตร</button>
+    <button data-t="org"><img class="segico" src="assets/icons/ic-bigplot.png" alt="" onerror="this.remove()">แปลงใหญ่และสถาบันเกษตรกร</button>
+    <button data-t="base"><img class="segico" src="assets/icons/ic-base.png" alt="" onerror="this.remove()">ฐานข้อมูลพื้นฐาน</button>
+  </div>
+
+  <div id="agri-crop">
+    <div class="grid g21 mb">
+      <div class="c"><header><span class="hdico icow img" data-hdico="crop"></span><h3>ภาวะการผลิตพืชอายุสั้น</h3><span class="u">ณ 8 กันยายน 2569</span>
+        <span class="r">มูลค่า = ผลผลิต × ราคาที่เกษตรกรขายได้</span></header>
+        <div class="b"><div class="sc" style="max-height:400px"><table class="t" data-owner="crop" id="tCrop"></table></div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="landuse"></span><h3>สัดส่วนเนื้อที่ปลูก</h3></header>
+        <div class="b"><div class="ch"><canvas id="cCropArea"></canvas></div>
+        <div class="note">ข้าวนาปีครองเนื้อที่มากที่สุดแต่ยังไม่มีตัวเลขผลผลิตเพราะอยู่ระหว่างฤดูกาล ขณะที่อ้อยโรงงานเป็นตัวสร้างมูลค่าสูงสุด</div></div></div>
+    </div>
+    <div class="grid g2">
+      <div class="c"><header><span class="hdico icow img" data-hdico="income"></span><h3>มูลค่าผลผลิตรายพืช</h3><span class="u">ล้านบาท · สเกลลอการิทึม</span></header>
+        <div class="b"><div class="ch"><canvas id="cCropValue"></canvas></div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="rice"></span><h3>ผลผลิตเฉลี่ยต่อไร่</h3><span class="u">กก./ไร่ · สเกลลอการิทึม</span></header>
+        <div class="b"><div class="ch"><canvas id="cCropYield"></canvas></div></div></div>
+    </div>
+  </div>
+
+  <div id="agri-fruit" class="hide">
+    <div class="grid g3 mb" id="fruitCards"></div>
+    <div class="grid g2">
+      <div class="c"><header><span class="hdico icow img" data-hdico="fruit"></span><h3>พื้นที่ปลูกและพื้นที่ให้ผล</h3><span class="u">ไร่</span></header>
+        <div class="b"><div class="ch"><canvas id="cFruit"></canvas></div>
+        <div class="note">ช่องว่างระหว่างพื้นที่ปลูกกับพื้นที่ให้ผล คือผลผลิตที่กำลังจะเข้ามาในอีก 2–4 ปี ทุเรียนมีช่องว่างมากที่สุด (327 ไร่ ปลูก แต่ให้ผลเพียง 95 ไร่)</div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="history"></span><h3>ปฏิทินการเก็บเกี่ยวและราคา</h3></header>
+        <div class="b"><div class="sc"><table class="t" data-owner="crop" id="tFruit"></table></div></div></div>
+    </div>
+  </div>
+
+  <div id="agri-main" class="hide">
+    <div class="grid g21 mb">
+      <div class="c"><header><span class="hdico icow img" data-hdico="maincrop"></span><h3>พืชเศรษฐกิจหลักของจังหวัด</h3><span class="u">ฤดูการผลิต 2568/69–2569/70</span></header>
+        <div class="b"><div class="sc"><table class="t" data-owner="crop" id="tMainCrop"></table></div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="landuse"></span><h3>สัดส่วนพื้นที่ปลูก</h3></header>
+        <div class="b"><div class="ch"><canvas id="cMainCrop"></canvas></div></div></div>
+    </div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="compare"></span><h3>ผลผลิตเฉลี่ยต่อไร่เทียบระหว่างพืช</h3><span class="u">กิโลกรัม/ไร่</span></header>
+      <div class="b"><div class="ch"><canvas id="cMainYield"></canvas></div>
+      <div class="note">อ้อยโรงงานให้ผลผลิตต่อไร่สูงที่สุด แต่ราคาต่อกิโลกรัมต่ำที่สุด การเปรียบเทียบจึงต้องดูมูลค่าต่อไร่ควบคู่ไปด้วย</div></div></div>
+  </div>
+
+  <div id="agri-water" class="hide">
+    <div class="grid g4 mb" id="waterKpi"></div>
+    <div class="grid g21 mb">
+      <div class="c"><header><span class="hdico icow img" data-hdico="water"></span><h3>แหล่งน้ำเพื่อการเกษตร</h3><span class="u">แยกตามประเภท</span>
+        <span class="r"><span class="chip mock">บางรายการรอยืนยัน</span></span></header>
+        <div class="b"><div class="sc"><table class="t" data-owner="crop" id="tWater"></table></div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="irrigation"></span>
+        <h3>แหล่งน้ำชลประทานจำแนกตามประเภท</h3></header>
+        <div class="b"><div id="irrBox"></div>
+          <div class="note">ข้อมูลจากโครงการชลประทานหนองบัวลำภู กรมชลประทาน — เป็นแหล่งน้ำที่มีระบบส่งน้ำถึงแปลงจริง
+          ต่างจากแหล่งน้ำธรรมชาติที่ยังต้องสูบเอง</div></div></div>
+    </div>
+    <div class="c"><header><span class="hdico icow img" data-hdico="network"></span><h3>ความเชื่อมโยงกับศูนย์บัญชาการข้อมูลสถานการณ์น้ำ</h3></header>
+      <div class="b" style="font-size:12.5px;line-height:1.9;color:var(--dim)">
+        <p style="margin-top:0">ข้อมูลระดับน้ำ อ่างเก็บน้ำ ประตูระบายน้ำ และปริมาณฝนรายตำบล อยู่ในระบบศูนย์บัญชาการข้อมูลสถานการณ์น้ำของจังหวัดอยู่แล้ว
+        ระบบเศรษฐกิจนี้จะดึงเฉพาะตัวชี้วัดที่กระทบการผลิตทางการเกษตรมาแสดง เช่น ปริมาณน้ำต้นทุนต่อพื้นที่เพาะปลูก และพื้นที่เสี่ยงขาดน้ำในฤดูแล้ง</p>
+        <a class="srcline" href="https://nsonongbualamphutc-debug.github.io/NongBuaLamPhu-Water-Level-Monitoring-V.2/index.html" target="_blank" rel="noopener">เปิดศูนย์บัญชาการข้อมูลสถานการณ์น้ำจังหวัดหนองบัวลำภู →</a>
+        <div class="note">รายการที่ต้องขอเพิ่มจากสำนักงานเกษตรจังหวัดและโครงการชลประทานจังหวัด: จำนวนและความจุอ่างเก็บน้ำขนาดเล็กในเขตเกษตร, บ่อบาดาลเพื่อการเกษตรรายอำเภอ, สถานีสูบน้ำด้วยไฟฟ้า, แหล่งน้ำในไร่นานอกเขตชลประทาน และพื้นที่ชลประทานจริงรายตำบล</div>
+      </div></div>
+  </div>
+
+  <div id="agri-org" class="hide">
+    <div class="grid g21 mb">
+      <div class="c"><header><span class="hdico icow img" data-hdico="bigplot"></span><h3>โครงการระบบส่งเสริมการเกษตรแบบแปลงใหญ่</h3>
+        <span class="u">73 แปลง · 3,996 ราย · 36,900 ไร่</span></header>
+        <div class="b"><div class="sc"><table class="t" data-owner="crop" id="tBigPlot"></table></div></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="tourism"></span><h3>แหล่งท่องเที่ยวเชิงเกษตรรายอำเภอ</h3><span class="u">73 แห่ง</span></header>
+        <div class="b"><div class="ch"><canvas id="cAgriTour"></canvas></div></div></div>
+    </div>
+    <div class="grid g3">
+      <div class="c"><header><span class="hdico icow img" data-hdico="organic"></span><h3>สถาบันและศูนย์เรียนรู้</h3></header><div class="b" id="instBox"></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="gap"></span><h3>การรับรองมาตรฐาน</h3></header><div class="b" id="gapBox"></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="award"></span><h3>วิสาหกิจชุมชนเด่น</h3></header><div class="b" id="vsBox"></div></div>
+    </div>
+  </div>
+
+  <div id="agri-base" class="hide">
+    <div class="grid g4 mb" id="baseKpi"></div>
+    <div class="grid g2">
+      <div class="c"><header><span class="hdico icow img" data-hdico="district"></span><h3>โครงสร้างการปกครองและประชากร</h3><span class="u">ณ ก.ค. 2569</span></header>
+        <div class="b" id="baseInfo"></div></div>
+      <div class="c"><header><span class="hdico icow img" data-hdico="household"></span><h3>ครัวเรือนเกษตรกรตามช่วงอายุ</h3><span class="u">คน · ทะเบียนเกษตรกร</span></header>
+        <div class="b"><div class="ch"><canvas id="cAgeBand"></canvas></div>
+        <div class="note">ช่วงอายุ 46–65 ปี เป็นกำลังหลักของภาคเกษตร ขณะที่กลุ่มอายุต่ำกว่า 35 ปีมีสัดส่วนน้อย เป็นสัญญาณเรื่องผู้สืบทอดอาชีพเกษตรกรรมในระยะยาว</div></div></div>
+    </div>
+  </div></section>
+  </main>
+</div>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="ds.js"></script>
+<script>
+/* ─────────────── 13) เกษตร ─────────────── */
+function renderAgri(){
+  const C=D.crop,B=D.base,val=cropValue();
+  $('#agriKpi').innerHTML=[
+    kpiCard({icon:'people',img:'household',color:cv('--leaf'),label:'ครัวเรือนเกษตรกร',value:f(C.hh,0),unit:'ครัวเรือน',
+      chip:'<span class="chip">ทะเบียน '+f(B.agriHH,0)+'</span>',sub:'ราว 1 ใน 5 ของประชากร',
+      tip:tipOf({t:'ครัวเรือนเกษตรกร',
+        d:'จำนวนครัวเรือนที่ปลูกพืชอายุสั้นในฤดูกาลนี้ นับซ้ำได้ถ้าครัวเรือนหนึ่งปลูกหลายชนิดพืช จึงสูงกว่าจำนวนครัวเรือนที่ขึ้นทะเบียนเกษตรกร',
+        calc:'ผลรวมครัวเรือนที่รายงานการปลูกในแต่ละชนิดพืช',src:'crop',when:'ข้อมูล ณ 8 กันยายน 2569'})}),
+    kpiCard({icon:'leaf',img:'landuse',color:cv('--brand'),label:'เนื้อที่ปลูกพืชอายุสั้น',value:f(C.area,0),unit:'ไร่',
+      chip:'<span class="chip">ข้าวนาปี 60.9%</span>',sub:'จากพื้นที่เกษตร 1.55 ล้านไร่',
+      tip:tipOf({t:'เนื้อที่ปลูกพืชอายุสั้น',
+        d:'พื้นที่เพาะปลูกจริงในฤดูกาลนี้ ไม่ใช่พื้นที่ถือครอง ข้าวนาปีครองสัดส่วนมากที่สุด รองลงมาคืออ้อยโรงงาน',
+        calc:'ผลรวมเนื้อที่ปลูกของพืชอายุสั้นทุกชนิด = '+f_num(C.area)+' ไร่ · คิดเป็น '+(C.area/1550000*100).toFixed(1)+'% ของพื้นที่เกษตรทั้งจังหวัด 1.55 ล้านไร่',
+        src:'crop',when:'ข้อมูล ณ 8 กันยายน 2569'})}),
+    kpiCard({icon:'drop',img:'crop',color:cv('--brand2'),label:'ผลผลิตรวม',value:f(C.yieldKg/1e6,0),unit:'ล้าน กก.',
+      chip:'<span class="chip">อ้อยโรงงาน 95%</span>',sub:'ข้าวนาปีอยู่ระหว่างฤดูกาล',
+      tip:tipOf({t:'ผลผลิตรวมพืชอายุสั้น',
+        d:'ปริมาณผลผลิตที่เก็บเกี่ยวได้แล้วในฤดูกาลนี้ อ้อยโรงงานมีน้ำหนักต่อไร่สูงจึงครองสัดส่วนเกือบทั้งหมดเมื่อวัดเป็นกิโลกรัม แต่มูลค่าต่อกิโลกรัมต่ำกว่าพืชอื่น',
+        calc:'ผลรวมผลผลิตทุกชนิดพืช ÷ 1,000,000 = '+f_num(C.yieldKg/1e6)+' ล้าน กก. · ข้าวนาปียังไม่นับเพราะอยู่ระหว่างฤดูกาล',
+        src:'crop',when:'ข้อมูล ณ 8 กันยายน 2569'})}),
+    kpiCard({icon:'coin',img:'income',color:cv('--gold'),label:'มูลค่าผลผลิต',value:f(val,0),unit:'ล้านบาท',
+      chip:'<span class="chip up">คำนวณจากราคาที่ขายได้</span>',sub:'ยังไม่รวมข้าวนาปี',
+      tip:tipOf({t:'มูลค่าผลผลิตพืชอายุสั้น',
+        d:'เงินที่เกษตรกรได้รับจริงจากการขายผลผลิต ไม่ใช่แค่ปริมาณผลผลิต ทำให้เทียบข้ามชนิดพืชได้ อ้อยโรงงานคิดเป็นราว 89% ของมูลค่าทั้งหมด',
+        calc:'ผลรวมของ (ผลผลิต กก. × ราคาที่เกษตรกรขายได้ บาท/กก.) ทุกชนิดพืช · ข้าวนาปียังไม่มีตัวเลขผลผลิตเพราะอยู่ระหว่างฤดูกาล จึงยังไม่ถูกนับ',
+        src:'crop',when:'ข้อมูล ณ 8 กันยายน 2569'})}),
+    kpiCard({icon:'plane',img:'tourism',color:cv('--plum'),label:'ท่องเที่ยวเชิงเกษตร',value:f(B.tour.total,0),unit:'แห่ง',
+      chip:'<span class="chip">แปลงใหญ่ '+B.bigPlot.plots+' แปลง</span>',sub:'กระจายทั้ง 6 อำเภอ',
+      tip:tipOf({t:'แหล่งท่องเที่ยวเชิงเกษตร',
+        d:'จุดที่เปิดให้เยี่ยมชมกิจกรรมการเกษตร เป็นช่องทางเพิ่มรายได้ให้เกษตรกรนอกเหนือจากการขายผลผลิต และเชื่อมกับเส้นทางท่องเที่ยวของจังหวัดได้',
+        calc:'นับจำนวนแหล่งที่ขึ้นทะเบียนกับจังหวัด รวมทั้ง 6 อำเภอ = '+f_num(B.tour.total)+' แห่ง',
+        src:'crop',when:'ข้อมูล ณ ก.ค. 2569'})})
+  ].join('');
+
+  /* พืชอายุสั้น */
+  const mxV=Math.max(...C.rows.map(r=>r.price?r.y*r.price/1e6:0));
+  $('#tCrop').innerHTML=`<thead><tr><th>ชนิดพืช</th><th class="r">ครัวเรือน</th><th class="r">เนื้อที่ (ไร่)</th>
+    <th class="r">ผลผลิต (กก.)</th><th class="r">กก./ไร่</th><th class="r">ราคา</th><th class="r">มูลค่า (ลบ.)</th><th style="width:66px"></th></tr></thead><tbody>`+
+    C.rows.map((r,i)=>{const v=r.price?r.y*r.price/1e6:0;
+      return`<tr><td>${rowIco(r.n)}${r.n}</td>${ec('crop.rows.'+i+'.hh',f(r.hh,0),0)}${ec('crop.rows.'+i+'.area',f(r.area,2),2)}
+        ${ec('crop.rows.'+i+'.y',f(r.y,0),0)}<td class="r">${f(r.per,2)}</td>
+        ${ec('crop.rows.'+i+'.price',r.price!=null?f(r.price,2):'—',2)}
+        <td class="r" style="font-weight:600">${v?f(v,2):'—'}</td>
+        <td><div class="bar"><i style="width:${(v/mxV*100).toFixed(1)}%;background:var(--leaf)"></i></div></td></tr>`}).join('')+
+    `</tbody><tfoot><tr><td>รวม</td><td class="r">${f(C.hh,0)}</td><td class="r">${f(C.area,2)}</td>
+      <td class="r">${f(C.yieldKg,0)}</td><td class="r">—</td><td class="r">—</td><td class="r">${f(val,2)}</td><td></td></tr></tfoot>`;
+
+  mk('cCropArea',{type:'doughnut',data:{labels:C.share.map(r=>r[0]),
+    datasets:[{data:C.share.map(r=>r[1]),backgroundColor:[cv('--leaf'),cv('--gold'),cv('--blue'),cv('--coral')],
+      borderColor:cv('--card'),borderWidth:3}]},
+    options:{cutout:'58%',plugins:{legend:{position:'bottom',labels:{padding:10}},
+      tooltip:{callbacks:{label:c=>c.label+' '+c.raw+'%'}}}}});
+  const wv=C.rows.filter(r=>r.price).map(r=>({n:r.n,v:+(r.y*r.price/1e6).toFixed(2)})).sort((a,b)=>b.v-a.v);
+  mk('cCropValue',{type:'bar',data:{labels:wv.map(r=>r.n),
+    datasets:[{data:wv.map(r=>r.v),backgroundColor:cv('--leaf'),borderRadius:5,barThickness:14}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>f(c.raw,2)+' ล้านบาท'}}},
+      scales:{x:ax({type:'logarithmic',ticks:{callback:v=>f(v,0)}}),y:ax({grid:{display:false},ticks:{font:{size:10.5}}})}}});
+  const yl=C.rows.filter(r=>r.per>0).sort((a,b)=>b.per-a.per);
+  mk('cCropYield',{type:'bar',data:{labels:yl.map(r=>r.n),
+    datasets:[{data:yl.map(r=>r.per),backgroundColor:cv('--brand2'),borderRadius:5,barThickness:14}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>f(c.raw,2)+' กก./ไร่'}}},
+      scales:{x:ax({type:'logarithmic',ticks:{callback:v=>f(v,0)}}),y:ax({grid:{display:false},ticks:{font:{size:10.5}}})}}});
+
+  /* ไม้ผล */
+  const FRUIT_BG={'ทุเรียน':'durian','ลำไย':'longan','กาแฟ':'coffee','เงาะ':'rambutan','ลิ้นจี่':'lychee','อินทผลัม':'date'};
+  $('#fruitCards').innerHTML=D.fruit.map((fr,i)=>`<div class="fruit hasbg" style="border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);box-shadow:var(--sh);position:relative;isolation:isolate">
+      ${FRUIT_BG[fr.n]?`<span class="fruitbg" style="background-image:url('assets/cardbg/bg-fruit-${FRUIT_BG[fr.n]}.webp')"></span>`:''}
+      <div style="padding:9px 13px;color:#fff;font-family:var(--fd);font-weight:600;font-size:14.5px;background:${fr.c};position:relative;z-index:2">${fr.n}</div>
+      <div style="padding:10px 13px;display:flex;flex-direction:column;gap:6px;position:relative;z-index:2">
+        ${[['เกษตรกร',f(fr.farmers,0),'ราย'],['พื้นที่ปลูก',f(fr.area,2),'ไร่'],
+           ['พื้นที่ให้ผล',f(fr.yieldArea,2),'ไร่'],['ผลผลิต',f(fr.kg,0),'กก./ปี']].map(x=>
+          `<div style="display:flex;align-items:baseline;font-size:11.5px;color:var(--dim);gap:8px">
+            <span>${x[0]}</span><b style="margin-left:auto;font-family:var(--fn);color:var(--ink);font-size:13px">${x[1]}</b>
+            <span style="color:var(--faint);font-size:10px">${x[2]}</span></div>`).join('')}
+        <div style="display:flex;gap:6px;margin-top:3px;flex-wrap:wrap">
+          <span class="chip">${fr.season}</span>${fr.pmin?`<span class="chip fl">${fr.pmin}–${fr.pmax} บ./กก.</span>`:''}</div>
+      </div></div>`).join('');
+  mk('cFruit',{type:'bar',data:{labels:D.fruit.map(x=>x.n),datasets:[
+    {label:'พื้นที่ปลูก (ไร่)',data:D.fruit.map(x=>x.area),backgroundColor:cv('--leaf'),borderRadius:4},
+    {label:'พื้นที่ให้ผล (ไร่)',data:D.fruit.map(x=>x.yieldArea),backgroundColor:cv('--gold'),borderRadius:4}]},
+    options:{plugins:{legend:{position:'bottom',labels:{padding:11}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({ticks:{callback:v=>f(v,0)}})}}});
+  $('#tFruit').innerHTML=`<thead><tr><th>ไม้ผล</th><th>ช่วงเก็บเกี่ยว</th><th class="r">ผลผลิต (กก./ปี)</th><th class="r">ราคา (บ./กก.)</th></tr></thead><tbody>`+
+    D.fruit.map((x,i)=>`<tr><td><span class="dot" style="background:${x.c};margin-right:7px"></span>${rowIco(x.n)}${x.n}</td>
+      <td>${x.season}</td>${ec('fruit.'+i+'.kg',f(x.kg,0),0)}<td class="r">${x.pmin?x.pmin+'–'+x.pmax:'—'}</td></tr>`).join('')+'</tbody>';
+
+  /* พืชเศรษฐกิจหลัก */
+  const CROP_ICO={'ข้าว':'rice','อ้อย':'sugarcane','มัน':'cassava','ยาง':'rubber'};
+  const cropIco=n=>{for(const k in CROP_ICO)if(n.indexOf(k)>=0)return CROP_ICO[k];return null};
+  $('#tMainCrop').innerHTML=`<thead><tr><th>พืช · ฤดูการผลิต</th><th class="r">ครัวเรือน</th><th class="r">พื้นที่ปลูก (ไร่)</th>
+    <th class="r">ผลผลิตเฉลี่ย (กก./ไร่)</th><th class="r">ผลผลิตรวม (ตัน)</th></tr></thead><tbody>`+
+    B.mainCrop.map((r,i)=>`<tr><td>${rowIco(r.n)}${r.n}</td>${ec('base.mainCrop.'+i+'.hh',f(r.hh,0),0)}${ec('base.mainCrop.'+i+'.area',f(r.area,0),0)}
+      <td class="r">${r.per?f(r.per,2):'—'}</td><td class="r">${r.total?f(r.total,0):'<span style="color:var(--warn)">อยู่ระหว่างฤดูกาล</span>'}</td></tr>`).join('')+'</tbody>';
+  mk('cMainCrop',{type:'doughnut',data:{labels:B.mainCrop.map(r=>r.n.split(' ')[0]),
+    datasets:[{data:B.mainCrop.map(r=>r.area),backgroundColor:PAL(),borderColor:cv('--card'),borderWidth:3}]},
+    options:{cutout:'56%',plugins:{legend:{position:'bottom',labels:{padding:9,font:{size:10.5}}},
+      tooltip:{callbacks:{label:c=>f(c.raw,0)+' ไร่'}}}}});
+  const my=B.mainCrop.filter(r=>r.per);
+  mk('cMainYield',{type:'bar',data:{labels:my.map(r=>r.n.split(' ')[0]),
+    datasets:[{data:my.map(r=>r.per),backgroundColor:[cv('--gold'),cv('--blue'),cv('--leaf')],borderRadius:6,barPercentage:.6}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>f(c.raw,2)+' กก./ไร่'}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({type:'logarithmic',ticks:{callback:v=>f(v,0)}})}}});
+
+  /* แหล่งน้ำ — รวมข้อมูลชลประทานจริง */
+  const W=D.water,ok=W.filter(w=>w.ok);
+  const IR=(typeof DX!=='undefined')?DX.irrig:null;
+  const irrTot=IR?Object.values(IR.byType).reduce((a,b)=>a+b,0):0;
+  const benefit=IR?IR.benefitArea.total:0;
+  const hhBen=IR?IR.households.total:0;
+  $('#waterKpi').innerHTML=[
+    kpiCard({icon:'drop',img:'irrigation',color:cv('--blue'),label:'แหล่งน้ำชลประทาน',
+      value:f(irrTot,0),unit:'แห่ง',
+      chip:'<span class="chip real">ข้อมูลจริง</span>',
+      sub:IR?('ปี '+IR.year+' · แก้มลิง '+IR.monkey.total+' · สถานีสูบน้ำ '+IR.pump.total):'',
+      tip:tipOf({t:'แหล่งน้ำชลประทาน',
+        d:'ฝาย อ่างเก็บน้ำขนาดเล็ก ประตูระบายน้ำ และสถานีสูบน้ำด้วยไฟฟ้าในความรับผิดชอบของโครงการชลประทานจังหวัด',
+        calc:'ผลรวมจำนวนแหล่งน้ำทุกประเภทที่ขึ้นทะเบียน',src:'irrig',when:IR?('ปี '+IR.year):''})}),
+    kpiCard({icon:'leaf',img:'irrigation',color:cv('--brand'),label:'พื้นที่รับประโยชน์',value:f(benefit,0),unit:'ไร่',
+      chip:'<span class="chip">'+(benefit/1550000*100).toFixed(1)+'% ของพื้นที่เกษตร</span>',
+      sub:'ครัวเรือนได้ประโยชน์ '+f(hhBen,0)+' ครัวเรือน',
+      tip:tipOf({t:'พื้นที่รับประโยชน์ในเขตชลประทาน',
+        d:'พื้นที่การเกษตรที่อยู่ในระยะที่ระบบชลประทานส่งน้ำถึง ใช้ประเมินว่าเกษตรกรกี่รายพ้นจากการพึ่งน้ำฝน',
+        calc:'ผลรวมพื้นที่รับประโยชน์ของทุกโครงการ ÷ พื้นที่เกษตรทั้งจังหวัด 1.55 ล้านไร่',
+        src:'irrig',when:IR?('ปี '+IR.benefitArea.year):''})}),
+    kpiCard({icon:'bolt',img:'power',color:cv('--gold'),label:'ระบบสูบน้ำโซลาร์เซลล์',value:f(W[0].cnt,0),unit:'แห่ง',
+      chip:'<span class="chip real">ข้อมูลจริง</span>',sub:'พื้นที่รับประโยชน์ '+f(W[0].benefit,0)+' ไร่',
+      tip:tipOf({t:'ระบบสูบน้ำพลังงานแสงอาทิตย์',
+        d:'ทางเลือกแทนระบบชลประทานขนาดใหญ่ในพื้นที่ที่น้ำส่งไม่ถึง ต้นทุนเดินเครื่องต่ำเพราะไม่ใช้น้ำมันหรือไฟฟ้า',
+        calc:'นับจำนวนจุดติดตั้งที่ใช้งานได้ = '+f_num(W[0].cnt)+' แห่ง · พื้นที่รับประโยชน์รวม '+f_num(W[0].benefit)+' ไร่',
+        src:'irrig',when:'ข้อมูล ณ ก.ค. 2569'})}),
+    kpiCard({icon:'drop',img:'water',color:cv('--coral'),label:'พื้นที่เกษตรที่ยังพึ่งน้ำฝน',
+      value:((1550000-benefit)/1e6).toFixed(2),unit:'ล้านไร่',
+      chip:'<span class="chip fl">'+((1550000-benefit)/1550000*100).toFixed(0)+'% ของพื้นที่เกษตร</span>',
+      sub:'เป็นกลุ่มเสี่ยงที่สุดเมื่อฝนทิ้งช่วง',
+      tip:tipOf({t:'พื้นที่เกษตรนอกเขตชลประทาน',
+        d:'พื้นที่ที่ยังไม่มีระบบส่งน้ำถึง ต้องพึ่งน้ำฝนอย่างเดียว ผลผลิตจึงผันผวนตามสภาพอากาศ',
+        calc:'พื้นที่เกษตรทั้งจังหวัด − พื้นที่รับประโยชน์ในเขตชลประทาน',src:'irrig'})})
+  ].join('');
+  if(IR){
+    const box=document.getElementById('irrBox');
+    if(box){
+      const T=Object.entries(IR.byType).sort((a,b)=>b[1]-a[1]);
+      const mx=T[0][1];
+      box.innerHTML=T.map((r,i)=>`<div class="barrow"><span class="nm">${r[0]}</span>
+        <span class="tr"><i style="width:${(r[1]/mx*100).toFixed(0)}%;background:${PAL()[i%7]}"></i></span>
+        <span class="vv">${f(r[1],0)}</span></div>`).join('')+
+        `<div class="grid g2" style="gap:9px;margin-top:11px">
+          <div class="mini"><div class="l">แก้มลิง</div><div class="v">${IR.monkey.total}<small> แห่ง</small></div></div>
+          <div class="mini"><div class="l">สถานีสูบน้ำด้วยไฟฟ้า</div><div class="v">${IR.pump.total}<small> สถานี</small></div></div>
+          <div class="mini"><div class="l">ความจุเก็บกัก</div><div class="v">${f(IR.storage.total,0)}<small> ลบ.ม.</small></div></div>
+          <div class="mini"><div class="l">พื้นที่เพาะปลูกในเขต</div><div class="v">${f(IR.cropArea.total,0)}<small> ไร่</small></div></div>
+        </div>`;
+    }
+  }
+  $('#tWater').innerHTML=`<thead><tr><th>ประเภทแหล่งน้ำ</th><th class="r">จำนวน</th><th>หน่วย</th>
+    <th class="r">พื้นที่รับประโยชน์ (ไร่)</th><th style="width:90px">สถานะ</th></tr></thead><tbody>`+
+    W.map((w,i)=>`<tr><td>${rowIco(w.n)}${w.n}</td>${ec('water.'+i+'.cnt',w.cnt!=null?f(w.cnt,0):'—',0)}<td>${w.unit}</td>
+      ${ec('water.'+i+'.benefit',w.benefit!=null?f(w.benefit,0):'—',0)}
+      <td>${w.ok?'<span class="chip real">ยืนยันแล้ว</span>':'<span class="chip mock">รอข้อมูล</span>'}</td></tr>`).join('')+
+    `</tbody><tfoot><tr><td colspan="5" style="font-family:var(--fb);font-weight:400;color:var(--faint);font-size:10.5px">
+      ยืนยันจากเอกสาร สนง.เกษตรจังหวัด ณ ก.ค. 2569 เฉพาะระบบสูบน้ำพลังงานแสงอาทิตย์ · รายการอื่นรอหนังสือยืนยันตัวเลข</td></tr></tfoot>`;
+
+
+  /* แปลงใหญ่ */
+  const mxA=Math.max(...B.bigPlot.rows.map(r=>r[3]));
+  $('#tBigPlot').innerHTML=`<thead><tr><th>ชนิดสินค้า</th><th class="r">แปลง</th><th class="r">เกษตรกร</th><th class="r">พื้นที่ (ไร่)</th><th style="width:70px"></th></tr></thead><tbody>`+
+    B.bigPlot.rows.map((r,i)=>`<tr><td>${rowIco(r[0])}${r[0]}</td>${ec('base.bigPlot.rows.'+i+'.1',f(r[1],0),0)}${ec('base.bigPlot.rows.'+i+'.2',f(r[2],0),0)}${ec('base.bigPlot.rows.'+i+'.3',f(r[3],0),0)}
+      <td><div class="bar"><i style="width:${(r[3]/mxA*100).toFixed(0)}%;background:var(--brand)"></i></div></td></tr>`).join('')+
+    `</tbody><tfoot><tr><td>รวม</td><td class="r">${B.bigPlot.plots}</td><td class="r">${f(B.bigPlot.farmers,0)}</td><td class="r">${f(B.bigPlot.area,0)}</td><td></td></tr></tfoot>`;
+  const tr=DISTRICTS.map(d=>({n:d.name,v:B.tour.byAmphoe[d.code]||0})).sort((a,b)=>b.v-a.v);
+  mk('cAgriTour',{type:'bar',data:{labels:tr.map(x=>x.n),
+    datasets:[{data:tr.map(x=>x.v),backgroundColor:cv('--gold'),borderRadius:5,barThickness:17}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+' แห่ง'}}},
+      scales:{x:ax({ticks:{stepSize:5}}),y:ax({grid:{display:false},ticks:{font:{size:11}}})}}});
+  $('#instBox').innerHTML=B.inst.map(x=>`<div style="display:flex;align-items:baseline;gap:9px;font-size:12px;padding:6px 0;border-bottom:1px solid var(--line2)">
+    <span style="color:var(--dim);flex:1">${rowIco(x[0],17)}${x[0]}</span><b class="n" style="font-size:14px">${f(x[1],0)}</b><span style="font-size:10px;color:var(--faint)">${x[2]}</span></div>`).join('');
+  $('#gapBox').innerHTML=`<div class="grid g2" style="gap:9px;margin-bottom:10px">
+      <div class="mini"><div class="l">แปลงที่ได้ GAP</div><div class="v">${f(B.gap.total,0)}<small> แปลง</small></div></div>
+      <div class="mini"><div class="l"><img class="rowico" src="assets/icons/ic-organic.png" alt="" onerror="this.remove()">เกษตรอินทรีย์</div><div class="v">${B.organic.farmers}<small> ราย</small></div></div></div>`+
+    B.gap.rows.map(x=>`<div style="display:flex;align-items:baseline;gap:9px;font-size:12px;padding:5px 0;border-bottom:1px solid var(--line2)">
+      <span style="color:var(--dim);flex:1">${x[0]}</span><b class="n">${f(x[1],0)}</b><span style="font-size:10px;color:var(--faint)">ราย · ${f(x[2],2)} ไร่</span></div>`).join('')+
+    `<div class="note">พื้นที่เกษตรอินทรีย์ที่ได้รับการรับรอง ${B.organic.area} ไร่ ยังเป็นสัดส่วนเล็กมากเมื่อเทียบกับพื้นที่เกษตร 1.55 ล้านไร่ เป็นโอกาสสร้างมูลค่าเพิ่ม</div>`;
+  $('#vsBox').innerHTML=B.vs.map((v,i)=>`<div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line2)">
+    <span class="n" style="color:var(--brand);font-weight:600">${i+1}</span><span style="font-size:12.5px;color:var(--dim);line-height:1.6">${rowIco(v,17)}${v}</span></div>`).join('')+
+    `<div class="note">วิสาหกิจชุมชนที่ยกระดับเป็นแปลงใหญ่ คือกลไกที่ทำให้เกษตรกรรายย่อยมีอำนาจต่อรองราคาและเข้าถึงตลาดได้จริง</div>`;
+
+  /* ฐานข้อมูล */
+  $('#baseKpi').innerHTML=[
+    kpiCard({icon:'people',img:'population',color:cv('--blue'),label:'ประชากรจังหวัด',value:f(B.pop,0),unit:'คน',
+      chip:'<span class="chip">ชาย 49.67% · หญิง 50.33%</span>',sub:`${B.amphoe} อำเภอ ${B.tambon} ตำบล ${B.muban} หมู่บ้าน`,
+      tip:tipOf({t:'ประชากรตามทะเบียนราษฎร',
+        d:'จำนวนผู้มีชื่อในทะเบียนบ้านของจังหวัด ใช้เป็นตัวหารของตัวชี้วัดต่อหัวทุกตัวในระบบนี้ เช่น GPP ต่อหัว',
+        calc:'ยอด ณ สิ้นงวดที่ประกาศ ไม่นำรายเดือนมาบวกกัน · กระจายใน '+B.amphoe+' อำเภอ '+B.tambon+' ตำบล '+f_num(B.muban)+' หมู่บ้าน',
+        src:'popreg',when:'ข้อมูล ณ ก.ค. 2569'})}),
+    kpiCard({icon:'leaf',img:'landuse',color:cv('--leaf'),label:'พื้นที่ภาคการเกษตร',value:'1.55',unit:'ล้านไร่',
+      chip:'<span class="chip">ครัวเรือนเกษตร '+f(B.agriHH,0)+'</span>',sub:'ข้อมูล ณ ก.ค. 2569',
+      tip:tipOf({t:'พื้นที่ภาคการเกษตรของจังหวัด',
+        d:'พื้นที่ที่ใช้ประโยชน์ทางการเกษตรทั้งหมด ใช้เป็นตัวหารของสัดส่วนพื้นที่ชลประทานและสัดส่วนพื้นที่ปลูกพืชแต่ละชนิด',
+        calc:'เนื้อที่ใช้ประโยชน์ทางการเกษตรตามทะเบียน 1.55 ล้านไร่ · ครัวเรือนที่ขึ้นทะเบียนเกษตรกร '+f_num(B.agriHH)+' ครัวเรือน',
+        src:'crop',when:'ข้อมูล ณ ก.ค. 2569'})}),
+    kpiCard({icon:'factory',img:'bigplot',color:cv('--brand'),label:'แปลงใหญ่',value:f(B.bigPlot.plots,0),unit:'แปลง',
+      chip:'<span class="chip">'+f(B.bigPlot.farmers,0)+' ราย</span>',sub:f(B.bigPlot.area,0)+' ไร่',
+      tip:tipOf({t:'เกษตรแปลงใหญ่',
+        d:'การรวมแปลงของเกษตรกรรายย่อยเพื่อจัดการร่วมกัน ทำให้ต้นทุนต่อไร่ลดลงและมีอำนาจต่อรองราคากับผู้รับซื้อได้จริง',
+        calc:'นับจำนวนแปลงที่ขึ้นทะเบียน = '+f_num(B.bigPlot.plots)+' แปลง · เกษตรกร '+f_num(B.bigPlot.farmers)+' ราย · พื้นที่รวม '+f_num(B.bigPlot.area)+' ไร่ · เฉลี่ย '+f_num(B.bigPlot.area/B.bigPlot.plots)+' ไร่ต่อแปลง',
+        src:'crop',when:'ข้อมูล ณ ก.ค. 2569'})}),
+    kpiCard({icon:'brief',img:'district',color:cv('--plum'),label:'องค์กรปกครองท้องถิ่น',value:B.org.obj+B.org.tessabanMuang+B.org.tessabanTambon+B.org.obt,unit:'แห่ง',
+      chip:'<span class="chip">อบต. '+B.org.obt+'</span>',sub:'อบจ. 1 · ทม. 1 · ทต. '+B.org.tessabanTambon,
+      tip:tipOf({t:'องค์กรปกครองส่วนท้องถิ่น',
+        d:'หน่วยที่มีงบประมาณและอำนาจดำเนินโครงการในพื้นที่โดยตรง เป็นช่องทางผลักนโยบายเศรษฐกิจฐานรากให้ถึงตำบลได้เร็วที่สุด',
+        calc:'อบจ. '+B.org.obj+' + เทศบาลเมือง '+B.org.tessabanMuang+' + เทศบาลตำบล '+B.org.tessabanTambon+' + อบต. '+B.org.obt+' = '+(B.org.obj+B.org.tessabanMuang+B.org.tessabanTambon+B.org.obt)+' แห่ง',
+        src:'ที่ทำการปกครองจังหวัดหนองบัวลำภู',when:'ข้อมูล ณ ก.ค. 2569'})})
+  ].join('');
+  $('#baseInfo').innerHTML=`<div class="grid g4" style="gap:10px">
+      ${[['อำเภอ',B.amphoe],['ตำบล',B.tambon],['หมู่บ้าน',B.muban],['ชุมชน',B.chumchon]].map(x=>
+        `<div class="mini"><div class="l">${x[0]}</div><div class="v">${f(x[1],0)}</div></div>`).join('')}</div>
+    <div class="grid g2" style="gap:10px;margin-top:10px">
+      <div class="mini"><div class="l">ประชากรชาย</div><div class="v">${f(B.popM,0)}<small> คน (49.67%)</small></div></div>
+      <div class="mini"><div class="l">ประชากรหญิง</div><div class="v">${f(B.popF,0)}<small> คน (50.33%)</small></div></div></div>
+    <div class="note">องค์กรปกครองส่วนท้องถิ่น: อบจ. ${B.org.obj} แห่ง · เทศบาลเมือง ${B.org.tessabanMuang} แห่ง · เทศบาลตำบล ${B.org.tessabanTambon} แห่ง · อบต. ${B.org.obt} แห่ง</div>`;
+  mk('cAgeBand',{type:'bar',data:{labels:B.ageBand.map(x=>x[0]),
+    datasets:[{data:B.ageBand.map(x=>x[1]),
+      backgroundColor:B.ageBand.map(x=>x[1]>20000?cv('--brand'):x[1]>9000?cv('--brand2'):cv('--line')),borderRadius:6,barPercentage:.7}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>f(c.raw,0)+' คน'}}},
+      scales:{x:ax({grid:{display:false}}),y:ax({ticks:{callback:v=>f(v,0)}})}}});
+  applyEditMode();
+}
+
+
+window.onSeg=function(w,btn){
+  if(w.id==='agriSeg'){
+    ['crop','fruit','main','water','org','base'].forEach(function(t){
+      document.getElementById('agri-'+t).classList.toggle('hide',t!==btn.dataset.t);
+    });
+  }
+};
+const AGRI_IMG={crop:'a-crop',fruit:'a-fruit',main:'a-maincrop',water:'a-water',org:'a-bigplot',base:'a-base'};
+const AGRI_SUB={
+  crop:['พืชอายุสั้น','ข้าว อ้อยโรงงาน มันสำปะหลัง และพืชผัก'],
+  fruit:['ไม้ผลเศรษฐกิจ','ทุเรียน ลำไย กาแฟ เงาะ ลิ้นจี่ อินทผลัม'],
+  main:['พืชเศรษฐกิจหลัก','ข้าวนาปี อ้อยโรงงาน มันสำปะหลัง ยางพารา'],
+  water:['แหล่งน้ำเพื่อการเกษตร','ระบบสูบน้ำพลังงานแสงอาทิตย์และแหล่งน้ำต้นทุน'],
+  org:['แปลงใหญ่และสถาบันเกษตรกร','73 แปลง เกษตรกร 3,996 ราย พื้นที่ 36,900 ไร่'],
+  base:['ฐานข้อมูลพื้นฐาน','โครงสร้างประชากร พื้นที่ และครัวเรือนเกษตรกร']
+};
+DS.init('agri',function(){
+  renderAgri();
+  const bi=document.getElementById('agriBigIco');
+  if(bi&&!bi.innerHTML)bi.innerHTML=icoImg('agri',52);
+  const v=document.getElementById('v-agri');
+  if(v&&!v.querySelector('.srcbar')){
+    const d=document.createElement('div');d.className='c';d.style.marginTop='13px';
+    d.innerHTML='<header><span class="hdico icow img">'+icoImg('source',26)+'</span><h3>แหล่งข้อมูลและหน่วยงานผู้รับผิดชอบ</h3></header><div class="b">'+
+      srcBar(['crop','irrig'],'ภาวะการผลิตพืชอายุสั้น ณ 8 ก.ย. 2569 · ไม้ผลเศรษฐกิจ ณ มิ.ย. 2569 · ฐานข้อมูลการเกษตร ณ ก.ค. 2569 · ข้อมูลชลประทานรายปี')+'</div>';
+    v.appendChild(d);
+  }
+  Object.keys(AGRI_SUB).forEach(function(k){
+    bannerInto(document.getElementById('agri-'+k),'assets/'+AGRI_IMG[k]+'.jpg',AGRI_SUB[k][0],AGRI_SUB[k][1]);
+  });
+});
+</script>
+</body>
+</html>
